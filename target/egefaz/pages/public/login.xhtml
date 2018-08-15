@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/pages/template/templateLogin.xhtml">
+
+    <ui:define name="title"></ui:define>
+
+    <ui:define name="body">	 
+
+
+
+        <h:form id="form" prependId="false">
+
+            <p:growl autoUpdate="true"   />
+
+            <br/>
+            <br/>
+            <br/>
+
+
+            <br></br>
+
+            <p:panel id="login" header="" style="margin:0 auto; width:40%; height:50%; text-align:center;">
+
+                <h:panelGrid columns="3"  cellpadding="10" style="margin:0 auto;">
+
+                    <p:outputLabel for="username" value=""/> 
+
+                    <p:inputText id="username" maxlength="45" style="width:250px"/>
+
+                    <h:message for="username" style="color: red;" />	
+
+                    <p:outputLabel for="password" value="" />
+
+                    <p:password id="password"  maxlength="45" style="width:250px" />
+
+                    <h:message for="password" style="color: red;" />		
+
+                </h:panelGrid>
+
+                <p:commandButton id="btnLogin"
+                                 value="Login" ajax="false" 
+                                 />
+            </p:panel>
+
+
+        </h:form>
+    </ui:define>
+</ui:composition>
