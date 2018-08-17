@@ -1,0 +1,455 @@
+@charset "UTF-8";
+
+.ui-layout-north {
+	z-index: 20 !important;
+	overflow: visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 11px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.centered {
+	position: relative;
+	height: 100px;
+	margin: 0 auto;
+	padding: 10% 0;
+}
+
+.hideOnMobile {
+	display: none;
+}
+
+@media ( min-width : 1025px) {
+	.hideOnMobile {
+		display: block;
+	}
+}
+
+.sideBarRight {
+	margin: 0 auto !important;
+	padding-top: 10px !important;
+}
+
+@media (min-width : 1110px) {
+	.sideBarRight {
+		margin: 0;
+		padding: 80px 0 0 0 !important;
+		height: 100%;
+		min-height: 100%;
+		width: 250px;
+		z-index: 99;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+.tarjaCancelada {
+	height: 100%;
+	min-height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 80px 0 0 0 !important;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 95;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+/* Text Aligns */
+.textCenter {
+	text-align:center;
+}
+.textLeft {
+	text-align:left;
+}
+.textRight {
+	text-align:right !important;
+}
+
+
+/*########################################################################################################*/
+.layout-wrapper .topbar .logo {
+    height: 60px;
+    background: url("#{resource['ultima-layout:images/logo.png']}") center no-repeat;
+}
+
+.layout-wrapper .topbar .topbar-left {
+    padding: 5px 20px;
+    background-color: #1F4F8D;
+}
+
+body .ui-panel .ui-panel-titlebar {
+    border-bottom: 1px solid #1F4F8D;
+}
+
+body .ui-widget-header {
+    background-color: #1F4F8D;
+}
+
+body .ui-button {
+    background-color: #1F4F8D;
+}
+
+body .ui-button.secondary {
+    background-color: #F5B918;
+}
+
+
+/*
+##################################################################
+*/
+
+body .ui-widget-header {
+    background-color: #456EA2;
+    border: 1px solid #456EA2;
+}
+
+body .ui-state-active, body .ui-state-highlight {
+    background-color: #F9D436;
+}
+
+body .ui-inputfield.ui-state-focus {
+    border-color: #456EA2;
+}
+
+body .ui-panel .ui-panel-titlebar {
+    border-bottom: 1px solid #456EA2;
+}
+
+body .ui-panel .ui-panel-titlebar .ui-panel-titlebar-icon:hover {
+    background-color: #9CB1CD;
+}
+
+body .ui-fieldset .ui-fieldset-legend {
+    color: #456EA2;
+}
+
+body .ui-fieldset .ui-fieldset-legend .ui-fieldset-toggler {
+    background-color: #456EA2;
+}
+
+body .ui-fieldset .ui-fieldset-legend .ui-fieldset-toggler:hover {
+    background-color: #1F4F8D;
+}
+
+body .ui-notificationbar {
+    background-color: #F9D436;
+}
+
+body .ui-paginator {
+    background-color: #1F4F8D;
+}
+
+body .ui-paginator>a.ui-state-hover {
+    background-color: #9CB1CD;
+}
+
+body .ui-paginator .ui-paginator-pages a.ui-state-hover {
+    background-color: #9CB1CD;
+}
+
+body .ui-datatable thead th.ui-state-active, body .ui-datatable thead th.ui-state-highlight {
+    background-color: #F9D436;
+    border-top-color: #F9D436;
+}
+
+body .ui-datatable tbody tr.ui-datatable-even.ui-state-highlight {
+    background-color: #F9D436;
+}
+
+body .ui-datatable tbody tr.ui-state-highlight {
+    background-color: #F9D436;
+}
+
+body .ui-datatable>.ui-icon-arrowthick-1-s {
+    color: #F9D436;
+}
+
+body .ui-draggable-dragging.ui-state-default {
+    background-color: #456EA2;
+}
+
+body .md-inputfield input:focus~label, body .md-inputfield input.ui-state-filled~label, body .md-inputfield textarea:focus~label, body .md-inputfield textarea.ui-state-filled~label, body .md-inputfield .inputfield-wrapper~label {
+    color: #456EA2;
+}
+
+body .ui-button {
+    background-color: #456EA2;
+}
+
+body .ui-button.ui-state-hover {
+    background-color: #1F4F8D;
+}
+
+body .ui-button.ui-state-focus {
+    background-color: #5E82AB;
+}
+
+body .ui-button.secondary {
+    background-color: #F9D436;
+}
+
+body .ui-button.secondary.ui-state-hover {
+    background-color: #F5B918;
+}
+
+body .ui-button.secondary.ui-state-focus {
+    background-color: #FF9700;
+}
+
+body .ui-button.pink-btn {
+    background-color: #F9D436;
+}
+
+body .ui-button.pink-btn.ui-state-hover {
+    background-color: #F5B918;
+}
+
+body .ui-button.pink-btn.ui-state-focus {
+    outline: 0 none;
+    background-color: #FF9700;
+}
+
+body .ui-buttonset .ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-splitbutton>.ui-button.ui-state-active {
+    background-color: #5E82AB;
+}
+
+body .ui-selectbooleanbutton.ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: #456EA2;
+    background-color: #456EA2;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-focus {
+    border-color: #456EA2;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+    border-color: #456EA2;
+}
+
+body .ui-radiobutton .ui-radiobutton-box .ui-icon-bullet {
+    background-color: #456EA2;
+}
+
+body .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox .ui-chkbox-box.ui-state-focus {
+    background-color: #9CB1CD;
+}
+
+body #keypad-div .keypad-shift, body #keypad-div .keypad-enter, body #keypad-div .keypad-spacebar, body #keypad-div .keypad-back, body #keypad-div .keypad-close, body #keypad-div .keypad-clear {
+    background-color: #456EA2;
+}
+
+body #keypad-div .keypad-shift.ui-state-hover, body #keypad-div .keypad-enter.ui-state-hover, body #keypad-div .keypad-spacebar.ui-state-hover, body #keypad-div .keypad-back.ui-state-hover, body #keypad-div .keypad-close.ui-state-hover, body #keypad-div .keypad-clear.ui-state-hover {
+    background-color: #1F4F8D;
+}
+
+body .ui-panelgrid tbody .ui-panelgrid-cell.ui-widget-header {
+    background-color: #9CB1CD;
+}
+
+body .ui-selectmanymenu .ui-selectlistbox-item .ui-chkbox .ui-chkbox-box.ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-inputswitch.ui-inputswitch-checked {
+    background-color: #FEE175;
+    border-color: #FEE175;
+}
+
+body .ui-inputswitch.ui-inputswitch-checked .ui-inputswitch-handle {
+    background-color: #F9D436;
+}
+
+body .ui-slider .ui-slider-handle {
+    background-color: #F9D436;
+}
+
+body .ui-slider .ui-slider-range {
+    background-color: #F9D436;
+}
+
+body .ui-datepicker .ui-datepicker-header {
+    background: #1F4F8D;
+    border-color: #1F4F8D;
+}
+
+body .ui-datepicker thead tr {
+    background: #456EA2;
+}
+
+body .ui-datepicker tbody td a.ui-state-active, body .ui-datepicker tbody td span.ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-datepicker tbody td.ui-datepicker-today a, body .ui-datepicker tbody td.ui-datepicker-today span {
+    border: 1px solid #F9D436;
+}
+
+body .ui-datepicker tbody td.ui-datepicker-today a.ui-state-active, body .ui-datepicker tbody td.ui-datepicker-today span.ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-datepicker .ui-timepicker-div .ui_tpicker_time input.ui-state-focus {
+    border-color: #456EA2;
+}
+
+body .ui-growl .ui-growl-item .ui-growl-icon-close {
+    color: #F9D436;
+}
+
+body .ui-accordion .ui-accordion-header {
+    background-color: #456EA2;
+}
+
+body .ui-accordion .ui-accordion-header.ui-state-hover {
+    background-color: #1F4F8D;
+}
+
+body .ui-accordion .ui-accordion-header.ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-accordion .ui-accordion-header.ui-state-active.ui-tabs-outline {
+    background-color: #FF9700;
+}
+
+body .ui-accordion .ui-accordion-header.ui-tabs-outline {
+    background-color: #5E82AB;
+}
+
+body .ui-scrollpanel .ui-scrollpanel-drag {
+    background-color: #F9D436;
+}
+
+body .ui-toolbar {
+    background-color: #1F4F8D;
+}
+
+body .ui-tabs .ui-tabs-nav>li.ui-state-active {
+    border-color: #F9D436;
+}
+
+body .ui-tabs .ui-tabs-nav>li.ui-state-active a {
+    color: #456EA2;
+}
+
+body .ui-tabs .ui-tabs-nav>li.ui-state-active>.ui-icon-close {
+    color: #F9D436;
+}
+
+body .ui-tabs .ui-tabs-nav>li.ui-tabs-outline {
+    border-color: #FEE175;
+}
+
+body .ui-wizard .ui-wizard-step-titles {
+    background-color: #1F4F8D;
+}
+
+body .ui-wizard .ui-wizard-step-titles>li.ui-state-highlight {
+    border-bottom: 2px solid #F9D436;
+}
+
+body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-number {
+    background-color: #456EA2;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav>.ui-tabmenuitem.ui-state-active {
+    border-color: #F9D436;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav>.ui-tabmenuitem.ui-state-active a {
+    color: #456EA2;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav>.ui-tabmenuitem.ui-state-active a .ui-icon {
+    color: #456EA2;
+}
+
+body .ui-panelmenu .ui-panelmenu-header {
+    background-color: #456EA2;
+}
+
+body .ui-panelmenu .ui-panelmenu-header.ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-tree .ui-tree-droppoint.ui-state-hover {
+    background-color: #F9D436;
+}
+
+body .ui-tree.ui-tree-horizontal .ui-treenode-content.ui-state-highlight {
+    background-color: #F9D436;
+}
+
+body .ui-tree-draghelper {
+    border: 1px solid #456EA2;
+}
+
+body .fc .fc-button-group .ui-state-active {
+    background-color: #F9D436;
+}
+
+body .fc .fc-event {
+    background-color: #9CB1CD;
+}
+
+body .ui-treetable thead th.ui-state-active {
+    background-color: #F9D436;
+}
+
+body .ui-progressbar {
+    background-color: #9CB1CD;
+}
+
+body .ui-lightbox .ui-lightbox-caption .ui-lightbox-close.ui-state-hover {
+    background-color: #9CB1CD;
+}
+
+body .ui-lightbox .ui-lightbox-content-wrapper .ui-lightbox-nav-right .ui-icon, body .ui-lightbox .ui-lightbox-content-wrapper .ui-lightbox-nav-left .ui-icon {
+    color: #9CB1CD;
+}
+
+body .ui-rating .ui-rating-star.ui-rating-star-on a {
+    color: #F9D436;
+}
+
+body .ui-overlaypanel .ui-overlaypanel-close {
+    background-color: #F9D436;
+}
+
+body .ui-overlaypanel .ui-overlaypanel-close.ui-state-hover {
+    background-color: #F5B918;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar .ui-button {
+    background-color: #F9D436;
+}
+
+body .ui-fileupload .ui-fileupload-buttonbar .ui-button.ui-state-hover {
+    background-color: #F5B918;
+}
+
+body .ui-log .ui-log-header>.ui-log-button.ui-state-hover {
+    background-color: #9CB1CD;
+}
+
+body .timeline-frame .timeline-event.ui-state-active {
+    background-color: #F9D436;
+    border-color: #F9D436;
+}
