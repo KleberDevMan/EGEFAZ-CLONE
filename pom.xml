@@ -17,11 +17,11 @@
 
     <dependencies>
         <!-- Dependencia para classes utilitarias utilizadas pela sefaz/to. -->
-        <dependency>
-            <groupId>br.gov.to.sefaz.utils</groupId>
-            <artifactId>utils-sefaz</artifactId>
-            <version>3.0-FINAL</version>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>br.gov.to.sefaz.utils</groupId> -->
+<!--             <artifactId>utils-sefaz</artifactId> -->
+<!--             <version>3.0-FINAL</version> -->
+<!--         </dependency> -->
 
         <!-- Dependencia para a utilizacao do primefaces nas paginas .xhtml -->
         <dependency>
