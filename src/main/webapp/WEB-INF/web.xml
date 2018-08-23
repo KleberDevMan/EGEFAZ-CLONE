@@ -12,6 +12,7 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -22,7 +23,10 @@
         <welcome-file>pages/public/login.xhtml</welcome-file>
     </welcome-file-list>
     <context-param>
-        <param-name>primefaces.THEME</param-name>
-        <param-value>ultima-indigo</param-value>
+<!--         <param-name>primefaces.THEME</param-name> -->
+<!--         <param-value>ultima-indigo</param-value> -->
+        
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
     </context-param>
 </web-app>
