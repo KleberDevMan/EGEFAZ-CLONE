@@ -1,0 +1,98 @@
+.mensagemAlerta {
+	text-align: center;
+	font-weight: bolder;
+	color: red;
+	font-size: 20px;
+}
+
+.panelGridMensagemCancelada {
+	width: 450px;
+	height: 450px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -300px;
+	padding: 10px;
+	text-align: center;
+	border: solid 13px;
+	border-radius: 20px;
+	border-color: red;
+	z-index: 999;
+}
+
+.outputLabelMensagemCanceladaInvalido {
+	color: red;
+	font-weight: bolder;
+	text-align: center;
+	font-size: 60px;
+	z-index: 999;
+}
+
+.outputLabelMensagemCanceladaMsg {
+	color: red;
+	font-weight: bolder;
+	text-align: center;
+	font-size: 35px;
+	z-index: 999;
+}
+
+.outputLabelDocAuxliar {
+	text-align: center;
+	color: #7FC4FD;
+	font-weight: bolder;
+	font-size: 16px;
+	text-shadow: 2px 2px 5px #F1F9FF;
+}
+
+.panel {
+	width: 50%;
+	margin: 20px auto;
+	background-color: #fff;
+	border-width: 1px 5px;
+	border-style: solid;
+	border-color: #ddd;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.buttonVisualizarNFC {
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;
+}
+
+.panelNFC {
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.panelNFCInutilizada {
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.panel-body {
+	padding: 15px;
+}
+
+.sf-painel-alerta {
+	border-color: #ddd #FFA500;
+	background-color: #fcf8e3;
+}
+
+.sf-painel-alerta .panel-title {
+	color: #FFA500;
+}
+
+.sf-painel-sucesso {
+	border-color: #ddd green;
+	background-color: #f1f9f7;
+}
+
+.sf-painel-sucesso .panel-title {
+	color: green;
+}
