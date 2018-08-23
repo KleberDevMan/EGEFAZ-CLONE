@@ -1,51 +1,80 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:p="http://primefaces.org/ui"
-                template="/pages/template/templateLogin.xhtml">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/templateLogin.xhtml">
 
-    <ui:define name="title"></ui:define>
-
-    <ui:define name="body">	 
-
+	<ui:define name="title">Logar</ui:define>
+	<!-- 	<ui:define name="title">#{msg['LOGIN_AUDITOR_NFCE']}</ui:define> -->
 
 
-        <h:form id="form" prependId="false">
+	<ui:define name="content">
 
-            <p:growl autoUpdate="true"   />
+		<h:form id="form" prependId="false" style="margin: 10%;">
+			<p:focus for="form" />
 
-            <br/>
-            <br/>
-            <br/>
+			<!--<f:event listener="#{loginController.preRenderView}"
+				type="preRenderView" />-->
+			<!--  Descomentar quando tiver controller -->
 
+			<p:growl autoUpdate="true" closable="true"
+				style="margin:0 auto; width:80%; text-align:center;" />
 
-            <br></br>
+			<p:panel id="login" styleClass="card login-panel ui-fluid">
 
-            <p:panel id="login" header="" style="margin:0 auto; width:40%; height:50%; text-align:center;">
+				<div class="ui-g">
+					<div class="ui-g-12 ">
+						<p:messages autoUpdate="true" />
+						<p:panel rendered="${!empty param['error']}"
+							styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+							<span class="ui-message-error-icon"></span>
+							<span class="ui-message-error-detail">Usuário ou senha
+								incorretos!</span>
+						</p:panel>
+						<h1>
+							<h:outputText value=""
+								styleClass="outputLabelDocAuxliar !important" /><!-- Texto da box -->
+						</h1>
+						<img src="../../resources/images/logoEgefaz.png"  style="width:90%;" />
+					</div>
+					<div class="ui-g-12">
+						<h:message for="username" style="color: red;" />
+						<h:panelGroup styleClass="md-inputfield">
+							<p:inputText id="username" required="false"
+								requiredMessage="Usuário é um campo obrigatório"
+								style="width:100%" />
+							<p:outputLabel value="Usuário"></p:outputLabel>
+						</h:panelGroup>
+					</div>
+		
+					<div hidden="true" class="ui-g-12">
+					
+						<h:message for="password" style="color: red;" />
+						<h:panelGroup styleClass="md-inputfield">
+							<p:password id="password" style="width:100%" required="false"
+								requiredMessage="Senha é um campo obrigatório" />
+							<p:outputLabel value="Senha"></p:outputLabel>
+						</h:panelGroup>
+					</div>
 
-                <h:panelGrid columns="3"  cellpadding="10" style="margin:0 auto;">
+					<div class="ui-g-12">
+						<p:commandButton id="btnLogin" value="LOGIN" ajax="false"
+							styleClass="" icon="ui-icon-person" />
+						<p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help"
+							styleClass="secondary" rendered="true" />
 
-                    <p:outputLabel for="username" value=""/> 
+						<!-- 							<p:commandButton id="btnLogin" value="#{msg['MG14']}" ajax="false" -->
+						<!-- 							styleClass="" action="#{loginController.doLogin()}" -->
+						<!-- 							icon="ui-icon-person" /> -->
+						<!-- 						<p:commandButton value="Esqueci a Senha" icon="ui-icon-help" -->
+						<!-- 							styleClass="secondary" rendered="false" /> -->
 
-                    <p:inputText id="username" maxlength="45" style="width:250px"/>
+					</div>
 
-                    <h:message for="username" style="color: red;" />	
+				</div>
+			</p:panel>
 
-                    <p:outputLabel for="password" value="" />
-
-                    <p:password id="password"  maxlength="45" style="width:250px" />
-
-                    <h:message for="password" style="color: red;" />		
-
-                </h:panelGrid>
-
-                <p:commandButton id="btnLogin"
-                                 value="Login" ajax="false" 
-                                 />
-            </p:panel>
-
-
-        </h:form>
-    </ui:define>
+		</h:form>
+	</ui:define>
 </ui:composition>
