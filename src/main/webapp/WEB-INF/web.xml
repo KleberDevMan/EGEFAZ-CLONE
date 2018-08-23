@@ -4,16 +4,21 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+   
+    <!-- JSF mapping -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+
+    <!-- Map these files with JSF -->
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+
+    
     <session-config>
         <session-timeout>
             30
@@ -22,8 +27,10 @@
     <welcome-file-list>
         <welcome-file>pages/public/login.xhtml</welcome-file>
     </welcome-file-list>
+    
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>ultima-indigo</param-value>
     </context-param>
+  
 </web-app>
