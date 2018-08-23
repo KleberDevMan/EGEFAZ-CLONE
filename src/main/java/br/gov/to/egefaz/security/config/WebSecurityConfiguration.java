@@ -2,7 +2,7 @@ package br.gov.to.egefaz.security.config;
 
 
 import br.gov.to.egefaz.security.service.UsuarioService;
-import br.gov.to.sefaz.utils.CriptoUtils;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -86,7 +86,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         Assert.notNull(rawPassword);
 
-        return CriptoUtils.cryptWithMD5(String.valueOf(rawPassword));
+//        return CriptoUtils.cryptWithMD5(String.valueOf(rawPassword));
+        return String.valueOf(rawPassword);
       }
     };
   }
