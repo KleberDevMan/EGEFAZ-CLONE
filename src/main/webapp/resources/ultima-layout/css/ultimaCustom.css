@@ -33,7 +33,7 @@
 		padding-bottom: 25px;
 		padding-top: 60px;
 		margin-bottom: 0px;
-		padding-right: 256px;
+		padding-right: 261px;
 	}
 }
 
@@ -85,37 +85,36 @@
 /*########################################################################################################*/
 .layout-wrapper .topbar .logo {
 	height: 60px;
-	background: url("#{resource['ultima-layout:images/logo.png']}") center
-		no-repeat;
+	background: url("#{resource['ultima-layout:images/logo.png']}") center no-repeat;
 }
 
 .layout-wrapper .topbar .topbar-left {
 	padding: 5px 20px;
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-panel .ui-panel-titlebar {
-	border-bottom: 1px solid #2699FB;
+	border-bottom: 1px solid #1f4f8d ;
 }
 
 body .ui-widget-header {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-button {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-button.secondary {
-	background-color: #F5B918;
+	background-color: #f5b918;
 }
 
 /*
 ##################################################################
 */
 body .ui-widget-header {
-	background-color: #7FC4FD;
-	border: 1px solid #7FC4FD;
+	background-color: #456ea2;
+	border: 1px solid #456ea2;
 }
 
 body .ui-state-active, body .ui-state-highlight {
@@ -123,11 +122,11 @@ body .ui-state-active, body .ui-state-highlight {
 }
 
 body .ui-inputfield.ui-state-focus {
-	border-color: #7FC4FD;
+	border-color: #456ea2;
 }
 
 body .ui-panel .ui-panel-titlebar {
-	border-bottom: 1px solid #7FC4FD;
+	border-bottom: 1px solid #456ea2;
 }
 
 body .ui-panel .ui-panel-titlebar .ui-panel-titlebar-icon:hover {
@@ -135,15 +134,15 @@ body .ui-panel .ui-panel-titlebar .ui-panel-titlebar-icon:hover {
 }
 
 body .ui-fieldset .ui-fieldset-legend {
-	color: #7FC4FD;
+	color: #456ea2;
 }
 
 body .ui-fieldset .ui-fieldset-legend .ui-fieldset-toggler {
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body .ui-fieldset .ui-fieldset-legend .ui-fieldset-toggler:hover {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-notificationbar {
@@ -151,7 +150,7 @@ body .ui-notificationbar {
 }
 
 body .ui-paginator {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-paginator>a.ui-state-hover {
@@ -181,21 +180,21 @@ body .ui-datatable>.ui-icon-arrowthick-1-s {
 }
 
 body .ui-draggable-dragging.ui-state-default {
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body .md-inputfield input:focus ~label, body .md-inputfield input.ui-state-filled
 	~label, body .md-inputfield textarea:focus ~label, body .md-inputfield textarea.ui-state-filled
 	~label, body .md-inputfield .inputfield-wrapper ~label {
-	color: #7FC4FD;
+	color: #456ea2;
 }
 
 body .ui-button {
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body .ui-button.ui-state-hover {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-button.ui-state-focus {
@@ -207,7 +206,7 @@ body .ui-button.secondary {
 }
 
 body .ui-button.secondary.ui-state-hover {
-	background-color: #F5B918;
+	background-color: #f5b918;
 }
 
 body .ui-button.secondary.ui-state-focus {
@@ -219,7 +218,7 @@ body .ui-button.pink-btn {
 }
 
 body .ui-button.pink-btn.ui-state-hover {
-	background-color: #F5B918;
+	background-color: #f5b918;
 }
 
 body .ui-button.pink-btn.ui-state-focus {
@@ -240,20 +239,20 @@ body .ui-selectbooleanbutton.ui-state-active {
 }
 
 body .ui-chkbox .ui-chkbox-box.ui-state-active {
-	border-color: #7FC4FD;
-	background-color: #7FC4FD;
+	border-color: #456ea2;
+	background-color: #456ea2;
 }
 
 body .ui-chkbox .ui-chkbox-box.ui-state-focus {
-	border-color: #7FC4FD;
+	border-color: #456ea2;
 }
 
 body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
-	border-color: #7FC4FD;
+	border-color: #456ea2;
 }
 
 body .ui-radiobutton .ui-radiobutton-box .ui-icon-bullet {
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox .ui-chkbox-box.ui-state-focus
@@ -264,14 +263,14 @@ body .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox .ui-c
 body #keypad-div .keypad-shift, body #keypad-div .keypad-enter, body #keypad-div .keypad-spacebar,
 	body #keypad-div .keypad-back, body #keypad-div .keypad-close, body #keypad-div .keypad-clear
 	{
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body #keypad-div .keypad-shift.ui-state-hover, body #keypad-div .keypad-enter.ui-state-hover,
 	body #keypad-div .keypad-spacebar.ui-state-hover, body #keypad-div .keypad-back.ui-state-hover,
 	body #keypad-div .keypad-close.ui-state-hover, body #keypad-div .keypad-clear.ui-state-hover
 	{
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-panelgrid tbody .ui-panelgrid-cell.ui-widget-header {
@@ -301,12 +300,12 @@ body .ui-slider .ui-slider-range {
 }
 
 body .ui-datepicker .ui-datepicker-header {
-	background: #2699FB;
-	border-color: #2699FB;
+	background: #1f4f8d ;
+	border-color: #1f4f8d ;
 }
 
 body .ui-datepicker thead tr {
-	background: #7FC4FD;
+	background: #456ea2;
 }
 
 body .ui-datepicker tbody td a.ui-state-active, body .ui-datepicker tbody td span.ui-state-active
@@ -326,7 +325,7 @@ body .ui-datepicker tbody td.ui-datepicker-today a.ui-state-active, body .ui-dat
 
 body .ui-datepicker .ui-timepicker-div .ui_tpicker_time input.ui-state-focus
 	{
-	border-color: #7FC4FD;
+	border-color: #456ea2;
 }
 
 body .ui-growl .ui-growl-item .ui-growl-icon-close {
@@ -334,11 +333,11 @@ body .ui-growl .ui-growl-item .ui-growl-icon-close {
 }
 
 body .ui-accordion .ui-accordion-header {
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body .ui-accordion .ui-accordion-header.ui-state-hover {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-accordion .ui-accordion-header.ui-state-active {
@@ -359,7 +358,7 @@ body .ui-scrollpanel .ui-scrollpanel-drag {
 }
 
 body .ui-toolbar {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-tabs .ui-tabs-nav>li.ui-state-active {
@@ -367,7 +366,7 @@ body .ui-tabs .ui-tabs-nav>li.ui-state-active {
 }
 
 body .ui-tabs .ui-tabs-nav>li.ui-state-active a {
-	color: #7FC4FD;
+	color: #456ea2;
 }
 
 body .ui-tabs .ui-tabs-nav>li.ui-state-active>.ui-icon-close {
@@ -379,7 +378,7 @@ body .ui-tabs .ui-tabs-nav>li.ui-tabs-outline {
 }
 
 body .ui-wizard .ui-wizard-step-titles {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body .ui-wizard .ui-wizard-step-titles>li.ui-state-highlight {
@@ -387,7 +386,7 @@ body .ui-wizard .ui-wizard-step-titles>li.ui-state-highlight {
 }
 
 body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-number {
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body .ui-tabmenu .ui-tabmenu-nav>.ui-tabmenuitem.ui-state-active {
@@ -395,16 +394,16 @@ body .ui-tabmenu .ui-tabmenu-nav>.ui-tabmenuitem.ui-state-active {
 }
 
 body .ui-tabmenu .ui-tabmenu-nav>.ui-tabmenuitem.ui-state-active a {
-	color: #7FC4FD;
+	color: #456ea2;
 }
 
 body .ui-tabmenu .ui-tabmenu-nav>.ui-tabmenuitem.ui-state-active a .ui-icon
 	{
-	color: #7FC4FD;
+	color: #456ea2;
 }
 
 body .ui-panelmenu .ui-panelmenu-header {
-	background-color: #7FC4FD;
+	background-color: #456ea2;
 }
 
 body .ui-panelmenu .ui-panelmenu-header.ui-state-active {
@@ -421,7 +420,7 @@ body .ui-tree.ui-tree-horizontal .ui-treenode-content.ui-state-highlight
 }
 
 body .ui-tree-draghelper {
-	border: 1px solid #7FC4FD;
+	border: 1px solid #456ea2;
 }
 
 body .fc .fc-button-group .ui-state-active {
@@ -460,7 +459,7 @@ body .ui-overlaypanel .ui-overlaypanel-close {
 }
 
 body .ui-overlaypanel .ui-overlaypanel-close.ui-state-hover {
-	background-color: #F5B918;
+	background-color: #f5b918;
 }
 
 body .ui-fileupload .ui-fileupload-buttonbar .ui-button {
@@ -468,7 +467,7 @@ body .ui-fileupload .ui-fileupload-buttonbar .ui-button {
 }
 
 body .ui-fileupload .ui-fileupload-buttonbar .ui-button.ui-state-hover {
-	background-color: #F5B918;
+	background-color: #f5b918;
 }
 
 body .ui-log .ui-log-header>.ui-log-button.ui-state-hover {
@@ -485,15 +484,15 @@ body .ui-widget-content {
 }
 
 .layout-wrapper.menu-layout-static .layout-main {
-	background-color: #F1F9FF; /* FUNDO */
+	background-color: #F7F7F7; /* FUNDO */
 }
 
 .layout-wrapper .topbar {
-	background-color: #7FC4FD; /* DIREITA DA TOP BAR */
+	background-color: #456ea2; /* DIREITA DA TOP BAR */
 }
 
 #btnLogin {
-	background-color: #2699FB;
+	background-color: #1f4f8d ;
 }
 
 body.layout-compact .ui-button {
@@ -510,4 +509,8 @@ body.layout-compact .card{
 
 .login-panel .ui-g .ui-g-12 .ui-button{
 	margin-bottom: 15px !important;
+}
+
+#j_idt61{
+	background-color: #00B16A;
 }

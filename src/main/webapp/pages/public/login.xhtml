@@ -34,9 +34,10 @@
 						</p:panel>
 						<h1>
 							<h:outputText value=""
-								styleClass="outputLabelDocAuxliar !important" /><!-- Texto da box -->
+								styleClass="outputLabelDocAuxliar !important" />
+							<!-- Texto da box -->
 						</h1>
-                                                <h:graphicImage library="images" name="logoEgefaz.png" />
+						<h:graphicImage library="images" name="logoEgefaz.png" style="width:100%"/>
 					</div>
 					<div class="ui-g-12">
 						<h:message for="username" style="color: red;" />
@@ -44,17 +45,17 @@
 							<p:inputText id="username" required="false"
 								requiredMessage="Usuário é um campo obrigatório"
 								style="width:100%" />
-							<p:outputLabel value="Usuário"></p:outputLabel>
+							<p:outputLabel value="CPF"></p:outputLabel>
 						</h:panelGroup>
 					</div>
-		
-					<div hidden="true" class="ui-g-12">
-					
+
+					<div class="ui-g-12">
+
 						<h:message for="password" style="color: red;" />
 						<h:panelGroup styleClass="md-inputfield">
 							<p:password id="password" style="width:100%" required="false"
 								requiredMessage="Senha é um campo obrigatório" />
-							<p:outputLabel value="Senha"></p:outputLabel>
+							<p:outputLabel value="SENHA"></p:outputLabel>
 						</h:panelGroup>
 					</div>
 
@@ -62,6 +63,8 @@
 						<p:commandButton id="btnLogin" value="LOGIN" ajax="false"
 							styleClass="" icon="ui-icon-person" />
 						<p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help"
+							styleClass="secondary" rendered="true" />
+						<p:commandButton value="PRIMEIRO ACESSO" icon="ui-icon-input"
 							styleClass="secondary" rendered="true" />
 
 						<!-- 							<p:commandButton id="btnLogin" value="#{msg['MG14']}" ajax="false" -->
