@@ -12,10 +12,19 @@ import br.gov.to.egefaz.security.domain.Escolaridade;
 import br.gov.to.egefaz.security.domain.Sexo;
 import br.gov.to.egefaz.security.domain.TipoUsuario;
 import java.util.Collection;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
+
+@NamedQueries({
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+    , @NamedQuery(name = "Usuario.findByUsrNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome")
+    , @NamedQuery(name = "Usuario.findByUsrCpf", query = "SELECT u FROM Usuario u WHERE u.cpf = :cpf")})
+        
+
 public  class Usuario  extends Pessoa implements UserDetails{
 
 	private static final long serialVersionUID = 1L;

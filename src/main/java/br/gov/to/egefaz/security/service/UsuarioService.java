@@ -5,23 +5,18 @@
  */
 package br.gov.to.egefaz.security.service;
 
+import br.gov.to.egefaz.service.AbstractService;
 import br.gov.to.egefaz.security.model.Usuario;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
 import java.io.Serializable;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-import org.springframework.security.core.userdetails.User;
+import java.util.List;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  *
  * @author 83633162100
  */
-public class UsuarioService implements UserDetailsService, Serializable {
+public class UsuarioService extends AbstractService implements UserDetailsService, Serializable {
 
     /**
      * serial default.
@@ -60,11 +55,33 @@ public class UsuarioService implements UserDetailsService, Serializable {
 
     throw new UsernameNotFoundException("Usuario ou senha inválidos");
          */
-        
-       Usuario  usuario  = new Usuario();
-       
-       
-        
+
+        Usuario usuario = new Usuario();
+
         return usuario;
     }
+
+    public List<Usuario> listaUsuarios() {
+        return getEm().createNamedQuery("Usuario.findAll").getResultList();
+    }
+
+    public Usuario buscaUsuarioPorCpf(String cpf) {
+        return (Usuario) getEm().createNamedQuery("Usuario.findByUsrCpf").setParameter("cpf", cpf).getSingleResult();
+    }
+
+    public Usuario buscaUsuarioPorCpfAD(String cpf) {
+        return null;
+    }
+
+    public boolean isSenhaValida(String CPF, String Senha) {
+        return false;
+    }
+
+
+    public void salvarUsuario(Usuario usuario) {
+        getEm().merge(usuario);
+        getEm().flush();
+
+    }
+
 }

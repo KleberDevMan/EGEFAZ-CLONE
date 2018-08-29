@@ -35,12 +35,6 @@
         <!-- Dependencia para a utilizacao dos recursos j2ee deve ser fornecido 
         pelo servidor de aplicacao -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.2.14.Final</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -67,6 +61,14 @@
             <version>4.0.2.RELEASE</version>
         </dependency>
         
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.0.5.RELEASE</version>
+            <type>jar</type>
+        </dependency>
+
         
         <dependency> 
             <groupId>org.primefaces.themes</groupId>
