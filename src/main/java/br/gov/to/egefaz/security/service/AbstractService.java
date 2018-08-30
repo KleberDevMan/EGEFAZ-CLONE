@@ -1,4 +1,4 @@
-package br.gov.to.egefaz.service;
+package br.gov.to.egefaz.security.service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

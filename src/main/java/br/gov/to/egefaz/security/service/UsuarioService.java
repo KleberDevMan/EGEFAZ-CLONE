@@ -5,18 +5,19 @@
  */
 package br.gov.to.egefaz.security.service;
 
-import br.gov.to.egefaz.service.AbstractService;
 import br.gov.to.egefaz.security.model.Usuario;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.Stateless;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  *
  * @author 83633162100
  */
-public class UsuarioService extends AbstractService implements UserDetailsService, Serializable {
+@Stateless
+public class UsuarioService extends AbstractService {
 
     /**
      * serial default.
@@ -36,8 +37,9 @@ public class UsuarioService extends AbstractService implements UserDetailsServic
      * @param login o login do usuario que ser pesquisado.
      * @return retorna os detalhes de um usuario.
      */
-    @Override
-    public Usuario loadUserByUsername(final String login) throws UsernameNotFoundException {
+    
+   // @Override
+   // public Usuario loadUserByUsername(final String login) throws UsernameNotFoundException {
         /*
     try {
 
@@ -58,8 +60,8 @@ public class UsuarioService extends AbstractService implements UserDetailsServic
 
         Usuario usuario = new Usuario();
 
-        return usuario;
-    }
+   //     return usuario;
+   // }
 
     public List<Usuario> listaUsuarios() {
         return getEm().createNamedQuery("Usuario.findAll").getResultList();

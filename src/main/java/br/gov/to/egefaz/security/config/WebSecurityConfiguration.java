@@ -27,11 +27,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public final void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
-
+/*
         final UserDetailsService service = new UsuarioService();
         final PasswordEncoder encoder = passwordEncoder();
 
-        auth.userDetailsService(service).passwordEncoder(encoder);
+        auth.userDetailsService(service).passwordEncoder(encoder);*/
     }
 
     /**
@@ -42,12 +42,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         final AuthenticationSuccessHandler sucessHandler = new CustomSucessAuthenticationHandler();
 
-        http.authorizeRequests()
+       /* http.authorizeRequests()
                 .antMatchers("/register", "/javax.faces.resource/**").permitAll().anyRequest().authenticated()
                 .and().formLogin().loginPage("/pages/public/login.xhtml").successHandler(sucessHandler)
                 .permitAll().and().logout().logoutSuccessUrl("/pages/public/login.xhtml").permitAll().and()
                 .csrf().disable();
-   
+   */
     }
 
     /**

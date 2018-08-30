@@ -7,23 +7,26 @@ package br.gov.to.egefaz.security.view;
 
 import br.gov.to.egefaz.security.model.Usuario;
 import br.gov.to.egefaz.security.service.UsuarioService;
-import org.springframework.security.core.context.SecurityContextHolder;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
+
+
+
 
 /**
  *
  * @author 83633162100
  */
 @ViewScoped
-@Named("UsuarioView")
+@ManagedBean(name = "usuarioView")
+
 public class UsuarioView implements Serializable {
 
     /**
@@ -73,4 +76,8 @@ public class UsuarioView implements Serializable {
         usuarioService.salvarUsuario(usuario);
     }
 
+    @PostConstruct
+    public void init() {
+
+    }
 }

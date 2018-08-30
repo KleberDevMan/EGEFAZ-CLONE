@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>4.0.2.RELEASE</version>
+            <version>5.0.7.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -58,24 +58,26 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>4.0.2.RELEASE</version>
+            <version>5.0.7.RELEASE</version>
         </dependency>
         
         <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>5.0.5.RELEASE</version>
+            <version>5.0.7.RELEASE</version>
             <type>jar</type>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams -->
+        <dependency>
+            <groupId>org.reactivestreams</groupId>
+            <artifactId>reactive-streams</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
         
-        <dependency> 
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>ultima-theme</artifactId> 
-            <version>1.0.6</version> 
-        </dependency> 
-        
+         
     </dependencies>
 
     <build>
