@@ -31,7 +31,7 @@
 	}
 	.layout-wrapper.menu-layout-static .layout-main {
 		padding-bottom: 25px;
-		padding-top: 60px;
+		padding-top: 30px;
 		margin-bottom: 0px;
 		padding-right: 261px;
 	}
@@ -505,12 +505,45 @@ body.layout-compact .ui-button {
 
 body.layout-compact .card{
 	padding: 10px 16px 16px 16px;
+	
 }
 
 .login-panel .ui-g .ui-g-12 .ui-button{
 	margin-bottom: 15px !important;
 }
 
-#j_idt61{
-	background-color: #00B16A;
+div#dadosFunc{
+	margin-top:180px !important;
+}
+
+body.layout-compact .card h1{
+	text-align: center !important;
+}
+
+.ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-content.ui-widget-content, .ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-header.ui-widget-header, .ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-footer.ui-widget-header, .ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-header > tr.ui-widget-header, .ui-panelgrid.ui-panelgrid-blank tbody > tr.ui-widget-content, .ui-panelgrid.ui-panelgrid-blank tbody > tr.ui-widget-content > td.ui-panelgrid-cell, .ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-footer > tr.ui-widget-footer{
+	border: 0 none;
+}
+
+.ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell{
+	border: 0 none;
+}
+
+/*CSS JÁ OTIMIZADO*/
+
+#btnPesquisar{
+	background-color: #FDC52D;
+}
+
+#btnLogin{
+	
+}
+
+#logoDados{
+	width: 10%;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }

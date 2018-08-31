@@ -40,10 +40,10 @@
 						<h:graphicImage library="images" name="logoEgefaz.png" style="width:100%"/>
 					</div>
 					<div class="ui-g-12">
-						<h:message for="username" style="color: red;" />
+						<h:message for="CPF" style="color: red;" />
 						<h:panelGroup styleClass="md-inputfield">
-							<p:inputText id="username" required="false"
-								requiredMessage="Usuário é um campo obrigatório"
+							<p:inputText id="CPF" required="false"
+								requiredMessage="CPF é um campo obrigatório"
 								style="width:100%" />
 							<p:outputLabel value="CPF"></p:outputLabel>
 						</h:panelGroup>
@@ -65,7 +65,7 @@
 						<p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help"
 							styleClass="secondary" rendered="true" />
 						<p:commandButton value="PRIMEIRO ACESSO" icon="ui-icon-input"
-							styleClass="secondary" rendered="true" />
+							styleClass="secondary" style="background-color: #00B16A;" rendered="true" />
 
 						<!-- 							<p:commandButton id="btnLogin" value="#{msg['MG14']}" ajax="false" -->
 						<!-- 							styleClass="" action="#{loginController.doLogin()}" -->

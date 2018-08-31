@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/cadastro.xhtml">
+
+	<ui:define name="title">Dados Funcionais</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="form" prependId="false" style="margin: 10%;">
+			<p:focus for="form" />
+			<p:growl autoUpdate="true" closable="true"
+				style="margin: 0 auto; width:80%; text-align=center;" />
+			<div class="logoCentro">
+				<h:graphicImage id="logoDados" library="images"
+					name="logoEgefaz.png" />
+			</div>
+			<p:panel id="dadosFunc" styleClass="card card-w-title ui-fluid">
+				<div class="ui-g">
+					<div class="ui-g-12">
+						<p:messages autoUpdate="true" />
+						<p:panel rendered="${!empty param['error']}"
+							styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+							<span class="ui-message-error-icon"></span>
+							<span class="ui-message-error-detail">CPF não encontrado!</span>
+						</p:panel>
+						<h1>
+							<h:outputText value="DADOS IMPORTANTES"
+								styleClass="outputLabelDocAuxliar !important" />
+						</h1>
+					</div>
+					<div class="ui-g-12 ui-md-6 ui-lg-4">
+						<h:message for="CPF" style="color: red;" />
+						<h:panelGroup styleClass="md-inputfield">
+							<p:inputText id="CPF" required="false"
+								requiredMessage="CPF é um campo obrigatório"
+								 />
+							<p:outputLabel value="CPF"></p:outputLabel>
+						</h:panelGroup>
+					</div>
+					<div class="ui-g-12 ui-md-6 ui-lg-4">
+						<h:message for="lotacao" style="color: red;" />
+						<h:panelGroup styleClass="md-inputfield">
+							<p:inputText id="lotacao" required="false"
+								requiredMessage="Lotação é um campo obrigatório"
+								 />
+							<p:outputLabel value="Lotação"></p:outputLabel>
+						</h:panelGroup>
+					</div>
+				</div>
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
