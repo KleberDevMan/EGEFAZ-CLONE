@@ -27,11 +27,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public final void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
-
+/*
         final UserDetailsService service = new UsuarioService();
         final PasswordEncoder encoder = passwordEncoder();
 
         auth.userDetailsService(service).passwordEncoder(encoder);
+        */
     }
 
     /**
