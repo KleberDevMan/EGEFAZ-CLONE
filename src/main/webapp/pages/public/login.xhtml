@@ -40,12 +40,16 @@
 						<h:graphicImage library="images" name="logoEgefaz.png" style="width:100%"/>
 					</div>
 					<div class="ui-g-12">
-						<h:message for="CPF" style="color: red;" />
+						<h:message for="cpf" style="color: red;" />
 						<h:panelGroup styleClass="md-inputfield">
-							<p:inputText id="CPF" required="false"
-								requiredMessage="CPF é um campo obrigatório"
-								style="width:100%" />
-							<p:outputLabel value="CPF"></p:outputLabel>
+						
+						
+							<p:inputMask mask="999.999.999-99"  required="false" 
+							requiredMessage="CPF é um campo obrigatório" id="cpf"
+								value="" style="width:100%"/>
+							<p:outputLabel for="cpf" value="CPF" />
+						
+							
 						</h:panelGroup>
 					</div>
 
