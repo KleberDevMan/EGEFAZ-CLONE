@@ -1,18 +1,87 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:p="http://primefaces.org/ui"
-                template="/pages/template/templateLogin.xhtml">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/templateLogin.xhtml">
 
-    <ui:define name="title">Logar</ui:define>
-    <!-- 	<ui:define name="title">#{msg['LOGIN_AUDITOR_NFCE']}</ui:define> -->
+	<ui:define name="title">Logar</ui:define>
+	<!-- 	<ui:define name="title">#{msg['LOGIN_AUDITOR_NFCE']}</ui:define> -->
 
-    <ui:define name="content">
-        <h:outputLabel>Cpf: </h:outputLabel>
-        <h:inputText value="#{loginView.usuario.cpf}"></h:inputText>
-        <h:commandButton action="#{loginView.buscarNoBanco()}"></h:commandButton>
-    </ui:define>
-    <!-- segundo commit local -->
-</ui:define> 
+
+	<ui:define name="content">
+
+		<h:form id="form" prependId="false" style="margin: 10%;">
+			<p:focus for="form" />
+
+			<!--<f:event listener="#{loginController.preRenderView}"
+				type="preRenderView" />-->
+			<!--  Descomentar quando tiver controller -->
+
+			<p:growl autoUpdate="true" closable="true"
+				style="margin:0 auto; width:80%; text-align:center;" />
+
+			<p:panel id="login" styleClass="card login-panel ui-fluid">
+
+				<div class="ui-g">
+					<div class="ui-g-12 ">
+						<p:messages autoUpdate="true" />
+						<p:panel rendered="${!empty param['error']}"
+							styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+							<span class="ui-message-error-icon"></span>
+							<span class="ui-message-error-detail">Usuário ou senha
+								incorretos!</span>
+						</p:panel>
+						<h1>
+							<h:outputText value=""
+								styleClass="outputLabelDocAuxliar !important" />
+							<!-- Texto da box -->
+						</h1>
+						<h:graphicImage library="images" name="logoEgefaz.png" style="width:100%"/>
+					</div>
+					<div class="ui-g-12">
+						<h:message for="cpf" style="color: red;" />
+						<h:panelGroup styleClass="md-inputfield">
+						
+						
+							<p:inputMask mask="999.999.999-99"  required="false" 
+							requiredMessage="CPF é um campo obrigatório" id="cpf"
+								value="" style="width:100%"/>
+							<p:outputLabel for="cpf" value="CPF" />
+						
+							
+						</h:panelGroup>
+					</div>
+
+					<div class="ui-g-12">
+
+						<h:message for="password" style="color: red;" />
+						<h:panelGroup styleClass="md-inputfield">
+							<p:password id="password" style="width:100%" required="false"
+								requiredMessage="Senha é um campo obrigatório" />
+							<p:outputLabel value="SENHA"></p:outputLabel>
+						</h:panelGroup>
+					</div>
+
+					<div class="ui-g-12">
+						<p:commandButton id="btnLogin" value="LOGIN" ajax="false"
+							styleClass="" icon="ui-icon-person" />
+						<p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help"
+							styleClass="secondary" rendered="true" />
+						<p:commandButton value="PRIMEIRO ACESSO" icon="ui-icon-input"
+							styleClass="secondary" style="background-color: #00B16A;" rendered="true" />
+
+						<!-- 							<p:commandButton id="btnLogin" value="#{msg['MG14']}" ajax="false" -->
+						<!-- 							styleClass="" action="#{loginController.doLogin()}" -->
+						<!-- 							icon="ui-icon-person" /> -->
+						<!-- 						<p:commandButton value="Esqueci a Senha" icon="ui-icon-help" -->
+						<!-- 							styleClass="secondary" rendered="false" /> -->
+
+					</div>
+
+				</div>
+			</p:panel>
+
+		</h:form>
+	</ui:define>
 </ui:composition>

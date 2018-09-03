@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/cadastro.xhtml">
+
+	<ui:define name="title">Dados Funcionais</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="form" prependId="false" style="margin: 10%;">
+			<p:focus for="form" />
+			<p:growl autoUpdate="true" closable="true"
+				style="margin: 0 auto; width:80%; text-align=center;" />
+			<div class="logoCentro">
+				<h:graphicImage id="logoDadosF" library="images"
+					name="logoEgefaz.png" />
+			</div>
+			<p:panel id="dadosFunc" styleClass="card card-w-title ui-fluid">
+				<div class="ui-g">
+					<div class="ui-g-12">
+						<p:messages autoUpdate="true" />
+						<p:panel rendered="${!empty param['error']}"
+							styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+							<span class="ui-message-error-icon"></span>
+							<span class="ui-message-error-detail">CPF não encontrado!</span>
+						</p:panel>
+						<h1>
+							<h:outputText value=""
+								styleClass="outputLabelDocAuxliar !important" />
+						</h1>
+					</div>
+
+					<p:panel id="cadastro" header="Dados Funcionais"
+						style="margin:0 auto; width:80%; text-align:center;">
+
+						<p:separator></p:separator>
+
+						<h:panelGrid columns="4" cellpadding="10"
+							style="margin:0 auto; width:60%; text-align:center;">
+							<p:outputLabel for="cpf" value="CPF" />
+							<p:inputMask mask="999.999.999-99"  required="false" 
+							requiredMessage="CPF é um campo obrigatório" id="cpf"
+								value="" style="width:100%"/>
+							
+							<p:outputLabel for="orgao" value="ÓRGÃO" />
+							<p:inputText id="orgao" value="" />			
+							
+						</h:panelGrid>
+
+						<h:panelGrid columns="2" cellpadding="10" style="margin:0 auto; clear: both;">
+
+							<p:commandButton id="btnCancelar" value="CANCELAR"
+								action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
+								ajax="false" immediate="true" />
+							<p:commandButton id="btnCadastrar" value="CADASTRAR"
+								ajax="false" action="#{cadastroExemplo.cadastrar()}"
+								update="cadastro" />
+
+						</h:panelGrid>
+					</p:panel>
+
+				</div>
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

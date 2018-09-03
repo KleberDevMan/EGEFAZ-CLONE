@@ -1,11 +1,13 @@
 package br.gov.to.egefaz.security.config;
 
+import br.gov.to.egefaz.security.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.util.Assert;
@@ -25,11 +27,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public final void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
-/*
+
         final UserDetailsService service = new UsuarioService();
         final PasswordEncoder encoder = passwordEncoder();
 
-        auth.userDetailsService(service).passwordEncoder(encoder);*/
+        auth.userDetailsService(service).passwordEncoder(encoder);
     }
 
     /**
@@ -38,13 +40,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
 
-        final AuthenticationSuccessHandler sucessHandler = new CustomSucessAuthenticationHandler();
+        /* final AuthenticationSuccessHandler sucessHandler = new CustomSucessAuthenticationHandler();
 
         http.authorizeRequests()
                 .antMatchers("/register", "/javax.faces.resource/**").permitAll().anyRequest().authenticated()
                 .and().formLogin().loginPage("/pages/public/login.xhtml").successHandler(sucessHandler)
                 .permitAll().and().logout().logoutSuccessUrl("/pages/public/login.xhtml").permitAll().and()
-                .csrf().disable();
+                .csrf().disable(); */
    
     }
 
