@@ -35,6 +35,12 @@
         <!-- Dependencia para a utilizacao dos recursos j2ee deve ser fornecido 
         pelo servidor de aplicacao -->
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.2.14.Final</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
