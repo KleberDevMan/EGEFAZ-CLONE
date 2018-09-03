@@ -1,12 +1,13 @@
 
 package br.gov.to.egefaz.security.service;
 
-import br.gov.to.egefaz.security.model.Usuario;
+import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.w3c.dom.UserDataHandler;
 
 /**
  *
@@ -54,20 +55,20 @@ public class UsuarioService extends AbstractService {
     throw new UsernameNotFoundException("Usuario ou senha inválidos");
          */
 
-        Usuario usuario = new Usuario();
+        UsuarioEgefaz usuario = new UsuarioEgefaz();
 
    //     return usuario;
    // }
 
-    public List<Usuario> listaUsuarios() {
+    public List<UsuarioEgefaz> listaUsuarios() {
         return getEm().createNamedQuery("Usuario.findAll").getResultList();
     }
 
-    public Usuario buscaUsuarioPorCpf(String cpf) {
-        return (Usuario) getEm().createNamedQuery("Usuario.findByUsrCpf").setParameter("cpf", cpf).getSingleResult();
+    public UsuarioEgefaz buscaUsuarioPorCpf(String cpf) {
+        return (UsuarioEgefaz) getEm().createNamedQuery("Usuario.findByUsrCpf").setParameter("cpf", cpf).getSingleResult();
     }
 
-    public Usuario buscaUsuarioPorCpfAD(String cpf) {
+    public UsuarioEgefaz buscaUsuarioPorCpfAD(String cpf) {
         return null;
     }
 
@@ -76,10 +77,9 @@ public class UsuarioService extends AbstractService {
     }
 
 
-    public void salvarUsuario(Usuario usuario) {
+    public void salvarUsuario(UsuarioEgefaz usuario) {
         getEm().merge(usuario);
         getEm().flush();
-
     }
 
 }

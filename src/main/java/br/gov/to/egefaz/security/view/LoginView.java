@@ -16,22 +16,18 @@ public class LoginView implements Serializable {
 
     private UsuarioEgefaz usuario;
 
-    //object service
     @EJB
     private UsuarioService usuarioService;
 
-    //busca o usuario no banco
-    public UsuarioEgefaz buscarNoBanco() {
-        UsuarioEgefaz u = usuarioService.findByCpfNoBanco(usuario.getCpf());
-        System.out.println("usuario vindo do banco = " + u.getNome());
-        return null;
+    //busca o usuario no banco 
+    public void logar() {
+//        UsuarioEgefaz u = usuarioService.buscaUsuarioPorCpf(usuario.getCpf());
+//        System.out.println("usuario vindo do banco = " + u.getNome());
+//        return null;
+        System.out.println("logando usuario -> " + usuario.getCpf());
     }
 
     public UsuarioEgefaz getUsuario() {
         return usuario;
-    }
-
-    public void setUsuario(UsuarioEgefaz usuario) {
-        this.usuario = usuario;
     }
 }
