@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Stateless;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.w3c.dom.UserDataHandler;
 
 /**
  *
@@ -58,7 +59,7 @@ public class UsuarioService extends AbstractService {
     }
 
     public UsuarioEgefaz buscaUsuarioPorCpf(String cpf) {
-        return (UsuarioEgefaz) getEm().createNamedQuery("Usuario.findByUsrCpf").setParameter("cpf", cpf).getSingleResult();
+        return (UsuarioEgefaz) getEm().createNamedQuery("UsuarioEgefaz.findByUsrCpf").setParameter("cpf", cpf).getSingleResult();
     }
 
     public UsuarioEgefaz buscaUsuarioPorCpfAD(String cpf) {
@@ -73,7 +74,6 @@ public class UsuarioService extends AbstractService {
     public void salvarUsuario(UsuarioEgefaz usuario) {
         getEm().merge(usuario);
         getEm().flush();
-
     }
 
     public UsuarioEgefaz findByCpfNoBanco(String cpf) {
