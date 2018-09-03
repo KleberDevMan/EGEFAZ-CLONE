@@ -59,7 +59,7 @@ public class UsuarioService extends AbstractService {
     }
 
     public UsuarioEgefaz buscaUsuarioPorCpf(String cpf) {
-        return (UsuarioEgefaz) getEm().createNamedQuery("Usuario.findByUsrCpf").setParameter("cpf", cpf).getSingleResult();
+        return (UsuarioEgefaz) getEm().createNamedQuery("UsuarioEgefaz.findByUsrCpf").setParameter("cpf", cpf).getSingleResult();
     }
 
     public UsuarioEgefaz buscaUsuarioPorCpfAD(String cpf) {

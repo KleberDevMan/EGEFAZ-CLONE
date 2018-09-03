@@ -48,6 +48,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().formLogin().loginPage("/pages/public/login.xhtml").successHandler(sucessHandler)
                 .permitAll().and().logout().logoutSuccessUrl("/pages/public/login.xhtml").permitAll().and()
                 .csrf().disable(); */
+        http.csrf().disable();
    
     }
 
