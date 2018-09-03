@@ -37,15 +37,28 @@
 
 						<p:separator></p:separator>
 
-						<h:panelGrid columns="4" cellpadding="10"
+						<h:panelGrid columns="4" cellpadding="5"
 							style="margin:0 auto; width:60%; text-align:center;">
-							<p:outputLabel for="cpf" value="CPF" />
+							
+							<p:outputLabel for="cpf" value="CPF" style="font-size:14px;"/>
 							<p:inputMask mask="999.999.999-99"  required="false" 
 							requiredMessage="CPF é um campo obrigatório" id="cpf"
 								value="" style="width:100%"/>
 							
-							<p:outputLabel for="orgao" value="ÓRGÃO" />
-							<p:inputText id="orgao" value="" />			
+							<p:outputLabel for="lotacao" value="LOTAÇÃO" style="font-size:14px;"/>
+							<p:inputText id="lotacao" value="" />		
+							
+							<p:outputLabel for="orgao" value="ÓRGÃO" style="font-size:14px;"/>
+							<p:inputText id="orgao" value="" />	
+							
+							<p:outputLabel for="municipio" value="MUNICÍPIO" style="font-size:14px;"/>
+							<p:inputText id="municipio" value="" />		
+							
+							<p:outputLabel for="mailInst" value="EMAIL" style="font-size:14px;"/>
+							<p:inputText id="mailInst" type="email" value=""/>	
+							
+							<p:outputLabel for="tel" value="TELEFONE" style="font-size:14px;"/>
+							<p:inputText id="tel" value=""/>	
 							
 						</h:panelGrid>
 
@@ -54,7 +67,7 @@
 							<p:commandButton id="btnCancelar" value="CANCELAR"
 								action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
 								ajax="false" immediate="true" />
-							<p:commandButton id="btnCadastrar" value="CADASTRAR"
+							<p:commandButton id="btnProsseguir" value="PROSSEGUIR"
 								ajax="false" action="#{cadastroExemplo.cadastrar()}"
 								update="cadastro" />
 

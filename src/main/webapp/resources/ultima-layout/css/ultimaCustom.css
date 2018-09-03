@@ -547,3 +547,7 @@ body.layout-compact .card h1{
     margin-right: -50%;
     transform: translate(-50%, -50%);
 }
+
+#btnCancelar{
+	background-color: #d64541;
+}
