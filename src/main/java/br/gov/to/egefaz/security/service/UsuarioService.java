@@ -28,12 +28,6 @@ public class UsuarioService extends AbstractService {
 
     }
 
-    /**
-     * Busca os dados de um usuario com base em seu login.
-     *
-     * @param login o login do usuario que ser pesquisado.
-     * @return retorna os detalhes de um usuario.
-     */
     
    // @Override
    // public Usuario loadUserByUsername(final String login) throws UsernameNotFoundException {
@@ -53,12 +47,12 @@ public class UsuarioService extends AbstractService {
     }
 
     throw new UsernameNotFoundException("Usuario ou senha inválidos");
-         */
+     
 
-        UsuarioEgefaz usuario = new UsuarioEgefaz();
+        UsuarioEgefaz usuario = new Usuario();
 
-   //     return usuario;
-   // }
+       return usuario;
+  }*/
 
     public List<UsuarioEgefaz> listaUsuarios() {
         return getEm().createNamedQuery("Usuario.findAll").getResultList();
@@ -80,6 +74,10 @@ public class UsuarioService extends AbstractService {
     public void salvarUsuario(UsuarioEgefaz usuario) {
         getEm().merge(usuario);
         getEm().flush();
+    }
+
+    public UsuarioEgefaz findByCpfNoBanco(String cpf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
