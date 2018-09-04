@@ -14,9 +14,12 @@ and open the template in the editor.
     <body>
         
         <h:form>
+            <h:messages />
+            
             <h:outputText>cpf</h:outputText>
-            <h:inputText value="#{loginView.usuario.cpf}"></h:inputText>
-            <h:commandButton value="logar" action="#{loginView.logar()}"></h:commandButton>
+            <h:inputText value="#{loginView.usuario.cpf}"></h:inputText><br/>
+            <h:commandButton value="logar" action="#{loginView.logar()}"></h:commandButton><br/>
+            <h:commandButton value="primeiro acesso" action="#{loginView.logar()}"></h:commandButton><br/>
         </h:form>
         
     </body>
