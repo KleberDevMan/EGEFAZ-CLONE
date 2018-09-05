@@ -33,52 +33,45 @@
 
 						<div class="ui-panelgrid ui-widget">
 							<div
-								class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive" style="border:none;">
+								class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
+								style="border:none;">
 								<div class="ui-g">
+								
+									<div class="ui-panelgrid-cell ui-g-12 ui-md-12">
+										<p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+										<p:outputLabel for="@next"
+											value="Desejo informar dados funcionais." />
+									</div>
+								
 									<div class="ui-panelgrid-cell ui-g-12 ui-md-4">
 
-										<p:outputLabel for="cpf" value="CPF"
+										<p:outputLabel for="empresa" value="EMPRESA"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputMask mask="999.999.999-99" required="false"
-											requiredMessage="CPF é um campo obrigatório" id="cpf"
-											value="" style="margin:5px 5px 0px 5px;" />
+										<p:inputText id="empresa" value=""
+											style="margin:5px 5px 0px 5px;" />
 
-										<p:outputLabel for="lotacao" value="LOTAÇÃO"
+										<p:outputLabel for="cidade" value="CIDADE"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="lotacao" value=""
+										<p:inputText id="cidade" value=""
 											style="margin:5px 5px 0px 5px;" />
 
 									</div>
 									<div class="ui-panelgrid-cell ui-g-12 ui-md-4">
-
-										<p:outputLabel for="orgao" value="ÓRGÃO"
-											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="orgao" value=""
-											style="margin:5px 5px 0px 5px;" />
-
-										<p:outputLabel for="municipio" value="MUNICÍPIO"
-											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="municipio" value=""
-											style="margin:5px 5px 0px 5px;" />
-
-									</div>
-									<div class="ui-panelgrid-cell ui-g-12 ui-md-4">
-
-										<p:outputLabel for="mailInst" value="EMAIL"
-											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="mailInst" type="email" value=""
-											style="margin:5px 5px 0px 5px;" />
 
 										<p:outputLabel for="tel" value="TELEFONE"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
+										<p:inputText id="tel" value=""
+											style="margin:5px 5px 0px 5px;" />
 
-									</div>
+										<p:outputLabel for="funcao" value="FUNÇÃO"
+											style="font-size:14px; margin:5px 5px 0px 5px;" />
+										<p:inputText id="funcao" value=""
+											style="margin:5px 5px 0px 5px;" />
+
+									</div>									
 								</div>
 							</div>
 						</div>
-
-
 						<h:panelGrid columns="2" cellpadding="10"
 							style="margin:0 auto; clear: both;">
 
@@ -88,14 +81,10 @@
 							<p:commandButton id="btnProsseguir" value="PROSSEGUIR"
 								ajax="false" action="#{cadastroExemplo.cadastrar()}"
 								update="cadastro" />
-
 						</h:panelGrid>
 					</p:panel>
-
 				</div>
 			</p:panel>
 		</h:form>
-
 	</ui:define>
-
 </ui:composition>

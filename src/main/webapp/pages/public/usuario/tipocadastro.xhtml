@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/cadastro.xhtml">
+
+
+	<ui:define name="title">Logar</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="form" prependId="false" style="margin: 10%;">
+			<p:focus for="form" />
+			<p:growl autoUpdate="true" closable="true"
+				style="margin: 0 auto; width:80%; text-align:center;" />
+			<p:panel id="choice" styleClass="card login-panel ui-fluid">
+				<div class="ui-g">
+					<div class="ui-g-12">
+						<p:messages autoUpdate="true" />
+						<p:panel rendered="${!empty param['error']}"
+							styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+							<span class="ui-message-error-icon"></span>
+							<span class="ui-message-error-detail">CPF não encontrado!</span>
+						</p:panel>
+						<h1>
+							<h:outputText value=""
+								styleClass="outputLabelDocAuxliar !important" />
+						</h1>
+					</div>
+					<p:panel id="tipoCad" header="Escolha um tipo de cadastro"
+						style="margin:0 auto; width:100%; text-align:center; text-transform: uppercase; font-size: 12px !important;">
+
+						<p:separator></p:separator>
+
+						<div class="ui-panelgrid ui-widget">
+<!-- 							<h3 style="text-transform:  none;text-align: left;margin-top: 0;">O CPF informado não foi encontrado na base de dados, por favor escolha um tipo de cadastro para prosseguir.</h3> -->
+							<h:panelGrid columns="1" style="margin-bottom:10px;padding-left:8px; 	"
+								cellpadding="5">
+								<p:selectOneRadio id="console" value="#{radioView.console}" style="padding-left:10px">
+									<f:selectItem itemLabel="Servidor Público" itemValue="sp" />
+									<f:selectItem itemLabel="Cidadão Comum" itemValue="cc" />									
+								</p:selectOneRadio>
+								<p:commandButton id="escolher" value="PROSSEGUIR"
+								action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
+								ajax="false" immediate="true" />
+							</h:panelGrid>
+						</div>
+					</p:panel>
+				</div>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

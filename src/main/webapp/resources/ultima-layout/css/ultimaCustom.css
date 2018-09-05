@@ -490,6 +490,9 @@ body .ui-widget-content {
 .layout-wrapper .topbar {
 	background-color: #456ea2; /* DIREITA DA TOP BAR */
 }
+#tipoCad_header{ /* Font-Size Header Cabeçalho */
+	font-size: 12px;
+}
 
 #btnLogin {
 	background-color: #1f4f8d ;
