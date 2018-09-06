@@ -41,11 +41,11 @@
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
 										<p:inputMask mask="999.999.999-99" required="false"
 											requiredMessage="CPF é um campo obrigatório" id="cpf"
-											value="" style="margin:5px 5px 0px 5px;" />
+                                                                                        value="#{primeiroAcessoView.usuario.cpf}" style="margin:5px 5px 0px 5px;" />
 
 										<p:outputLabel for="lotacao" value="LOTAÇÃO"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="lotacao" value=""
+                                                                                <p:inputText id="lotacao" value="#{primeiroAcessoView.usuario.lotacao}"
 											style="margin:5px 5px 0px 5px;" />
 
 									</div>
@@ -53,12 +53,12 @@
 
 										<p:outputLabel for="orgao" value="ÓRGÃO"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="orgao" value=""
+                                                                                <p:inputText id="orgao" value="#{primeiroAcessoView.usuario.orgao}"
 											style="margin:5px 5px 0px 5px;" />
 
 										<p:outputLabel for="municipio" value="MUNICÍPIO"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="municipio" value=""
+                                                                                <p:inputText id="municipio" value="#{primeiroAcessoView.usuario.municipio}"
 											style="margin:5px 5px 0px 5px;" />
 
 									</div>
@@ -66,12 +66,12 @@
 
 										<p:outputLabel for="mailInst" value="EMAIL"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="mailInst" type="email" value=""
+                                                                                <p:inputText id="mailInst" type="email" value="#{primeiroAcessoView.usuario.emailInstitucional}"
 											style="margin:5px 5px 0px 5px;" />
 
 										<p:outputLabel for="tel" value="TELEFONE"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-										<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
+                                                                                <p:inputText id="tel" value="#{primeiroAcessoView.usuario.telefone}" style="margin:5px 5px 0px 5px;" />
 
 									</div>
 								</div>
@@ -83,10 +83,10 @@
 							style="margin:0 auto; clear: both;">
 
 							<p:commandButton id="btnCancelar" value="CANCELAR"
-								action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
+                                                                         action="#{primeiroAcessoView.cancelarCadastro()}"
 								ajax="false" immediate="true" />
 							<p:commandButton id="btnProsseguir" value="PROSSEGUIR"
-								ajax="false" action="#{cadastroExemplo.cadastrar()}"
+                                                                         ajax="false" action="#{primeiroAcessoView.proceguir()}"
 								update="cadastro" />
 
 						</h:panelGrid>

@@ -24,8 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "UsuarioEgefaz.findByUsrCpf", query = "SELECT u FROM UsuarioEgefaz u WHERE u.cpf = :cpf")
-        ,@NamedQuery(name = "UsuarioEgefaz.findByUsrCpfSenha", query = "SELECT u FROM UsuarioEgefaz u WHERE u.cpf = :cpf" + "and u.senha = :senha")})
+    @NamedQuery(name = "UsuarioEgefaz.findByUsrCpf", query = "SELECT u FROM UsuarioEgefaz u WHERE u.cpf = :cpf")})
 public class UsuarioEgefaz implements Serializable, UserDetails {
 
     private static final long serialVersionUID = 1L;

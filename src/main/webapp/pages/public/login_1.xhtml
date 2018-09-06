@@ -12,10 +12,6 @@
         <h:form id="form" prependId="false" style="margin: 10%;">
             <p:focus for="form" />
 
-                        <!--<f:event listener="#{loginController.preRenderView}"
-                                type="preRenderView" />-->
-            <!--  Descomentar quando tiver controller -->
-
             <p:growl autoUpdate="true" closable="true"
                      style="margin:0 auto; width:80%; text-align:center;" />
 
@@ -44,7 +40,7 @@
 
                             <p:inputMask mask="999.999.999-99"  required="false" 
                                          requiredMessage="CPF é um campo obrigatório" id="cpf"
-                                         value="#{usuarioView.usuario.cpf}" style="width:100%"/>
+                                         value="#{loginView.usuario.cpf}" style="width:100%"/>
                             <p:outputLabel for="cpf" value="CPF" />
 
 
@@ -56,18 +52,18 @@
                         <h:message for="password" style="color: red;" />
                         <h:panelGroup styleClass="md-inputfield">
                             <p:password id="password" style="width:100%" required="false"
-                                        requiredMessage="Senha é um campo obrigatório" value="#{usuarioView.usuario.senha}"/>
+                                        requiredMessage="Senha é um campo obrigatório" value="#{loginView.usuario.senha}"/>
                             <p:outputLabel></p:outputLabel>
                         </h:panelGroup>
                     </div>
 
                     <div class="ui-g-12">
                         <p:commandButton id="btnLogin" value="LOGIN" ajax="false"
-                                         styleClass="" icon="ui-icon-person" action="#{usuarioView.btnLoginClick()}"/>
+                                         styleClass="" icon="ui-icon-person" action="#{loginView.btnLoginClick()}"/>
                         <p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help"
                                          styleClass="secondary" rendered="true" />
                         <p:commandButton value="PRIMEIRO ACESSO" icon="ui-icon-input" ajax="false"
-                                         styleClass="secondary" style="background-color: #00B16A;" rendered="true" action="#{usuarioView.btnPrimeiroAcessoClick()}"/>
+                                         styleClass="secondary" style="background-color: #00B16A;" rendered="true" action="#{loginView.btnPrimeiroAcessoClick()}"/>
                     </div>
 
                 </div>

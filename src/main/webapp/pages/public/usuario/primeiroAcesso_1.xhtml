@@ -31,16 +31,13 @@
 						<h:panelGroup styleClass="md-inputfield">
 							<p:inputMask mask="999.999.999-99"  required="false" 
 							requiredMessage="CPF é um campo obrigatório" id="cpf"
-                                                        value="#{usuarioView.usuario.cpf}" style="width:100%"/>
+                                                        value="#{primeiroAcessoView.usuario.cpf}" style="width:100%"/>
 							<p:outputLabel for="cpf" value="CPF" />
 						</h:panelGroup>
 					</div>
 					
 					<div class="ui-g-12">
-						<p:commandButton id="btnPesquisar" value="PESQUISAR" ajax="false" styleClass="btnCAD1" icon="ui-icon-search"/>
-						<div class="campo2" hidden="true">
-                                                    <p:commandButton id="btnLogin" value="LOGIN" ajax="false" styleClass="btnCAD1" icon="ui-icon-person" action="#{usuarioView.btnPesquisarClick()}"/>
-						</div>
+                                            <p:commandButton id="btnPesquisar" value="PESQUISAR" ajax="false" styleClass="btnCAD1" icon="ui-icon-search" action="#{primeiroAcessoView.btnPesquisarClick()}"/>
 					</div>					
 				</div>
 			</p:panel>

@@ -23,24 +23,36 @@ public class UsuarioService extends AbstractService {
             return null;
         }
     }
-    
+
     public UsuarioEgefaz autenticarUsuarioEgefaz(String cpf, String senha) {
         try {
-            return (UsuarioEgefaz) getEm().createNamedQuery("UsuarioEgefaz.findByUsrCpfSenha").setParameter("cpf", cpf).setParameter("senha", senha).getSingleResult();
+            return (UsuarioEgefaz) getEm().createQuery("SELECT u FROM UsuarioEgefaz u WHERE u.cpf = :pCpf and u.senha = :pSenha", UsuarioEgefaz.class).setParameter("pCpf", cpf).setParameter("pSenha", senha).getSingleResult();
         } catch (NoResultException e) {
+            System.out.printf("erro -> " + e.getMessage());
             return null;
         }
     }
-    
+
     //busca usuario no add
-    private UsuarioEgefaz findByCpfInAd(String cpf) {
-        UsuarioEgefaz usrAd = new UsuarioEgefaz();
-        usrAd.setNome("servidor serfaz");
-        usrAd.setCpf(cpf);
+    public UsuarioEgefaz findByCpfInAd(String cpf) {
+
+        UsuarioEgefaz usrAd = null;
+
+        if (cpf.equals("444.444.444-44")) {
+            usrAd = new UsuarioEgefaz();
+            usrAd.setNome("Kleber (UI)");
+            usrAd.setOrgao("Secretaria da Fazenda");
+            usrAd.setLotacao("Desenvolvimento");
+            usrAd.setMunicipio("Palmas");
+            usrAd.setEmailInstitucional("kleber.chaves@sefaz.com");
+            usrAd.setTelefone("3221-3234");
+
+            usrAd.setCpf(cpf);
+        }
 
         return usrAd;
     }
-    
+
 //    public boolean isSenhaValida(String CPF, String Senha) {
 //        return false;
 //    }
@@ -49,5 +61,4 @@ public class UsuarioService extends AbstractService {
 //        getEm().merge(usuario);
 //        getEm().flush();
 //    }
-
 }
