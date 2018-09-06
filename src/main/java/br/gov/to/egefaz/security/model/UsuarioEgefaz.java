@@ -2,6 +2,7 @@ package br.gov.to.egefaz.security.model;
 
 import br.gov.to.egefaz.security.domain.Escolaridade;
 import br.gov.to.egefaz.security.domain.Sexo;
+import br.gov.to.egefaz.security.domain.TipoUsuario;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Collection;
@@ -41,10 +42,8 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
     private Calendar dataNascimento;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
-    @ManyToOne
-    @JoinColumn(name = "tipoUsuario_id")
-    private TipoUsuario tipoUsuario; //chave estrangeira
     @Enumerated(EnumType.STRING)
+    private TipoUsuario tipoUsuario; //chave estrangeira
     private Escolaridade escolaridade;
     private String celular;
     private String appMensagem;
@@ -100,7 +99,7 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
 
     @Override
     public String toString() {
-        return "br.gov.to.egefaz.security.model.UsuarioEgefaz[ id=" + id + " ]";
+        return "UsuarioEgefaz{" + "nome=" + nome + ", cpf=" + cpf + ", tipoUsuario=" + tipoUsuario + '}';
     }
 
     @Override

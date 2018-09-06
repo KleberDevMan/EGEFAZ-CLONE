@@ -1,8 +1,11 @@
 package br.gov.to.egefaz.security.model;
 
+import br.gov.to.egefaz.security.domain.TipoUsuario;
 import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,11 +24,9 @@ public class RegistroAlteracoesTipoUsuario implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar dataAlteracao;
     private String motivo;
-    @ManyToOne
-    @JoinColumn(name = "tipoAnterio_id")
+    @Enumerated(EnumType.STRING)
     private TipoUsuario tipoAnterior;
-    @ManyToOne
-    @JoinColumn(name = "novoTipo_id")
+    @Enumerated(EnumType.STRING)
     private TipoUsuario novoTipo;
     @ManyToOne
     @JoinColumn(name = "usuarioEgefaz_id")

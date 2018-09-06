@@ -14,7 +14,7 @@ import javax.inject.Inject;
  *
  * @author 06250631127
  */
-public class Persistencia {
+public class LaboratorioPersistencia {
  
     public static void main(String[] args) {
         

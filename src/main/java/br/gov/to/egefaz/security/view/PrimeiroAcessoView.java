@@ -5,6 +5,8 @@
  */
 package br.gov.to.egefaz.security.view;
 
+import br.gov.to.egefaz.security.domain.Sexo;
+import br.gov.to.egefaz.security.domain.TipoUsuario;
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import br.gov.to.egefaz.security.service.UsuarioService;
 import java.io.IOException;
@@ -29,6 +31,11 @@ public class PrimeiroAcessoView implements Serializable {
     private UsuarioEgefaz usuario = new UsuarioEgefaz();
     @EJB
     private UsuarioService usuarioService;
+    //Enuns
+    private TipoUsuario servidorPublico = TipoUsuario.SERVIDOR_EXTERNO;
+    private TipoUsuario cidadaoComunidade = TipoUsuario.CIDADAO_COMUM;
+    
+    
 
     public String btnPesquisarClick() {
 
@@ -59,12 +66,27 @@ public class PrimeiroAcessoView implements Serializable {
         return "primeiroAcesso_1?faces-redirect=true";
     }
     
-    public String proceguir() {
-        return "dadosComplementaresSf?faces-redirect=true";
+    public String proceguirServidorSefaz() {
+        return "dadosComplementaresUsuarioInterno?faces-redirect=true";
+    }
+    
+    public String proceguirUsuarioExterno() {
+        System.out.println(usuario);
+        return "dadosComplementaresUsuarioExterno?faces-redirect=true";
     }
 
     public UsuarioEgefaz getUsuario() {
         return usuario;
     }
+
+    public TipoUsuario getServidorPublico() {
+        return servidorPublico;
+    }
+
+    public TipoUsuario getCidadaoComunidade() {
+        return cidadaoComunidade;
+    }
+    
+    
 
 }
