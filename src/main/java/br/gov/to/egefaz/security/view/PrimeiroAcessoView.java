@@ -13,10 +13,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 /**
@@ -28,15 +30,17 @@ import javax.inject.Named;
 public class PrimeiroAcessoView implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private UsuarioEgefaz usuario = new UsuarioEgefaz();
+    private UsuarioEgefaz usuario;
     @EJB
     private UsuarioService usuarioService;
-    //Enuns
-    private TipoUsuario servidorPublico = TipoUsuario.SERVIDOR_EXTERNO;
-    private TipoUsuario cidadaoComunidade = TipoUsuario.CIDADAO_COMUM;
-    
-    
 
+    
+    public PrimeiroAcessoView(){
+        
+    }
+    
+    
+    
     public String btnPesquisarClick() {
 
         FacesContext context = FacesContext.getCurrentInstance();
@@ -60,16 +64,16 @@ public class PrimeiroAcessoView implements Serializable {
         //cc: mantem o cpf e direciona para (dadoscc)
 
     }
-    
+
     public String cancelarCadastro() {
         usuario = new UsuarioEgefaz();
         return "primeiroAcesso_1?faces-redirect=true";
     }
-    
+
     public String proceguirServidorSefaz() {
         return "dadosComplementaresUsuarioInterno?faces-redirect=true";
     }
-    
+
     public String proceguirUsuarioExterno() {
         System.out.println(usuario);
         return "dadosComplementaresUsuarioExterno?faces-redirect=true";
@@ -79,14 +83,28 @@ public class PrimeiroAcessoView implements Serializable {
         return usuario;
     }
 
-    public TipoUsuario getServidorPublico() {
-        return servidorPublico;
+    public void setUsuario(UsuarioEgefaz usuario) {
+        this.usuario = usuario;
     }
 
-    public TipoUsuario getCidadaoComunidade() {
-        return cidadaoComunidade;
+//    public TipoUsuario getServidorPublico() {
+//        return servidorPublico;
+//    }
+//
+//    public TipoUsuario getCidadaoComunidade() {
+//        return cidadaoComunidade;
+//    }
+    
+    @PostConstruct
+    public void init() {
+        if (usuario == null) {
+            this.usuario = new UsuarioEgefaz();
+            usuario.setTipoUsuario(TipoUsuario.SERVIDOR_INTERNO);
+        }
     }
     
-    
+    public TipoUsuario[] getTiposUsuario() {
+        return TipoUsuario.values();
+    }
 
 }

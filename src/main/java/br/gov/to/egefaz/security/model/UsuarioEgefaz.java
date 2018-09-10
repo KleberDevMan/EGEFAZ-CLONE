@@ -42,8 +42,9 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
     private Calendar dataNascimento;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
-    @Enumerated(EnumType.STRING)
-    private TipoUsuario tipoUsuario; //chave estrangeira
+//    @Enumerated(EnumType.STRING)
+//    private TipoUsuario tipoUsuario;
+    private String tipoUsuario;
     private Escolaridade escolaridade;
     private String celular;
     private String appMensagem;
@@ -138,12 +139,13 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
     }
 
     public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
+        return TipoUsuario.fromCodigo(tipoUsuario);
     }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+        this.tipoUsuario = tipoUsuario.getCodigo();
     }
+
 
     public String getNome() {
         return nome;
