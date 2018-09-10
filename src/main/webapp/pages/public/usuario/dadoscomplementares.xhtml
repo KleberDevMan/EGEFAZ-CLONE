@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/cadastro.xhtml">
+
+	<ui:define name="title">Dados Funcionais</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="form" prependId="false" style="margin: 10%;">
+			<p:focus for="form" />
+			<p:panel id="cadastro" header="Dados Funcionais"
+				style="margin:0 auto;text-align:center; text-transform: uppercase;">
+				<p:messages autoUpdate="true" />
+				<p:panel rendered="${!empty param['error']}"
+					styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+					<span class="ui-message-error-icon"></span>
+					<span class="ui-message-error-detail">CPF não encontrado!</span>
+				</p:panel>
+				<p:separator></p:separator>
+
+				<div class="ui-panelgrid ui-widget">
+					<div
+						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
+						style="border: none;">
+						<div class="ui-g">
+							<div class="ui-panelgrid-cell ui-g-12 ui-md-6">
+								<p:outputLabel for="cpf" value="CPF"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+								<p:inputMask mask="999.999.999-99" required="false"
+									requiredMessage="CPF é um campo obrigatório" id="cpf" value=""
+									style="margin:5px 5px 0px 5px;" />
+
+								<p:outputLabel for="nome" value="NOME"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+								<p:inputText id="nome" value="" style="margin:5px 5px 0px 5px;" />
+
+								<p:outputLabel for="lotacao" value="LOTAÇÃO"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+								<p:inputText id="lotacao" value=""
+									style="margin:5px 5px 0px 5px;" />
+							</div>
+							<div class="ui-panelgrid-cell ui-g-12 ui-md-6"></div>
+							<div class="ui-panelgrid-cell ui-g-12 ui-md-6"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<h:panelGrid columns="2" cellpadding="10"
+					style="margin:0 auto; clear: both;">
+
+					<p:commandButton id="btnCancelar" value="CANCELAR"
+						action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
+						ajax="false" immediate="true" />
+					<p:commandButton id="btnProsseguir" value="PROSSEGUIR" ajax="false"
+						action="#{cadastroExemplo.cadastrar()}" update="cadastro" />
+
+				</h:panelGrid>
+			</p:panel>
+
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
