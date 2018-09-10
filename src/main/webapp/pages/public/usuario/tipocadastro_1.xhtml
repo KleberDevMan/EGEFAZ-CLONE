@@ -10,7 +10,7 @@
 
     <ui:define name="content">
 
-        <h:form id="form" style="margin: 10%;">
+        <h:form id="form" prependId="false" style="margin: 10%;">
             <p:focus for="form" />
             <p:growl autoUpdate="true" closable="true"
                      style="margin: 0 auto; width:80%; text-align:center;" />
@@ -37,12 +37,15 @@
                             <!-- 							<h3 style="text-transform:  none;text-align: left;margin-top: 0;">O CPF informado não foi encontrado na base de dados, por favor escolha um tipo de cadastro para prosseguir.</h3> -->
                             <h:panelGrid columns="1" style="margin-bottom:10px;padding-left:8px; 	"
                                          cellpadding="5">
-                                <p:selectOneRadio id="console" value="#{primeiroAcessoView.usuario.tipoUsuario}" style="padding-left:10px">
-                                    <f:selectItems value="#{primeiroAcessoView.tiposUsuario}" var="tipoUsuario" itemValue="#{tipoUsuario.codigo}" itemLabel="#{tipoUsuario.label}"/>
+                                <p:selectOneRadio id="console" value="#{primeiroAcessoView.usuario.tipoUsuario}" 
+                                                  style="padding-left:10px"
+                                                  >
+                                    <f:selectItems value="#{primeiroAcessoView.tiposUser}" 
+                                                   var="tipoUsuario" 
+                                                   itemLabel="#{tipoUsuario.descricao}"/>
                                 </p:selectOneRadio>
                                 <p:commandButton id="escolher" value="PROSSEGUIR"
-                                                 action="#{primeiroAcessoView.proceguirUsuarioExterno()}"
-                                                 ajax="true" immediate="true" />
+                                                 action="#{primeiroAcessoView.proceguirUsuarioExterno()}" />
                             </h:panelGrid>
                         </div>
                     </p:panel>

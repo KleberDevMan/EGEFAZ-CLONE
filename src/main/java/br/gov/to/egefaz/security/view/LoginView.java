@@ -4,6 +4,7 @@ import br.gov.to.egefaz.security.domain.TipoUsuario;
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import br.gov.to.egefaz.security.service.UsuarioService;
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -17,14 +18,30 @@ import javax.inject.Named;
 public class LoginView implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private UsuarioEgefaz usuario = new UsuarioEgefaz();
+    private UsuarioEgefaz usuario;
     @EJB
     private UsuarioService usuarioService;
 
+    @PostConstruct
+    public void init() {
+        if (usuario == null) {
+            usuario = new UsuarioEgefaz();
+        }
+    }
+    
     public String btnLoginClick() {
         
+        System.out.println("usuario procurado -> "  + usuario.getCpf() + " || "+ usuario.getSenha());
+        
+        //busca na base local
         UsuarioEgefaz usr = usuarioService.autenticarUsuarioEgefaz(usuario.getCpf(), usuario.getSenha());
         FacesContext context = FacesContext.getCurrentInstance();
+        
+        if (usr != null) {
+          System.out.println("usuario encontrado -> "  + usr.getCpf() + " || "+ usr.getSenha());
+            
+        }
+        
         if (usr == null) {
             //habilita o escopo flash (a msg dura apenas um request)
             FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);

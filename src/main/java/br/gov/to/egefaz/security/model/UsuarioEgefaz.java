@@ -12,10 +12,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedNativeQueries;
-import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -42,9 +38,8 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
     private Calendar dataNascimento;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
-//    @Enumerated(EnumType.STRING)
-//    private TipoUsuario tipoUsuario;
-    private String tipoUsuario;
+    @Enumerated(EnumType.STRING)
+    private TipoUsuario tipoUsuario;
     private Escolaridade escolaridade;
     private String celular;
     private String appMensagem;
@@ -139,13 +134,12 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
     }
 
     public TipoUsuario getTipoUsuario() {
-        return TipoUsuario.fromCodigo(tipoUsuario);
+        return tipoUsuario;
     }
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario.getCodigo();
+        this.tipoUsuario = tipoUsuario;
     }
-
 
     public String getNome() {
         return nome;
