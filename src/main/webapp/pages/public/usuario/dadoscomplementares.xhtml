@@ -25,26 +25,108 @@
 					<div
 						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
 						style="border: none;">
-						<div class="ui-g">
-							<div class="ui-panelgrid-cell ui-g-12 ui-md-6">
-								<p:outputLabel for="cpf" value="CPF"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-								<p:inputMask mask="999.999.999-99" required="false"
-									requiredMessage="CPF é um campo obrigatório" id="cpf" value=""
-									style="margin:5px 5px 0px 5px;" />
 
-								<p:outputLabel for="nome" value="NOME"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-								<p:inputText id="nome" value="" style="margin:5px 5px 0px 5px;" />
+						<h:panelGrid columns="6" cellpadding="10"
+							style="margin:0 auto; clear: both;padding-top: 20px;">
 
-								<p:outputLabel for="lotacao" value="LOTAÇÃO"
+							<p:outputLabel for="cpf" value="CPF"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:inputMask mask="999.999.999-99" required="false"
+								requiredMessage="CPF é um campo obrigatório" id="cpf" value=""
+								style="margin:5px 5px 0px 5px;" />
+
+							<p:outputLabel for="nome" value="NOME"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:inputText id="nome" value="" style="margin:5px 5px 0px 5px;" />
+
+							<p:outputLabel for="sexo" value="SEXO"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:selectOneMenu id="sexo" value="#{selectOneMenuView.console}"
+								style="width:125px;">
+								<f:selectItem itemLabel="Escolha um" itemValue="" />
+								<f:selectItem itemLabel="Masculino" itemValue="M" />
+								<f:selectItem itemLabel="Feminino" itemValue="F" />
+							</p:selectOneMenu>
+
+
+							<p:outputLabel for="datanasc" value="DATA DE NASCIMENTO"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:calendar id="datanasc" value="#{calendarView.date5}"
+								locale="pt_BR" navigator="true" pattern="dd-mm-yyyy" />
+
+							<p:outputLabel for="escolaridade" value="ESCOLARIDADE"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:selectOneMenu id="escolaridade"
+								value="#{selectOneMenuView.console}" style="width:125px;">
+								<f:selectItem itemLabel="Escolha um" itemValue="" />
+								<f:selectItem itemLabel="Item1" itemValue="M" />
+							</p:selectOneMenu>
+
+							<p:outputLabel for="cidade" value="CIDADE"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:selectOneMenu id="cidade" value="#{selectOneMenuView.console}"
+								style="width:125px;">
+								<f:selectItem itemLabel="Escolha um" itemValue="" />
+								<f:selectItem itemLabel="Item1" itemValue="M" />
+							</p:selectOneMenu>
+
+							<p:outputLabel for="tel" value="TELEFONE"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
+
+							<p:outputLabel for="cel" value="CELULAR"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:inputText id="cel" value="" style="margin:5px 5px 0px 5px;" />
+
+							<p:outputLabel for="mail" value="E-MAIL"
+								style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<p:inputText id="mail" type="email" value=""
+								style="margin:5px 5px 0px 5px;" />
+
+						</h:panelGrid>
+						<p:separator></p:separator>
+
+						<h:panelGrid columns="2" cellpadding="10"
+							style="margin:0 auto; clear: both;">
+
+							<h:panelGrid columns="4" cellpadding="10"
+								style="margin:0 auto; clear: both;">
+
+								<p:outputLabel for="senha" value="SENHA"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
-								<p:inputText id="lotacao" value=""
-									style="margin:5px 5px 0px 5px;" />
-							</div>
-							<div class="ui-panelgrid-cell ui-g-12 ui-md-6"></div>
-							<div class="ui-panelgrid-cell ui-g-12 ui-md-6"></div>
-						</div>
+								<p:password id="senha" style="width:100%" required="false"
+									requiredMessage="Senha é um campo obrigatório" />
+
+								<p:outputLabel for="Rsenha" value="REPITA A SENHA"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+								<p:password id="Rsenha" style="width:100%" required="false"
+									requiredMessage="Senha é um campo obrigatório" />
+
+								<p:outputLabel for="app" value="APP DE MENSAGENS"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+								<p:inputText id="app" value="" style="margin:5px 5px 0px 5px;" />
+
+								<p:outputLabel for="Napp" value="NÚMERO APP DE MENSAGENS"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+								<p:inputText id="Napp" value="" style="margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="1" cellpadding="10"
+								style="margin:0 auto; clear: both;padding-top: 20px;">
+
+								<p:outputLabel for="foto" value="FOTO"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+
+								<h:form id="foto" enctype="multipart/form-data">
+									<p:growl id="messages" showDetail="true" />
+
+									<p:fileUpload  value="#{fileUploadView.file}" mode="simple"
+										skinSimple="true" />
+									
+								</h:form>
+
+							</h:panelGrid>
+						</h:panelGrid>
 					</div>
 				</div>
 

@@ -34,12 +34,9 @@
                         <p:separator></p:separator>
 
                         <div class="ui-panelgrid ui-widget">
-                            <!-- 							<h3 style="text-transform:  none;text-align: left;margin-top: 0;">O CPF informado não foi encontrado na base de dados, por favor escolha um tipo de cadastro para prosseguir.</h3> -->
-                            <h:panelGrid columns="1" style="margin-bottom:10px;padding-left:8px; 	"
-                                         cellpadding="5">
+                            <h:panelGrid columns="1" style="margin-bottom:10px;padding-left:8px;" cellpadding="5">
                                 <p:selectOneRadio id="console" value="#{primeiroAcessoView.usuario.tipoUsuario}" 
-                                                  style="padding-left:10px"
-                                                  >
+                                                  style="padding-left:10px">
                                     <f:selectItems value="#{primeiroAcessoView.tiposUser}" 
                                                    var="tipoUsuario" 
                                                    itemLabel="#{tipoUsuario.descricao}"/>
