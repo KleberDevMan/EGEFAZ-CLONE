@@ -20,22 +20,31 @@
 					<span class="ui-message-error-icon"></span>
 					<span class="ui-message-error-detail">CPF não encontrado!</span>
 				</p:panel>
+				
 				<p:separator></p:separator>
 
 				<div class="ui-panelgrid ui-widget" align="center">
-					<!-- 							<h3 style="text-transform:  none;text-align: left;margin-top: 0;">O CPF informado não foi encontrado na base de dados, por favor escolha um tipo de cadastro para prosseguir.</h3> -->
+					
 					<h:panelGrid columns="1"
 						style="margin-bottom:10px;padding-left:8px;" cellpadding="5" >
+						
 						<p:selectOneRadio id="console" value="#{radioView.console}">
 							<f:selectItem itemLabel="Servidor Público" itemValue="sp" />
 							<f:selectItem itemLabel="Cidadão Comum" itemValue="cc" />
 						</p:selectOneRadio>
+						
 						<p:commandButton id="escolher" value="PROSSEGUIR"
 							action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
 							ajax="false" immediate="true" />
+							
 					</h:panelGrid>
+					
 				</div>
+				
 			</p:panel>
+			
 		</h:form>
+		
 	</ui:define>
+	
 </ui:composition>

@@ -23,37 +23,51 @@
 						<h1>
 							<h:outputText value="" styleClass="outputLabelDocAuxliar !important" />
 						</h1>
-						<h:graphicImage library="images" name="logoEgefaz.png" style="width:100%"/>
+						<h:graphicImage library="images" name="LogoSistema.png" style="width:100%"/>
 					</div>
 					
 					<div class="ui-g-12">
+					
 						<h:message for="CPF" style="color:red;"/>
 						<h:panelGroup styleClass="md-inputfield">
 							<p:inputMask mask="999.999.999-99"  required="true" 
 							requiredMessage="CPF é um campo obrigatório" id="cpf"
 								value="" style="width:100%"/>
 							<p:outputLabel for="cpf" value="CPF" />
+							
 						</h:panelGroup>
+						
 					</div>
 					
 					<div hidden="true" class="ui-g-12 campo2">
+					
 						<h:message for="SENHA" style="color:red;"/>
 						<h:panelGroup styleClass="md-inputfield">
 							<p:inputText id="SENHA" required="true" requiredMessage="SENHA é um campo obrigatório!" style="width:100%"/>
 							<p:outputLabel value="SENHA"></p:outputLabel>
+							
 						</h:panelGroup>
+						
 					</div>
 					
 					<div class="ui-g-12">
+					
 						<p:commandButton id="btnPesquisar" value="PESQUISAR" ajax="false" styleClass="btnCAD1" icon="ui-icon-search"/>
 						<div class="campo2" hidden="true">
 							<p:commandButton id="btnLogin" value="LOGIN" ajax="false" styleClass="btnCAD1" icon="ui-icon-person"/>
+							
 						</div>
-					</div>					
-				</div>				
+						
+					</div>
+										
+				</div>
+								
 			</p:panel>
+			
 		</h:form>
+		
 	</ui:define>
+	
 </ui:composition>
 	
 	

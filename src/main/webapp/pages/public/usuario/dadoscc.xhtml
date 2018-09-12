@@ -4,11 +4,11 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	template="/pages/template/cadastro.xhtml">
-
+	
 	<ui:define name="title">Dados Funcionais</ui:define>
-
+	
 	<ui:define name="content">
-
+	
 		<h:form id="form" prependId="false" style="margin: 10%;">
 			<p:focus for="form" />
 			<p:panel id="cadastro" header="Dados Funcionais"
@@ -19,52 +19,64 @@
 					<span class="ui-message-error-icon"></span>
 					<span class="ui-message-error-detail">CPF não encontrado!</span>
 				</p:panel>
+				
 				<p:separator></p:separator>
-
+				
 				<div class="ui-panelgrid ui-widget">
 					<div
 						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
 						style="border: none;">
-
+						
 						<h:panelGrid columns="2" cellpadding="10"
 							style="margin:0 auto; clear: both;padding-top: 20px;">
 							<p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
-							<p:outputLabel 
-								value="Desejo informar dados funcionais." />
+							<p:outputLabel value="Desejo informar dados funcionais." />
 						</h:panelGrid>
-
-
+						
 						<h:panelGrid columns="4" cellpadding="10"
 							style="margin:0 auto; clear: both;padding-top: 20px;">
+							
 							<p:outputLabel for="empresa" value="EMPRESA"
 								style="font-size:14px; margin:5px 5px 0px 5px;" />
+								
 							<p:inputText id="empresa" value=""
 								style="margin:5px 5px 0px 5px;" />
-
+								
 							<p:outputLabel for="cidade" value="CIDADE"
 								style="font-size:14px; margin:5px 5px 0px 5px;" />
+								
 							<p:inputText id="cidade" value="" style="margin:5px 5px 0px 5px;" />
-	
+							
 							<p:outputLabel for="tel" value="TELEFONE"
 								style="font-size:14px; margin:5px 5px 0px 5px;" />
 							<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
-
+							
 							<p:outputLabel for="funcao" value="FUNÇÃO"
 								style="font-size:14px; margin:5px 5px 0px 5px;" />
 							<p:inputText id="funcao" value="" style="margin:5px 5px 0px 5px;" />
+							
 						</h:panelGrid>
+						
 					</div>
+					
 				</div>
+				
 				<h:panelGrid columns="2" cellpadding="10"
 					style="margin:0 auto; clear: both;padding-top: 20px;">
-
+					
 					<p:commandButton id="btnCancelar" value="CANCELAR"
 						action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
 						ajax="false" immediate="true" />
+						
 					<p:commandButton id="btnProsseguir" value="PROSSEGUIR" ajax="false"
 						action="#{cadastroExemplo.cadastrar()}" update="cadastro" />
+						
 				</h:panelGrid>
+				
 			</p:panel>
+			
 		</h:form>
+		
 	</ui:define>
+	
 </ui:composition>
