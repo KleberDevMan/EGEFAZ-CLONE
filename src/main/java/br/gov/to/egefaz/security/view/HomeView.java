@@ -1,22 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.gov.to.egefaz.security.view;
 
+import br.gov.to.egefaz.security.model.UsuarioEgefaz;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
 
-/**
- *
- * @author 06250631127
- */
-@Named @RequestScoped
-public class HomeView {
-    
-    public String deslogar() {
-        return "login_1.?faces-redirect=true";
+@ManagedBean
+@RequestScoped
+public class HomeView extends AbstractView{
+
+    private UsuarioEgefaz usuario;
+
+    @PostConstruct
+    public void init() {
+        if (usuario == null) {
+            this.usuario = (UsuarioEgefaz) getHttpSession().getAttribute("ID_USUARIO");
+        }
     }
     
+    public String deslogar() {
+        getHttpSession().removeAttribute("ID_USUARIO");
+        return "login_2?faces-redirect=true";
+    }
+
+    public UsuarioEgefaz getUsuario() {
+        return usuario;
+    }
 }

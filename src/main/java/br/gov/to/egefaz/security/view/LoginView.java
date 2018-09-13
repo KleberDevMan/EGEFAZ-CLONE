@@ -1,21 +1,16 @@
 package br.gov.to.egefaz.security.view;
 
-import br.gov.to.egefaz.security.domain.TipoUsuario;
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import br.gov.to.egefaz.security.service.UsuarioService;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
 
-import javax.inject.Named;
-
-@Named()
+@ManagedBean
 @ViewScoped
-public class LoginView implements Serializable {
+public class LoginView extends AbstractView implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private UsuarioEgefaz usuario;
@@ -28,38 +23,30 @@ public class LoginView implements Serializable {
             usuario = new UsuarioEgefaz();
         }
     }
-    
+
     public String btnLoginClick() {
-        
-        System.out.println("usuario procurado -> "  + usuario.getCpf() + " || "+ usuario.getSenha());
-        
         //busca na base local
         UsuarioEgefaz usr = usuarioService.autenticarUsuarioEgefaz(usuario.getCpf(), usuario.getSenha());
-        FacesContext context = FacesContext.getCurrentInstance();
-        
-        if (usr != null) {
-          System.out.println("usuario encontrado -> "  + usr.getCpf() + " || "+ usr.getSenha());
-            
-        }
-        
         if (usr == null) {
-            //habilita o escopo flash (a msg dura apenas um request)
-            FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
-            //exibe msg
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("usuario nao encontrado"));
+            exibirMensagem("usuario nao encontrado");
             usuario = new UsuarioEgefaz();
-            return "login_1?faces-redirect=true";
+            return "login_2";
         } else {
-            usuario = new UsuarioEgefaz();
+            //salva usuario em sessao
+            getHttpSession().setAttribute("ID_USUARIO", this.usuario);
             return "home.xhtml?faces-redirect=true";
         }
     }
 
     public String btnPrimeiroAcessoClick() {
-        return "usuario/primeiroAcesso_1?faces-redirect=true";
+        return "usuario/primeiroAcesso_2?faces-redirect=true";
     }
-    
+
     public UsuarioEgefaz getUsuario() {
         return usuario;
+    }
+    
+    public void btnCadastrarTestClick() {
+        usuarioService.salvarUsuario(usuario);
     }
 }

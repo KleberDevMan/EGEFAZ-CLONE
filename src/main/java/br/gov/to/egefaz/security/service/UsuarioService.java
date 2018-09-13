@@ -1,10 +1,8 @@
 package br.gov.to.egefaz.security.service;
 
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
 
 /**
  * realização da CRUD e chamada do CSVVS
@@ -22,13 +20,12 @@ public class UsuarioService extends AbstractService {
         } catch (NoResultException e) {
             return null;
         }
-    }
+    } 
 
     public UsuarioEgefaz autenticarUsuarioEgefaz(String cpf, String senha) {
         try {
-            return (UsuarioEgefaz) getEm().createQuery("SELECT u FROM UsuarioEgefaz u WHERE u.cpf = :pCpf and u.senha = :pSenha", UsuarioEgefaz.class).setParameter("pCpf", cpf).setParameter("pSenha", senha).getSingleResult();
+            return (UsuarioEgefaz) getEm().createNamedQuery("UsuarioEgefaz.findByUsrCpfSenha", UsuarioEgefaz.class).setParameter("cpf", cpf).setParameter("senha", senha).getSingleResult();
         } catch (NoResultException e) {
-            System.out.printf("erro -> " + e.getMessage());
             return null;
         }
     }
@@ -57,8 +54,8 @@ public class UsuarioService extends AbstractService {
 //        return false;
 //    }
 //
-//    public void salvarUsuario(UsuarioEgefaz usuario) {
-//        getEm().merge(usuario);
-//        getEm().flush();
-//    }
+    public void salvarUsuario(UsuarioEgefaz usuario) {
+        getEm().merge(usuario);
+        getEm().flush();
+    }
 }
