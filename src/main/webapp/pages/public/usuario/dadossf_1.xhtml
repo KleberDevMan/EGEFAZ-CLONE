@@ -41,12 +41,12 @@
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
 										<p:inputMask mask="999.999.999-99" required="false"
 											requiredMessage="CPF é um campo obrigatório" id="cpf"
-                                                                                        value="#{primeiroAcessoView.usuario.cpf}" style="margin:5px 5px 0px 5px;" />
+                                                                                        value="#{dadosSI.usuario.cpf}" style="margin:5px 5px 0px 5px;" />
 
 										<p:outputLabel for="lotacao" value="LOTAÇÃO"
 											style="font-size:14px; margin:5px 5px 0px 5px;" />
-                                                                                <p:inputText id="lotacao" value="#{primeiroAcessoView.usuario.lotacao}"
-											style="margin:5px 5px 0px 5px;" />
+                                                                                <p:inputText id="lotacao"
+                                                                                             style="margin:5px 5px 0px 5px;" value="#{dadosSI.usuario.lotacao}"/>
 
 									</div>
 									<div class="ui-panelgrid-cell ui-g-12 ui-md-4">
