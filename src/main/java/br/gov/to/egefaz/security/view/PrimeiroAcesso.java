@@ -15,6 +15,7 @@ public class PrimeiroAcesso extends AbstractView {
     private UsuarioEgefaz usuario;
     @EJB
     private UsuarioService usuarioService;
+    private boolean isUsrInterno = false;
 
     @PostConstruct
     public void init() {
@@ -24,26 +25,48 @@ public class PrimeiroAcesso extends AbstractView {
     }
 
     public String btnPesquisarClick() {
-        //verifica se esta cadastrado na base do sistema
+
+        //USUARIO VINDO DO AD
+        UsuarioEgefaz usrAd = null;
+
+        //verificacao 1 (se ja ta cadastrado)
         if (usuarioService.findByCpfInDataBaseSystem(usuario.getCpf()) != null) {
             exibirMensagem("você já está cadastrado.");
             return "";
-        } else {
-            //verifica no add se é o cpf de um usuario interno
-            UsuarioEgefaz usrAd = usuarioService.findByCpfInAd(usuario.getCpf());
-
+        }else{
+            usrAd = usuarioService.findByCpfInAd(usuario.getCpf());
+            //verificacao 2 (se é servidor interno)
             if (usrAd != null) {
+                this.isUsrInterno = true;
                 usuario = usrAd;
                 usuario.setTipoUsuario(TipoUsuario.SERVIDOR_INTERNO);
-                return "dadossf_1?faces-redirect=true";
-            }
+                exibirMensagem("Digite a senha de rede para fazermos a importação de dados");
+                return "";
+            } else {
+                return "tipocadastro_1?faces-redirect=true";
+            }   
         }
-        //nao: solicita escolha de um tipo de acesso (sp ou cc)
-        return "tipocadastro_1?faces-redirect=true";
+
+//        
+//        
+//        if (isUsrInterno) {
+//            //verificar senha de rede
+//            if (usrAd.getSenha().equals(usuario.getSenha())) {
+//                return "dadossf?faces-redirect=true";
+//            } else {
+//                exibirMensagem("senha de rede incorreta.");
+//                return "";
+//            }
+//        }
+
     }
 
     public UsuarioEgefaz getUsuario() {
         return usuario;
+    }
+
+    public boolean getIsUsrInterno() {
+        return isUsrInterno;
     }
 
 }

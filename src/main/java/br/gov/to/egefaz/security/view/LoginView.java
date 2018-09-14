@@ -24,6 +24,10 @@ public class LoginView extends AbstractView implements Serializable {
         }
     }
 
+    public String btnEsqueciSenhaClick() {
+        return "usuario/recuperar-senha?faces-redirect=true";
+    }
+    
     public String btnLoginClick() {
         //busca na base local
         UsuarioEgefaz usr = usuarioService.autenticarUsuarioEgefaz(usuario.getCpf(), usuario.getSenha());
@@ -39,7 +43,7 @@ public class LoginView extends AbstractView implements Serializable {
     }
 
     public String btnPrimeiroAcessoClick() {
-        return "usuario/primeiroAcesso_2?faces-redirect=true";
+        return "usuario/primeiroAcesso_1?faces-redirect=true";
     }
 
     public UsuarioEgefaz getUsuario() {

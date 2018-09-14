@@ -35,7 +35,7 @@ public class UsuarioService extends AbstractService {
 
         UsuarioEgefaz usrAd = null;
 
-        if (cpf.equals("444.444.444-44")) {
+        if (cpf.equals("44444444444")) {
             usrAd = new UsuarioEgefaz();
             usrAd.setNome("Kleber (UI)");
             usrAd.setOrgao("Secretaria da Fazenda");
@@ -43,6 +43,7 @@ public class UsuarioService extends AbstractService {
             usrAd.setMunicipio("Palmas");
             usrAd.setEmailInstitucional("kleber.chaves@sefaz.com");
             usrAd.setTelefone("3221-3234");
+            usrAd.setSenha("444");
 
             usrAd.setCpf(cpf);
         }
@@ -57,5 +58,9 @@ public class UsuarioService extends AbstractService {
     public void salvarUsuario(UsuarioEgefaz usuario) {
         getEm().merge(usuario);
         getEm().flush();
+    }
+
+    public UsuarioEgefaz autenticarUsuarioEgefazInAdd(String cpf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
