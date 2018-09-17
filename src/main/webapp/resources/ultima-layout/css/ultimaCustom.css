@@ -563,3 +563,18 @@ body.layout-compact .card h1{
 #btnCancelar{
 	background-color: #d64541;
 }
+
+/* A ideia desse bloco é servir de media queries para os campos dos dados complementares */
+.cellGridFormLabel{
+	width: 250px;
+}
+.cellGridFormLabelDois{
+	width: 110px;
+}
+.cellGridFormLabelTres{
+	width: 160px;
+}
+/*_______________________________________________________________________________________*/
+#barraFim{
+	border-color: #2121210d;
+}

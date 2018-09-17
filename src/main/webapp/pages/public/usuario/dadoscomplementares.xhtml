@@ -18,19 +18,21 @@
 					<span class="ui-message-error-icon"></span>
 					<span class="ui-message-error-detail">CPF não encontrado!</span>
 				</p:panel>
-				<h3 style="text-align: left; margin-bottom: 0px;">Pessoais</h3>
-				<p:separator></p:separator>
+				<h3
+							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Pessoais</h3>
+						<p:separator style="clear: both;"></p:separator>
 
 				<div class="ui-panelgrid ui-widget">
 
 					<div
 						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
-						style="border: none;">
+						style="border: none;" >
 
 						<h:panelGrid columns="4" cellpadding="5"
-							style="margin:0 auto; clear: both;padding-top: 10px;">
+							style="margin:0 auto;clear: both;padding-top: 10px; text-align:left;" columnClasses="cellGridFormLabelDois,none,cellGridFormLabel,none">
 
-							<h:panelGrid columns="2" cellpadding="0">
+							
+							<h:panelGrid columns="2" cellpadding="0" >
 								<i class="material-icons">fingerprint</i>
 								<p:outputLabel for="cpf" value="CPF"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
@@ -38,9 +40,9 @@
 							<p:inputMask mask="999.999.999-99" required="false"
 								requiredMessage="CPF é um campo obrigatório" id="cpf" value=""
 								style="margin:5px 5px 0px 5px;" />
-								
-								
-								<h:panelGrid columns="2" cellpadding="0">
+							
+
+							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons" style="float: left;">today</i>
 								<p:outputLabel for="datanasc" value="DATA DE NASCIMENTO"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
@@ -67,7 +69,7 @@
 								<f:selectItem itemLabel="Item1" itemValue="M" />
 							</p:selectOneMenu>
 
-							
+
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">people</i>
 								<p:outputLabel for="sexo" value="SEXO"
@@ -79,7 +81,7 @@
 								<f:selectItem itemLabel="Masculino" itemValue="M" />
 								<f:selectItem itemLabel="Feminino" itemValue="F" />
 							</p:selectOneMenu>
-							
+
 
 
 							<h:panelGrid columns="2" cellpadding="0">
@@ -93,37 +95,19 @@
 								<f:selectItem itemLabel="Item1" itemValue="M" />
 							</p:selectOneMenu>
 
-							
+
 
 						</h:panelGrid>
 						
-						<h3 style="text-align: left; margin-bottom: 0px; padding-top:15px;">Contato</h3>
-						<p:separator></p:separator>
+
+						<h3
+							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Contato</h3>
+						<p:separator style="clear: both;"></p:separator>
+
+						
 
 						<h:panelGrid columns="4" cellpadding="5"
-							style="margin:0 auto;clear: both;padding-top: 10px; float:left;">
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">phone</i>
-								<p:outputLabel for="tel" value="TELEFONE"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-							<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
-
-
-
-
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">smartphone</i>
-								<p:outputLabel for="cel" value="CELULAR"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-							<p:inputText id="cel" value="" style="margin:5px 5px 0px 5px;" />
-
-
-
-
+							style="margin:0 auto;clear: both;padding-top: 10px; text-align:left;" columnClasses="cellGridFormLabelDois,none,cellGridFormLabel,none">
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">email</i>
@@ -133,16 +117,49 @@
 							<p:inputText id="mail" type="email" value=""
 								style="margin:5px 5px 0px 5px;" />
 
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">smartphone</i>
+								<p:outputLabel for="app" value="APP DE MENSAGENS"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							<p:inputText id="app" value="" style="margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">smartphone</i>
+								<p:outputLabel for="cel" value="CELULAR"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							<p:inputText id="cel" value="" style="margin:5px 5px 0px 5px;" />
+
+							
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">phone</i>
+								<p:outputLabel for="Napp" value="NÚMERO APP DE MENSAGENS"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							<p:inputText id="Napp" value="" style="margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">phone</i>
+								<p:outputLabel for="tel" value="TELEFONE"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
+							
+							
+
 
 						</h:panelGrid>
-
-						<p:separator></p:separator>
-
-						<h:panelGrid columns="2" cellpadding="10"
-							style="margin:0 auto; clear: both;">
-
-							<h:panelGrid columns="4" cellpadding="10"
-								style="margin:0 auto; clear: both;">
+						
+						
+						<h3
+							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Conta</h3>
+						<p:separator style="clear: both;"></p:separator>
+						
+						
+						<h:panelGrid columns="4" cellpadding="5"
+							style="margin:0 auto; clear: both; text-align:left;padding-top: 10px;" columnClasses="cellGridFormLabelDois,none,cellGridFormLabelTres,none">
+							
 
 								<h:panelGrid columns="2" cellpadding="0">
 									<i class="material-icons">lock</i>
@@ -151,13 +168,7 @@
 								</h:panelGrid>
 								<p:password id="senha" style="width:100%" required="false"
 									requiredMessage="Senha é um campo obrigatório" />
-
-								<h:panelGrid columns="2" cellpadding="0">
-									<i class="material-icons">smartphone</i>
-									<p:outputLabel for="app" value="APP DE MENSAGENS"
-										style="font-size:14px; margin:5px 5px 0px 5px;" />
-								</h:panelGrid>
-								<p:inputText id="app" value="" style="margin:5px 5px 0px 5px;" />
+									
 
 								<h:panelGrid columns="2" cellpadding="0">
 									<i class="material-icons">lock</i>
@@ -167,17 +178,19 @@
 								<p:password id="Rsenha" style="width:100%" required="false"
 									requiredMessage="Senha é um campo obrigatório" />
 
-								<h:panelGrid columns="2" cellpadding="0">
-									<i class="material-icons">phone</i>
-									<p:outputLabel for="Napp" value="NÚMERO APP DE MENSAGENS"
-										style="font-size:14px; margin:5px 5px 0px 5px;" />
-								</h:panelGrid>
-								<p:inputText id="Napp" value="" style="margin:5px 5px 0px 5px;" />
+														
 
-							</h:panelGrid>
-
-							<h:panelGrid columns="1" cellpadding="10"
-								style="margin:0 auto; clear: both;padding-top: 20px;">
+						</h:panelGrid>
+						
+						
+						
+						<h3
+							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Perfil</h3>
+						<p:separator style="clear: both;"></p:separator>						
+						
+												
+						<h:panelGrid columns="2" cellpadding="5"
+								style="margin:0 auto; clear: both;padding-top: 10px;padding-bottom: 10px; text-align:left;" columnClasses="cellGridFormLabelDois">
 
 								<h:panelGrid columns="2" cellpadding="0">
 									<i class="material-icons">camera_alt</i>
@@ -192,8 +205,8 @@
 								</h:form>
 
 							</h:panelGrid>
-
-						</h:panelGrid>
+							
+					<p:separator id="barraFim" style="clear: both;"></p:separator>
 
 					</div>
 
