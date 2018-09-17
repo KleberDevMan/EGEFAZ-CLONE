@@ -19,53 +19,82 @@
 					<span class="ui-message-error-icon"></span>
 					<span class="ui-message-error-detail">CPF não encontrado!</span>
 				</p:panel>
-				
+
 				<p:separator></p:separator>
 
 				<div class="ui-panelgrid ui-widget">
 					<div
 						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
 						style="border: none;">
-						
+
 						<h:panelGrid columns="4" cellpadding="10"
 							style="margin:0 auto; clear: both; padding-top: 20px;">
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">fingerprint</i>
+								<p:outputLabel for="cpf" value="CPF"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
 							
-							<p:outputLabel for="cpf" value="CPF"
-								style="font-size:14px; margin:5px 5px 0px 5px;" />
 							<p:inputMask mask="999.999.999-99" required="false"
 								requiredMessage="CPF é um campo obrigatório" id="cpf" value=""
 								style="margin:5px 5px 0px 5px;" />
 
-							<p:outputLabel for="orgao" value="ÓRGÃO"
-								style="font-size:14px; margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">account_balance</i>
+								<p:outputLabel for="orgao" value="ÓRGÃO"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							
 							<p:inputText id="orgao" value="" style="margin:5px 5px 0px 5px;" />
 
-							<p:outputLabel for="mailInst" value="EMAIL"
-								style="font-size:14px; margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">email</i>
+								<p:outputLabel for="mailInst" value="EMAIL"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							
 							<p:inputText id="mailInst" type="email" value=""
 								style="margin:5px 5px 0px 5px;" />
 
-							<p:outputLabel for="lotacao" value="LOTAÇÃO"
-								style="font-size:14px; margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">work</i>
+								<p:outputLabel for="lotacao" value="LOTAÇÃO"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							
 							<p:inputText id="lotacao" value=""
 								style="margin:5px 5px 0px 5px;" />
 
-							<p:outputLabel for="tel" value="TELEFONE"
-								style="font-size:14px; margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">phone</i>
+								<p:outputLabel for="tel" value="TELEFONE"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							
 							<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
 
-							<p:outputLabel for="municipio" value="MUNICÍPIO"
-								style="font-size:14px; margin:5px 5px 0px 5px;" />
-							<p:selectOneMenu id="municipio" value="#{selectOneMenuView.console}"
-								style="width:125px;">
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">place</i>
+								<p:outputLabel for="municipio" value="MUNICÍPIO"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							
+							<p:selectOneMenu id="municipio"
+								value="#{selectOneMenuView.console}" style="width:125px;">
 								<f:selectItem itemLabel="Escolha um" itemValue="" />
 								<f:selectItem itemLabel="Item1" itemValue="M" />
-							</p:selectOneMenu> 	
-							
+							</p:selectOneMenu>
+
 						</h:panelGrid>
-						
+
 					</div>
-					
+
 				</div>
 
 				<h:panelGrid columns="2" cellpadding="10"
@@ -74,14 +103,14 @@
 					<p:commandButton id="btnCancelar" value="CANCELAR"
 						action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
 						ajax="false" immediate="true" />
-						
+
 					<p:commandButton id="btnProsseguir" value="PROSSEGUIR" ajax="false"
 						action="#{cadastroExemplo.cadastrar()}" update="cadastro" />
 
 				</h:panelGrid>
-				
+
 			</p:panel>
-			
+
 		</h:form>
 
 	</ui:define>

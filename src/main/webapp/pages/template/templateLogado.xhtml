@@ -1,13 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -20,42 +15,47 @@
 		<meta name="theme-color"
 			content="#{guestPreferences.themeColors[guestPreferences.theme]}" />
 	</f:facet>
-	<title>#{msg['LOGIN_AUDITOR_NFCE']}</title>
-	<h:outputScript name="/js/nanoscroller.js" library="ultima-layout" />
-	<h:outputScript name="/js/layout.js" library="ultima-layout" />
-	<h:outputScript name="/js/ripple.js" library="ultima-layout" />
-	<h:outputScript name="/js/swipe.js" library="ultima-layout" />
+	<title>Estado do Tocantins</title>
+	<h:outputScript name="js/nanoscroller.js" library="ultima-layout" />
+	<h:outputScript name="js/layout.js" library="ultima-layout" />
+	<h:outputScript name="js/ripple.js" library="ultima-layout" />
+	<h:outputScript name="js/swipe.js" library="ultima-layout" />
+	<h:outputScript name="mascara.js" library="js" />
 	<ui:insert name="head" />
+
 </h:head>
 
 <h:body styleClass="main-body layout-compact">
 
+<!-- 	<f:event listener="#{painelAdmin.renderizaMensagensDaSessao()}" -->
+<!-- 		type="preRenderView" /> -->
+
 	<div class="layout-wrapper menu-layout-static">
 		<ui:include src="topbar.xhtml" />
+
+		<ui:include src="menu-logado.xhtml" />
+
 		<div class="layout-main">
-			<div class="ui-g">
-				<div class="ui-g-12 ui-lg-9">
-					<ui:insert name="content" />
-				</div>
-			</div>
+
+			<h:form onkeypress="if (event.keyCode == 13) { return false; }"
+				id="form">
+				<p:growl id="messages" autoUpdate="true" closable="true"
+					style="margin:0 auto;  text-align:center;" />
+				<ui:insert name="body" />
+			</h:form>
+			<ui:remove>
+				<ui:include src="./footer.xhtml" />
+			</ui:remove>
 		</div>
 	</div>
-
-	<p:ajaxStatus
-		style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
-		<f:facet name="start">
-			<i class="fa fa-circle-o-notch fa-spin ajax-loader"
-				aria-hidden="true"></i>
-		</f:facet>
-
-		<f:facet name="complete"></f:facet>
-	</p:ajaxStatus>
 
 	<h:outputStylesheet name="css/nanoscroller.css" library="ultima-layout" />
 	<h:outputStylesheet name="css/animate.css" library="ultima-layout" />
 	<h:outputStylesheet name="css/ripple.css" library="ultima-layout" />
+	<!-- <h:outputStylesheet name="css/layout-dark-blue.css" library="ultima-layout" /> -->
 	<h:outputStylesheet name="css/layout-sefaz.css" library="ultima-layout" />
 	<h:outputStylesheet name="css/ultimaCustom.css" library="ultima-layout" />
+	<h:outputScript library="js" name="primefaces-locale.js"></h:outputScript>
 </h:body>
 
 </html>
