@@ -44,7 +44,7 @@
 						
 							<p:inputMask mask="999.999.999-99"  required="false" 
 							requiredMessage="CPF é um campo obrigatório" id="cpf"
-								value="" style="width:100%"/>
+								value="#{loginView.usuario.cpf}" style="width:100%"/>
                             <p:outputLabel for="cpf" value="CPF" />						
 							
 						</h:panelGroup>
@@ -57,7 +57,7 @@
 						<h:panelGroup styleClass="md-inputfield">
 							<p:password id="senha" style="width:100%" required="false"
 								requiredMessage="Senha é um campo obrigatório" />
-							<p:outputLabel value="SENHA"></p:outputLabel>
+                                                        <p:outputLabel value="#{loginView.usuario.senha}"></p:outputLabel>
 							
 						</h:panelGroup>
 						
@@ -66,11 +66,10 @@
 					<div class="ui-g-12">
 						<p:commandButton id="btnLogin" value="LOGIN" ajax="false"
                                                                  styleClass="" icon="ui-icon-person" action="#{loginView.btnLoginClick()}"/>
-						<p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help"
-							styleClass="secondary" rendered="true" />
+                                                <p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help" ajax="false"
+                                                                 styleClass="secondary" rendered="true" action="#{loginView.btnEsqueciSenhaClick()}" />
 						<p:commandButton value="PRIMEIRO ACESSO" icon="ui-icon-input"
-							styleClass="secondary" style="background-color: #00B16A;" rendered="true" />
-
+                                                                 styleClass="secondary" style="background-color: #00B16A;" action="#{loginView.btnPrimeiroAcessoClick()}" />
 					</div>
 
 				</div>

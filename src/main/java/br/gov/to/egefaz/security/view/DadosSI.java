@@ -2,12 +2,16 @@ package br.gov.to.egefaz.security.view;
 
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
+/**
+ *
+ * @author 06250631127
+ */
 @ManagedBean
 @RequestScoped
-public class HomeView extends AbstractView{
+public class DadosSI extends AbstractView{
 
     private UsuarioEgefaz usuario;
 
@@ -17,13 +21,11 @@ public class HomeView extends AbstractView{
             this.usuario = (UsuarioEgefaz) getHttpSession().getAttribute("ID_USUARIO");
         }
     }
-    
-    public String deslogar() {
-        getHttpSession().removeAttribute("ID_USUARIO");
-        return "login_2?faces-redirect=true";
-    }
 
+    
+    
     public UsuarioEgefaz getUsuario() {
         return usuario;
     }
+
 }
