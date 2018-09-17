@@ -15,61 +15,43 @@ public class PrimeiroAcesso extends AbstractView {
     private UsuarioEgefaz usuario;
     @EJB
     private UsuarioService usuarioService;
-    //variavel usada para renderizar ou nao o campo de insercao de senha paro o SI
+//    //variavel usada para renderizar ou nao o campo de insercao de senha paro o SI
     private boolean isUsrInterno = false;
-    //variavel usada para saber se o botao prosseguir irá autenticar SI ou proceguir para UE(usuario esterno)
-    private boolean EParaAutenticar = false;
+//    //variavel usada para saber se o botao prosseguir irá autenticar SI ou proceguir para UE(usuario esterno)
+//    private boolean EParaAutenticar = false;
+//    //USUARIO VINDO DO AD
+//    UsuarioEgefaz usrAd = null;
 
     @PostConstruct
     public void init() {
         if (usuario == null) {
             this.usuario = new UsuarioEgefaz();
         }
+        if (usuario.getTipoUsuario() == TipoUsuario.SERVIDOR_INTERNO) {
+            isUsrInterno = true;
+        }
     }
 
     private String autenticarAd() {
         return "";
     }
-    
-    
-    
-    private boolean jaEUmUsuario() {
-        if (usuarioService.findByCpfInDataBaseSystem(usuario.getCpf()) != null) {
-            exibirMensagem("você já está cadastrado.");
-            return true;
-        }
-        return false;
-    }
-    
+
     public String btnPesquisarClick() {
 
-        //USUARIO VINDO DO AD
-        UsuarioEgefaz usrAd = null;
-        
-        if (!EParaAutenticar) {
-            if (jaEUmUsuario()) {
-                return "";
-            } else {
-                usrAd = usuarioService.findByCpfInAd(usuario.getCpf());
-                //verificacao 2 (se é servidor interno)
-                if (usrAd != null) {
-                    isUsrInterno = true;
-                    EParaAutenticar = true;
-                    usuario = usrAd;
-                    usuario.setTipoUsuario(TipoUsuario.SERVIDOR_INTERNO);
-                    exibirMensagem("Digite a senha de rede para fazermos a importação de dados");
-                    return "";
-                } else {
-                    return "tipocadastro_1?faces-redirect=true";
-                }
-            }
-        }else{
-            //verificar senha de rede
-            if (usrAd.getSenha().equals(usuario.getSenha())) {
+        if (usuarioService.findByCpfInDataBaseSystem(usuario.getCpf()) != null) {
+            exibirMensagem("voce ja esta cadastrado. Tente recuperar sua senha");
+            return "";
+        } else {
+            UsuarioEgefaz usrAd = usuarioService.findByCpfInAd(usuario.getCpf());
+            //verificacao 2 (se é servidor interno)
+            if (usrAd != null) {
+                usuario = usrAd;
+                usuario.setTipoUsuario(TipoUsuario.SERVIDOR_INTERNO);
+                usuario.setEmailInstitucional(usuario.getCpf() + "@sefaz");
+                adicionaNaSessao("usuario", usuario);
                 return "dadossf_1?faces-redirect=true";
             } else {
-                exibirMensagem("senha de rede incorreta.");
-                return "";
+                return "tipocadastro_1?faces-redirect=true";
             }
         }
     }
@@ -78,8 +60,8 @@ public class PrimeiroAcesso extends AbstractView {
         return usuario;
     }
 
-    public boolean getIsUsrInterno() {
+    public boolean isIsUsrInterno() {
         return isUsrInterno;
     }
-
+    
 }

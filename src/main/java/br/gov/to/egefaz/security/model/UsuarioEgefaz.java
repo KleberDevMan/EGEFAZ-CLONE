@@ -4,8 +4,10 @@ import br.gov.to.egefaz.security.domain.Escolaridade;
 import br.gov.to.egefaz.security.domain.Sexo;
 import br.gov.to.egefaz.security.domain.TipoUsuario;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -37,7 +39,7 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
     //USUARIO
     private String cpf;
     @Temporal(TemporalType.DATE)
-    private Calendar dataNascimento;
+    private Date dataNascimento;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
     @Enumerated(EnumType.STRING)
@@ -167,13 +169,15 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
         this.cidade = cidade;
     }
 
-    public Calendar getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Calendar dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
+    
 
     public Sexo getSexo() {
         return sexo;

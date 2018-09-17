@@ -27,7 +27,7 @@ import javax.inject.Named;
 public class PrimeiroAcessoView implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private UsuarioEgefaz usuario;
+    private UsuarioEgefaz usuario = new UsuarioEgefaz();
     private List<TipoUsuario> tiposUser;
 
     @EJB
@@ -82,13 +82,13 @@ public class PrimeiroAcessoView implements Serializable {
         this.usuario = usuario;
     }
 
-    @PostConstruct
-    public void init() {
-        if (usuario == null) {
-            this.usuario = new UsuarioEgefaz();
-            this.tiposUser = Arrays.asList(TipoUsuario.SERVIDOR_EXTERNO, TipoUsuario.CIDADAO_COMUM);
-        }
-    }
+//    @PostConstruct
+//    public void init() {
+//        if (usuario == null) {
+//            this.usuario = new UsuarioEgefaz();
+//            this.tiposUser = Arrays.asList(TipoUsuario.SERVIDOR_EXTERNO, TipoUsuario.CIDADAO_COMUM);
+//        }
+//    }
 
     public List getTiposUser() {
         return tiposUser;

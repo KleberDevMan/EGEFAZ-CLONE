@@ -20,7 +20,7 @@ public abstract class AbstractView {
     public FacesContext getContext() {
         return FacesContext.getCurrentInstance();
     }
-    
+
     //colocar uma msg na instancia atual do FacesConstext
     public void exibirMensagem(String msg) {
         getContext().addMessage(null, new FacesMessage(msg));
@@ -30,6 +30,18 @@ public abstract class AbstractView {
     public HttpSession getHttpSession() {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         return (HttpSession) request.getSession();
+    }
+
+    public void adicionaNaSessao(String chave, Object obj) {
+        HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
+        session.setAttribute(chave, obj);
+    }
+
+    public Object pegaDaSessao(String chave) {
+        HttpServletRequest req = (HttpServletRequest) getContext().getExternalContext().getRequest();
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpSession session = (HttpSession) request.getSession();
+        return session.getAttribute(chave);
     }
 
 }

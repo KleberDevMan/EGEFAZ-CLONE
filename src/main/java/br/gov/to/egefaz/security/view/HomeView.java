@@ -14,7 +14,7 @@ public class HomeView extends AbstractView{
     @PostConstruct
     public void init() {
         if (usuario == null) {
-            this.usuario = (UsuarioEgefaz) getHttpSession().getAttribute("ID_USUARIO");
+            this.usuario = (UsuarioEgefaz) pegaDaSessao("ID_USUARIO");
         }
     }
     

@@ -37,7 +37,7 @@ public class LoginView extends AbstractView implements Serializable {
             return "login_2";
         } else {
             //salva usuario em sessao
-            getHttpSession().setAttribute("ID_USUARIO", this.usuario);
+            adicionaNaSessao("ID_USUARIO", this.usuario);
             return "home.xhtml?faces-redirect=true";
         }
     }

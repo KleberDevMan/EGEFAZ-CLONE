@@ -15,7 +15,7 @@
             <p:panel id="cadastro" styleClass="card login-panel ui-fluid">
                 <div class="ui-g">
                     <div class="ui-g-12">
-                        <p:messages autoUpdate="true" />
+<!--                        <p:messages autoUpdate="true" />-->
                         <p:panel rendered="${!empty param['error']}" styleClass="ui-message ui-message-error ui-widget ui-corner-all">
                             <span class="ui-message-error-icon"></span>
                             <span class="ui-message-error-detail">CPF não encontrado!</span>	
@@ -35,16 +35,23 @@
                             <p:outputLabel for="cpf" value="CPF" />
                         </h:panelGroup>
                     </div>
-                    <div class="ui-g-12 campo2">
+                    
+<!--                    <div class="ui-g-12 campo2">
                         <h:message for="SENHA" style="color:red;"/>
-                        <h:panelGroup styleClass="md-inputfield" rendered="#{primeiroAcesso.isUsrInterno}">
+                        <h:panelGroup styleClass="md-inputfield" rendered="{primeiroAcesso.isUsrInterno}">
                             <p:outputLabel value="SENHA"/>
-                            <p:password id="SENHA" required="true" requiredMessage="SENHA é um campo obrigatório!" style="width:100%" value="#{primeiroAcesso.usuario.senha}"/>
+                            <p:password id="SENHA" required="true" requiredMessage="SENHA é um campo obrigatório!" style="width:100%" value="{primeiroAcesso.usuario.senha}"/>
                         </h:panelGroup>
-                    </div>
+                    </div>-->
 
                     <div class="ui-g-12">
-                        <p:commandButton id="btnPesquisar" value="PROSSEGUIR" ajax="false" styleClass="btnCAD1" icon="ui-icon-search" action="#{primeiroAcesso.btnPesquisarClick()}" update="@form"/>
+                        <p:commandButton id="btnPesquisar" 
+                                         value="PROSSEGUIR" 
+                                         ajax="false" 
+                                         styleClass="btnCAD1" 
+                                         icon="ui-icon-search" 
+                                         action="#{primeiroAcesso.btnPesquisarClick()}" 
+                                         update="@form"/>
                     </div>
 
                 </div>

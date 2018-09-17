@@ -18,14 +18,18 @@ public class DadosSI extends AbstractView{
     @PostConstruct
     public void init() {
         if (usuario == null) {
-            this.usuario = (UsuarioEgefaz) getHttpSession().getAttribute("ID_USUARIO");
+            this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
         }
     }
 
-    
-    
     public UsuarioEgefaz getUsuario() {
         return usuario;
     }
+    
+    public String proceguir() {
+        adicionaNaSessao("usuario", usuario);
+        return "dadoscomplementares?faces-redirect=true";
+    }
 
+    
 }

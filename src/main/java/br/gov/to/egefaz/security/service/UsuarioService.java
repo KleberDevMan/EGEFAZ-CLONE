@@ -20,7 +20,7 @@ public class UsuarioService extends AbstractService {
         } catch (NoResultException e) {
             return null;
         }
-    } 
+    }
 
     public UsuarioEgefaz autenticarUsuarioEgefaz(String cpf, String senha) {
         try {
@@ -49,6 +49,14 @@ public class UsuarioService extends AbstractService {
         }
 
         return usrAd;
+    }
+
+    //busca usuario no add
+    public boolean autenticarUserAd(String cpf, String senha) {
+        if (cpf.equals("44444444444") && senha.equals("444")) {
+            return true;
+        }
+        return false;
     }
 
 //    public boolean isSenhaValida(String CPF, String Senha) {
