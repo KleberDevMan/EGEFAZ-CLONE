@@ -12,7 +12,7 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class PrimeiroAcessoView extends AbstractView {
 
-    private UsuarioEgefaz usuario;
+    private UsuarioEgefaz usuario = new UsuarioEgefaz();
     @EJB
     private UsuarioService usuarioService;
 

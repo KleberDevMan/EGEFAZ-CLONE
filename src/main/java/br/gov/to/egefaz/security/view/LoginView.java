@@ -13,7 +13,7 @@ import javax.faces.view.ViewScoped;
 public class LoginView extends AbstractView implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private UsuarioEgefaz usuario;
+    private UsuarioEgefaz usuario = new UsuarioEgefaz();
     @EJB
     private UsuarioService usuarioService;
 

@@ -13,7 +13,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class DadosSI extends AbstractView{
 
-    private UsuarioEgefaz usuario;
+    private UsuarioEgefaz usuario = new UsuarioEgefaz();
 
     @PostConstruct
     public void init() {

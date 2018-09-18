@@ -14,7 +14,7 @@ import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 @RequestScoped
 public class TipoCadastroView extends AbstractView{
 
-    private UsuarioEgefaz usuario;
+    private UsuarioEgefaz usuario = new UsuarioEgefaz();
 
     @PostConstruct
     public void init() {
