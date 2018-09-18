@@ -34,7 +34,7 @@ public class LoginView extends AbstractView implements Serializable {
         if (usr == null) {
             exibirMensagem("usuario nao encontrado");
             usuario = new UsuarioEgefaz();
-            return "login_2";
+            return "";
         } else {
             //salva usuario em sessao
             adicionaNaSessao("usuario", this.usuario);
@@ -43,7 +43,7 @@ public class LoginView extends AbstractView implements Serializable {
     }
 
     public String btnPrimeiroAcessoClick() {
-        return "usuario/primeiroAcesso_1?faces-redirect=true";
+        return "usuario/primeiroAcesso?faces-redirect=true";
     }
 
     public UsuarioEgefaz getUsuario() {

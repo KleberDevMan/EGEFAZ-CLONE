@@ -1,13 +1,9 @@
 package br.gov.to.egefaz.security.model;
 
-import br.gov.to.egefaz.security.domain.Escolaridade;
-import br.gov.to.egefaz.security.domain.Sexo;
-import br.gov.to.egefaz.security.domain.TipoUsuario;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -18,8 +14,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import br.gov.to.egefaz.security.domain.Escolaridade;
+import br.gov.to.egefaz.security.domain.Sexo;
+import br.gov.to.egefaz.security.domain.TipoUsuario;
 
 @Entity
 @NamedQueries({
@@ -97,12 +98,20 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "UsuarioEgefaz{" + "nome=" + nome + ", cpf=" + cpf + ", tipoUsuario=" + tipoUsuario + '}';
-    }
+    
 
     @Override
+	public String toString() {
+		return "UsuarioEgefaz [id=" + id + ", nome=" + nome + ", cidade=" + cidade + ", cpf=" + cpf
+				+ ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", tipoUsuario=" + tipoUsuario
+				+ ", escolaridade=" + escolaridade + ", celular=" + celular + ", appMensagem=" + appMensagem
+				+ ", numeroAppMsg=" + numeroAppMsg + ", status=" + status + ", permissaoAcesso=" + permissaoAcesso
+				+ ", emailPessoal=" + emailPessoal + ", senha=" + senha + ", municipio=" + municipio + ", telefone="
+				+ telefone + ", empresaEmpregadora=" + empresaEmpregadora + ", funcaoNaEmpresa=" + funcaoNaEmpresa
+				+ ", orgao=" + orgao + ", lotacao=" + lotacao + ", emailInstitucional=" + emailInstitucional + "]";
+	}
+
+	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

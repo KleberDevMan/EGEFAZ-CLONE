@@ -35,15 +35,14 @@
 
 					<h:panelGrid columns="1"
 						style="margin-bottom:10px;padding-left:8px;" cellpadding="5">
-
-						<p:selectOneRadio id="console" value="#{tipoCadastro.usuario.tipoUsuario}">
-							<f:selectItems value="#{tipoCadastro.tiposUsuario}"
+						<p:selectOneRadio id="console"
+							value="#{tipoCadastroView.usuario.tipoUsuario}"
+							style="padding-left:10px">
+							<f:selectItems value="#{tipoCadastroView.tiposUser}"
 								var="tipoUsuario" itemLabel="#{tipoUsuario.descricao}" />
 						</p:selectOneRadio>
-
 						<p:commandButton id="escolher" value="PROSSEGUIR"
-							action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
-							ajax="false" immediate="true" />
+							action="#{tipoCadastroView.proceguir()}" />
 
 					</h:panelGrid>
 

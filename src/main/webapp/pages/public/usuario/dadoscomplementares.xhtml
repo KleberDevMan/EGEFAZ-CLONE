@@ -19,36 +19,42 @@
 					<span class="ui-message-error-detail">CPF não encontrado!</span>
 				</p:panel>
 				<h3
-							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Pessoais</h3>
-						<p:separator style="clear: both;"></p:separator>
+					style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Pessoais</h3>
+				<p:separator style="clear: both;"></p:separator>
 
 				<div class="ui-panelgrid ui-widget">
 
 					<div
 						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
-						style="border: none;" >
+						style="border: none;">
 
 						<h:panelGrid columns="4" cellpadding="5"
-							style="margin:0 auto;clear: both;padding-top: 10px; text-align:left;" columnClasses="cellGridFormLabelDois,none,cellGridFormLabel,none">
+							style="margin:0 auto;clear: both;padding-top: 10px; text-align:left;"
+							columnClasses="cellGridFormLabelDois,none,cellGridFormLabel,none">
 
-							
-							<h:panelGrid columns="2" cellpadding="0" >
+
+							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">fingerprint</i>
 								<p:outputLabel for="cpf" value="CPF"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                    <p:inputMask mask="999.999.999-99" required="false" disabled="true"
-                                                                 requiredMessage="CPF é um campo obrigatório" id="cpf" value="#{dadosComplementares.usuario.cpf}"
+							<p:inputMask mask="999.999.999-99" required="false"
+								disabled="true" requiredMessage="CPF é um campo obrigatório"
+								id="cpf" value="#{dadosComplementaresView.usuario.cpf}"
 								style="margin:5px 5px 0px 5px;" />
-							
+
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons" style="float: left;">today</i>
 								<p:outputLabel for="datanasc" value="DATA DE NASCIMENTO"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                    <p:calendar id="datanasc" value="#{dadosComplementares.usuario.dataNascimento}"
-								locale="pt" navigator="true" pattern="dd/MM/yyyy" />
+
+							<p:calendar id="datanasc" required="true"
+								requiredMessage="Data de nascimento obrigato"
+								value="#{dadosComplementaresView.usuario.dataNascimento}"
+								locale="pt_BR" pattern="dd/MM/yyyy" mask="true" showOn="button">
+							</p:calendar>
 
 
 							<h:panelGrid columns="2" cellpadding="0">
@@ -56,7 +62,10 @@
 								<p:outputLabel for="nome" value="NOME"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                        <p:inputText id="nome" value="#{dadosComplementares.usuario.nome}" disabled="true" style="margin:5px 5px 0px 5px;" />
+							<p:inputText id="nome"
+								value="#{dadosComplementaresView.usuario.nome}"
+								disabled="#{dadosComplementaresView.usuario.tipoUsuario == dadosComplementaresView.usuarioInterno}"
+								style="margin:5px 5px 0px 5px;" />
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">school</i>
@@ -64,11 +73,12 @@
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 							<p:selectOneMenu id="escolaridade"
-                                                                         value="#{dadosComplementares.usuario.escolaridade}" 
-                                                                         style="width:125px;" required="true">
-                                                            <f:selectItem itemLabel="Selecione" itemValue=""/>
-                                                            <f:selectItems value="#{dadosComplementares.escolaridades}"/>
-                                                        </p:selectOneMenu>
+								value="#{dadosComplementaresView.usuario.escolaridade}"
+								style="width:125px;" required="true">
+								<f:selectItem itemLabel="Selecione" itemValue="" />
+								<f:selectItems value="#{dadosComplementaresView.escolaridades}"
+									var="escolaridade" itemLabel="#{escolaridade.descricao}" />
+							</p:selectOneMenu>
 
 
 							<h:panelGrid columns="2" cellpadding="0">
@@ -76,45 +86,48 @@
 								<p:outputLabel for="sexo" value="SEXO"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                        <p:selectOneMenu id="sexo" value="#{dadosComplementares.usuario.sexo}"
+							<p:selectOneRadio id="sexo"
+								value="#{dadosComplementaresView.usuario.sexo}"
 								style="width:125px;">
-                                                            <f:selectItems value="#{dadosComplementares.sexos}" 
-                                                                           var="sexo"/>
-							</p:selectOneMenu>
+								<f:selectItems value="#{dadosComplementaresView.sexos}"
+									var="sexo" itemLabel="#{sexo.descricao}" />
+							</p:selectOneRadio>
 
 
 
-<!--							<h:panelGrid columns="2" cellpadding="0">
+							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">place</i>
-								<p:outputLabel for="cidade" value="CIDADE"
+								<p:outputLabel for="cidade" value="CIDADE QUE RESIDE"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>-->
-<!--							<p:selectOneMenu id="cidade" value="#{selectOneMenuView.console}"
-								style="width:125px;">
-								<f:selectItem itemLabel="Escolha um" itemValue="" />
-								<f:selectItem itemLabel="Item1" itemValue="M" />
-							</p:selectOneMenu>-->
+							</h:panelGrid>
+							<p:inputText id="cidade" required="true"
+								converter="upperCaseConverter"
+								value="#{dadosComplementaresView.usuario.cidade}"
+								style="margin:5px 5px 0px 5px;" />
+
 
 
 
 						</h:panelGrid>
-						
+
 
 						<h3
-							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Contato</h3>
+							style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Contato</h3>
 						<p:separator style="clear: both;"></p:separator>
 
-						
+
 
 						<h:panelGrid columns="4" cellpadding="5"
-							style="margin:0 auto;clear: both;padding-top: 10px; text-align:left;" columnClasses="cellGridFormLabelDois,none,cellGridFormLabel,none">
+							style="margin:0 auto;clear: both;padding-top: 10px; text-align:left;"
+							columnClasses="cellGridFormLabelDois,none,cellGridFormLabel,none">
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">email</i>
-								<p:outputLabel for="mail" value="E-MAIL"
+								<p:outputLabel for="mail" value="E-MAIL PESSOAL"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                    <p:inputText id="mail" type="email" value="#{dadosComplementares.usuario.emailInstitucional}" 
+							<p:inputText id="mail" type="email"
+								value="#{dadosComplementaresView.usuario.emailPessoal}"
 								style="margin:5px 5px 0px 5px;" />
 
 							<h:panelGrid columns="2" cellpadding="0">
@@ -122,74 +135,78 @@
 								<p:outputLabel for="app" value="APP DE MENSAGENS"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                        <p:inputText id="app" value="#{dadosComplementares.usuario.appMensagem}" style="margin:5px 5px 0px 5px;" />
+							<p:inputText id="app"
+								value="#{dadosComplementaresView.usuario.appMensagem}"
+								style="margin:5px 5px 0px 5px;" />
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">smartphone</i>
 								<p:outputLabel for="cel" value="CELULAR"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                        <p:inputText id="cel" value="#{dadosComplementares.usuario.celular}" style="margin:5px 5px 0px 5px;" />
+							<p:inputText id="cel"
+								value="#{dadosComplementaresView.usuario.celular}"
+								style="margin:5px 5px 0px 5px;" />
 
-							
+
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">phone</i>
 								<p:outputLabel for="Napp" value="NÚMERO APP DE MENSAGENS"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-                                                        <p:inputText id="Napp" value="#{dadosComplementares.usuario.numeroAppMsg}" style="margin:5px 5px 0px 5px;" />
+							<p:inputText id="Napp"
+								value="#{dadosComplementaresView.usuario.numeroAppMsg}"
+								style="margin:5px 5px 0px 5px;" />
 
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">phone</i>
-								<p:outputLabel for="tel" value="TELEFONE"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-                                                        <p:inputText id="tel" value="#{dadosComplementares.usuario.telefone}" style="margin:5px 5px 0px 5px;" />
-							
-							
-
+							<!-- 							<h:panelGrid columns="2" cellpadding="0"> -->
+							<!-- 								<i class="material-icons">phone</i> -->
+							<!-- 								<p:outputLabel for="tel" value="TELEFONE" -->
+							<!-- 									style="font-size:14px; margin:5px 5px 0px 5px;" /> -->
+							<!-- 							</h:panelGrid> -->
+							<!-- 							<p:inputText id="tel" -->
+							<!-- 								value="#{dadosComplementaresView.usuario.telefone}" -->
+							<!-- 								style="margin:5px 5px 0px 5px;" /> -->
 
 						</h:panelGrid>
-						
-						
-						<h3
-							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Conta</h3>
-						<p:separator style="clear: both;"></p:separator>
-						
-						
-						<h:panelGrid columns="4" cellpadding="5"
-							style="margin:0 auto; clear: both; text-align:left;padding-top: 10px;" columnClasses="cellGridFormLabelDois,none,cellGridFormLabelTres,none">
-							
 
+
+						<h:panelGrid 
+							rendered="#{dadosComplementaresView.usuario.tipoUsuario != dadosComplementaresView.usuarioInterno}">
+
+							<h3
+								style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Conta</h3>
+							<p:separator style="clear: both;"></p:separator>
+
+							<h:panelGrid columns="4" cellpadding="5"
+								style="margin:0 auto; clear: both; text-align:left;padding-top: 10px;"
+								columnClasses="cellGridFormLabelDois,none,cellGridFormLabelTres,none">
+
+								
 								<h:panelGrid columns="2" cellpadding="0">
 									<i class="material-icons">lock</i>
 									<p:outputLabel for="senha" value="SENHA"
 										style="font-size:14px; margin:5px 5px 0px 5px;" />
 								</h:panelGrid>
-								<p:password id="senha" style="width:100%" required="false"
-                                                                            requiredMessage="Senha é um campo obrigatório" />
-									
-
+								<p:password id="senha" match="Rsenha" style="width:100%" required="false"
+									requiredMessage="Senha é um campo obrigatório" feedback="true" value="#{dadosComplementaresView.usuario.senha}"/>
 								<h:panelGrid columns="2" cellpadding="0">
 									<i class="material-icons">lock</i>
 									<p:outputLabel for="Rsenha" value="REPITA A SENHA"
 										style="font-size:14px; margin:5px 5px 0px 5px;" />
 								</h:panelGrid>
 								<p:password id="Rsenha" style="width:100%" required="false"
-									requiredMessage="Senha é um campo obrigatório" />
-
-														
-
+									requiredMessage="Senha é um campo obrigatório" value="#{dadosComplementaresView.usuario.senha}"/>
+							</h:panelGrid>
 						</h:panelGrid>
-						
-						
-						
+
+
+
 						<h3
-							style="text-align: left; margin-bottom: 0px; padding-top: 15px;clear: both;">Perfil</h3>
-						<p:separator style="clear: both;"></p:separator>						
-						
-												
-<!--						<h:panelGrid columns="2" cellpadding="5"
+							style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Perfil</h3>
+						<p:separator style="clear: both;"></p:separator>
+
+
+						<!--						<h:panelGrid columns="2" cellpadding="5"
 								style="margin:0 auto; clear: both;padding-top: 10px;padding-bottom: 10px; text-align:left;" columnClasses="cellGridFormLabelDois">
 
 								<h:panelGrid columns="2" cellpadding="0">
@@ -205,8 +222,8 @@
 								</h:form>
 
 							</h:panelGrid>-->
-							
-					<p:separator id="barraFim" style="clear: both;"></p:separator>
+
+						<p:separator id="barraFim" style="clear: both;"></p:separator>
 
 					</div>
 
@@ -216,16 +233,17 @@
 					style="margin:0 auto; clear: both;">
 
 					<p:commandButton id="btnCancelar" value="CANCELAR"
-						action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
+						action="#{dadosComplementaresView.btnCancelar()}"
 						ajax="false" immediate="true" />
 
 					<p:commandButton id="btnProsseguir" value="PROSSEGUIR" ajax="false"
-                                                         action="#{dadosComplementares.proceguir()}" update="cadastro" />
+						action="#{dadosComplementaresView.proceguir()}" update="cadastro" />
 
 				</h:panelGrid>
 			</p:panel>
 
 		</h:form>
+
 
 	</ui:define>
 

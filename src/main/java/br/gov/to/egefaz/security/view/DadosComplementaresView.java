@@ -1,15 +1,16 @@
 package br.gov.to.egefaz.security.view;
 
-import br.gov.to.egefaz.security.domain.Escolaridade;
-import br.gov.to.egefaz.security.domain.Sexo;
-import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+
+import br.gov.to.egefaz.security.domain.Escolaridade;
+import br.gov.to.egefaz.security.domain.Sexo;
+import br.gov.to.egefaz.security.domain.TipoUsuario;
+import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 
 /**
  *
@@ -17,23 +18,15 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class DadosComplementares extends AbstractView{
+public class DadosComplementaresView extends AbstractView{
 
     private UsuarioEgefaz usuario;
-    private Calendar dataNacimento;
-
-    public Calendar getDataNacimento() {
-        return dataNacimento;
-    }
-
-    
-    
 
     @PostConstruct
     public void init() {
         if (usuario == null) {
-            this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
-            this.usuario.setEscolaridade(Escolaridade.FUNDAMENTAL);
+        	this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
+        	this.usuario.setSexo(Sexo.MASCULINO);
         }
     }
 
@@ -42,11 +35,16 @@ public class DadosComplementares extends AbstractView{
     }
     
     public String proceguir() {
-        adicionaNaSessao("usuario", usuario);
-//        return "dadoscomplementares?faces-redirect=true";
-        System.out.println(usuario.getDataNascimento());
+    	System.out.println("cadastrando dados complementares....");
+        System.out.println(usuario);
         return "";
     }
+    
+    public String btnCancelar(){
+    	removeDaSessao("usuario");
+    	return "primeiroAcesso?faces-redirect=true";
+    }
+    
 
     public List<Sexo> getSexos() {
         return Arrays.asList(Sexo.values());
@@ -54,5 +52,9 @@ public class DadosComplementares extends AbstractView{
     
     public List<Escolaridade> getEscolaridades() {
         return Arrays.asList(Escolaridade.values());
+    }
+    
+    public TipoUsuario getUsuarioInterno() {
+    	return TipoUsuario.SERVIDOR_INTERNO;
     }
 }

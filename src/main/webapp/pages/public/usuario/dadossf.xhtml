@@ -35,9 +35,10 @@
 								<p:outputLabel for="cpf" value="CPF"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							
+
 							<p:inputMask mask="999.999.999-99" required="false"
-								requiredMessage="CPF é um campo obrigatório" id="cpf" value=""
+								disabled="true" requiredMessage="CPF é um campo obrigatório"
+								id="cpf" value="#{dadosSI.usuario.cpf}"
 								style="margin:5px 5px 0px 5px;" />
 
 
@@ -46,17 +47,19 @@
 								<p:outputLabel for="orgao" value="ÓRGÃO"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							
-							<p:inputText id="orgao" value="" style="margin:5px 5px 0px 5px;" />
+
+							<p:inputText disabled="true" id="orgao"
+								value="#{dadosSI.usuario.orgao}" style="margin:5px 5px 0px 5px;" />
 
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">email</i>
-								<p:outputLabel for="mailInst" value="EMAIL"
+								<p:outputLabel for="mailInst" value="EMAIL INSTITUCIONAL"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							
-							<p:inputText id="mailInst" type="email" value=""
+
+							<p:inputText disabled="true" id="mailInst" type="email"
+								value="#{dadosSI.usuario.emailInstitucional}"
 								style="margin:5px 5px 0px 5px;" />
 
 
@@ -65,18 +68,20 @@
 								<p:outputLabel for="lotacao" value="LOTAÇÃO"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							
-							<p:inputText id="lotacao" value=""
+
+							<p:inputText disabled="true" id="lotacao"
+								value="#{dadosSI.usuario.lotacao}"
 								style="margin:5px 5px 0px 5px;" />
 
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">phone</i>
-								<p:outputLabel for="tel" value="TELEFONE"
+								<p:outputLabel for="tel" value="TELEFONE DO SETOR"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							
-							<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
+
+							<p:inputText id="tel" required="true" value="#{dadosSI.usuario.telefone}"
+								style="margin:5px 5px 0px 5px;" />
 
 
 							<h:panelGrid columns="2" cellpadding="0">
@@ -84,12 +89,10 @@
 								<p:outputLabel for="municipio" value="MUNICÍPIO"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							
-							<p:selectOneMenu id="municipio"
-								value="#{selectOneMenuView.console}" style="width:125px;">
-								<f:selectItem itemLabel="Escolha um" itemValue="" />
-								<f:selectItem itemLabel="Item1" itemValue="M" />
-							</p:selectOneMenu>
+
+							<p:inputText id="municipio" disabled="true"
+								value="#{dadosSI.usuario.municipio}"
+								style="margin:5px 5px 0px 5px;" />
 
 						</h:panelGrid>
 
@@ -101,11 +104,10 @@
 					style="margin:0 auto; clear: both;padding-top: 20px;">
 
 					<p:commandButton id="btnCancelar" value="CANCELAR"
-						action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
-						ajax="false" immediate="true" />
+						action="#{dadosSI.btnCancelar()}" ajax="false" immediate="true" />
 
 					<p:commandButton id="btnProsseguir" value="PROSSEGUIR" ajax="false"
-						action="#{cadastroExemplo.cadastrar()}" update="cadastro" />
+						action="#{dadosSI.btnProceguir()}" update="cadastro" />
 
 				</h:panelGrid>
 

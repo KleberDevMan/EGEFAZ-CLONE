@@ -26,9 +26,14 @@ public class DadosSI extends AbstractView{
         return usuario;
     }
     
-    public String proceguir() {
+    public String btnProceguir() {
         adicionaNaSessao("usuario", usuario);
         return "dadoscomplementares?faces-redirect=true";
+    }
+    
+    public String btnCancelar() {
+        removeDaSessao("usuario");
+        return "primeiroAcesso?faces-redirect=true";
     }
 
     

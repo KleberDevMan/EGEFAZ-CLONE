@@ -36,6 +36,11 @@ public abstract class AbstractView {
         HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
         session.setAttribute(chave, obj);
     }
+    
+    public void removeDaSessao(String chave) {
+        HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
+        session.removeAttribute(chave);
+    }
 
     public Object pegaDaSessao(String chave) {
         HttpServletRequest req = (HttpServletRequest) getContext().getExternalContext().getRequest();
