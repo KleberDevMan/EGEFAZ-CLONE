@@ -20,13 +20,16 @@ import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 @RequestScoped
 public class DadosComplementaresView extends AbstractView{
 
-    private UsuarioEgefaz usuario = new UsuarioEgefaz();
+    private UsuarioEgefaz usuario;
 
     @PostConstruct
     public void init() {
         if (usuario == null) {
         	this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
         	this.usuario.setSexo(Sexo.MASCULINO);
+        	if (this.usuario == null) {
+				usuario = new UsuarioEgefaz();
+			}
         }
     }
 

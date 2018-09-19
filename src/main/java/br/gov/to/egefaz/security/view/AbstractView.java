@@ -10,6 +10,8 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import br.gov.to.egefaz.security.domain.VariaveisSessao;
+
 /**
  *
  * @author 06250631127
@@ -36,6 +38,12 @@ public abstract class AbstractView {
         HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
         session.setAttribute(chave, obj);
     }
+    
+    public void adicionaNaSessao(VariaveisSessao chave, Object obj) {
+        HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
+        session.setAttribute(chave.toString(), obj);
+    }
+    
     
     public void removeDaSessao(String chave) {
         HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);

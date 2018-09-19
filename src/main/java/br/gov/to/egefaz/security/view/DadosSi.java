@@ -6,14 +6,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 /**
- *
+ * Dados funcionais de um servidor interno
  * @author 06250631127
  */
 @ManagedBean
 @RequestScoped
-public class DadosSI extends AbstractView{
+public class DadosSi extends AbstractView{
 
-    private UsuarioEgefaz usuario = new UsuarioEgefaz();
+    private UsuarioEgefaz usuario;
 
     @PostConstruct
     public void init() {

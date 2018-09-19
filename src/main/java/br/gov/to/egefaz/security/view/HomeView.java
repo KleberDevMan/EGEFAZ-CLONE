@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 @RequestScoped
 public class HomeView extends AbstractView{
 
-    private UsuarioEgefaz usuario = new UsuarioEgefaz();
+    private UsuarioEgefaz usuario;
 
     @PostConstruct
     public void init() {

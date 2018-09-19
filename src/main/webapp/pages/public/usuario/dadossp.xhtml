@@ -37,16 +37,16 @@
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 							
-							<p:inputText id="orgao" value="" style="margin:5px 5px 0px 5px;" />
+							<p:inputText id="orgao" value="#{dadosSe.usuario.orgao}" style="margin:5px 5px 0px 5px;" />
 							
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">phone</i>
-								<p:outputLabel for="tel" value="TELEFONE"
+								<p:outputLabel for="tel" value="TELEFONE DO SETOR"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 							
-							<p:inputText id="tel" value="" style="margin:5px 5px 0px 5px;" />
+							<p:inputMask id="tel" value="#{dadosSe.usuario.telefone}" mask="(99) 9999-9999" style="margin:5px 5px 0px 5px;"/>
 							
 
 							<h:panelGrid columns="2" cellpadding="0">
@@ -55,7 +55,7 @@
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 								
-							<p:inputText id="lotacao" value=""
+							<p:inputText id="lotacao" value="#{dadosSe.usuario.lotacao}"
 								style="margin:5px 5px 0px 5px;" />
 								
 								
@@ -65,7 +65,7 @@
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 								
-							<p:inputText id="mailInst" type="email" value=""
+							<p:inputText id="mailInst" type="email" value="#{dadosSe.usuario.emailInstitucional}"
 								style="margin:5px 5px 0px 5px;" />
 								
 
@@ -75,10 +75,10 @@
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 								
-							<p:selectOneMenu id="municipio" value="#{selectOneMenuView.console}"
+							<p:selectOneMenu id="municipio" value="#{dadosSe.usuario.cidade}"
 								style="width:125px;">
-								<f:selectItem itemLabel="Escolha um" itemValue="" />
-								<f:selectItem itemLabel="Item1" itemValue="M" />
+								<f:selectItem itemLabel="Selecione" itemValue=""/>
+								<f:selectItems value="#{dadosSe.cidades}" />
 							</p:selectOneMenu>
 							
 						</h:panelGrid>
@@ -86,8 +86,8 @@
 						<div class="ui-panelgrid-cell ui-g-12 ui-md-2"
 							style="clear: both;">
 							
-							<p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
-							<p:outputLabel for="@next" value="Aceito os termos e condições." />
+							<p:selectBooleanCheckbox value="#{dadosSe.aceite}" />
+							<p:outputLabel for="@next" value="Confirmo que as informações acima são verdadeiras." />
 							
 						</div>
 						
@@ -99,11 +99,11 @@
 					style="margin:0 auto; clear: both;padding-top: 20px;">
 
 					<p:commandButton id="btnCancelar" value="CANCELAR"
-						action="#{cancelarExemplo.redirecionaPagina('PAINEL_EXEMPLO')}"
+						action="#{dadosSe.btnCancelar()}"
 						ajax="false" immediate="true" />
 						
 					<p:commandButton id="btnProsseguir" value="PROSSEGUIR" ajax="false"
-						action="#{cadastroExemplo.cadastrar()}" update="cadastro" />
+						action="#{dadosSe.btnProceguir()}" update="cadastro" />
 						
 				</h:panelGrid>
 				

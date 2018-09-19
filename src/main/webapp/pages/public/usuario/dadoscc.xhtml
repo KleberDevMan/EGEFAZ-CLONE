@@ -29,12 +29,15 @@
 
 						<h:panelGrid columns="2" cellpadding="10"
 							style="margin:0 auto; clear: both;padding-top: 20px;">
-							<p:selectBooleanCheckbox value="#{selectBooleanView.value1}" />
+							<p:selectBooleanCheckbox value="#{dadosCc.check}">
+								<p:ajax event="change" update="@form" />
+							</p:selectBooleanCheckbox>
 							<p:outputLabel value="Desejo informar dados funcionais." />
 						</h:panelGrid>
 
 						<h:panelGrid columns="4" cellpadding="10"
-							style="margin:0 auto; clear: both;padding-top: 20px;">
+							style="margin:0 auto; clear: both;padding-top: 20px;"
+							rendered="#{dadosCc.check}">
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">account_balance</i>
