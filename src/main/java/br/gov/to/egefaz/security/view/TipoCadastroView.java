@@ -5,21 +5,24 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import br.gov.to.egefaz.security.domain.TipoUsuario;
+import br.gov.to.egefaz.security.domain.VariaveisSessao;
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class TipoCadastroView extends AbstractView{
 
-    private UsuarioEgefaz usuario;
+    private static final String REDIRECIONA_DADOSCC = "dadosCc?faces-redirect=true";
+	private static final String REDIRECIONA_DADOSSP = "dadosSe?faces-redirect=true";
+	private UsuarioEgefaz usuario;
 
     @PostConstruct
     public void init() {
         if (usuario == null) {
-            this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
+            this.usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
             this.usuario.setTipoUsuario(TipoUsuario.SERVIDOR_EXTERNO);
         }
     }
@@ -33,12 +36,12 @@ public class TipoCadastroView extends AbstractView{
     }
     
     public String proceguir() {
-        adicionaNaSessao("usuario", usuario);
+        adicionaNaSessao(VariaveisSessao.USUARIO, usuario);
         
         if (this.usuario.getTipoUsuario() == TipoUsuario.SERVIDOR_EXTERNO) 
-        	return "dadossp?faces-redirect=true";
+        	return REDIRECIONA_DADOSSP;
 		else
-        return "dadoscc?faces-redirect=true";
+        return REDIRECIONA_DADOSCC;
     }
 
     

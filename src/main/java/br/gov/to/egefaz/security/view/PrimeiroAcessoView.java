@@ -1,6 +1,7 @@
 package br.gov.to.egefaz.security.view;
 
 import br.gov.to.egefaz.security.domain.TipoUsuario;
+import br.gov.to.egefaz.security.domain.VariaveisSessao;
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import br.gov.to.egefaz.security.service.UsuarioService;
 import javax.annotation.PostConstruct;
@@ -12,9 +13,15 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class PrimeiroAcessoView extends AbstractView {
 
-	private UsuarioEgefaz usuario;
+	private static final String REDIRECIONA_TIPOCADASTRO = "tipoCadastro?faces-redirect=true";
+	private static final String REDIRECIONA_DADOSSF = "dadosSi?faces-redirect=true";
+	private static final String EMAIL_INSTITUCIONAL_SEFAZ = "@sefaz.to.gov.br";
+	
 	@EJB
 	private UsuarioService usuarioService;
+
+	private UsuarioEgefaz usuario;
+	private UsuarioEgefaz servidorInternoImportado;
 	private boolean isServiodorInterno = false;
 
 	@PostConstruct
@@ -32,31 +39,40 @@ public class PrimeiroAcessoView extends AbstractView {
 			this.usuario = new UsuarioEgefaz();
 			return "";
 		} else {
-			UsuarioEgefaz usrAd = usuarioService.findByCpfInAd(usuario.getCpf());
+			servidorInternoImportado = usuarioService.findByCpfInAd(usuario.getCpf());
 			// VERIFICA SE É UM SERVIDOR INTERNO
-			if (usrAd != null) {
+			if (servidorInternoImportado != null) {
 				isServiodorInterno = true;
-//				usuario = usrAd;
-//				usuario.setTipoUsuario(TipoUsuario.SERVIDOR_INTERNO);
-//				usuario.setEmailInstitucional(usuario.getCpf() + "@sefaz.to.gov.br");
-//				adicionaNaSessao("usuario", usuario);
-//				return "dadossf?faces-redirect=true";
 				return "";
 			}
 			// ORIENTA PARA CADASTRO DE SERVIDOR EXTERNO
 			else {
-				adicionaNaSessao("usuario", usuario);
+				adicionaNaSessao(VariaveisSessao.USUARIO, usuario);
 				this.usuario = new UsuarioEgefaz();
-				return "tipocadastro?faces-redirect=true";
+				return REDIRECIONA_TIPOCADASTRO;
 			}
 		}
 	}
 	
 	public String autenticaServidorInterno() {
-		return "";
+		
+		//VERIFICA SENHA DIGITADA
+		if (usuario.getSenha().equals(servidorInternoImportado.getSenha())) {
+			importaServidorInterno();
+			return REDIRECIONA_DADOSSF;
+		}else {
+			exibirMensagem("senha incorreta");
+			this.usuario.setSenha("");
+			return "";
+		}
+		
 	}
-	public String importaServidorInterno() {
-		return "";
+	public void importaServidorInterno() {
+		this.usuario = servidorInternoImportado;
+		this.usuario.setTipoUsuario(TipoUsuario.SERVIDOR_INTERNO);
+		this.usuario.setEmailInstitucional(usuario.getCpf() + EMAIL_INSTITUCIONAL_SEFAZ);
+		this.usuario.setSenha("");
+		adicionaNaSessao(VariaveisSessao.USUARIO, this.usuario);
 	} 
 
 	public UsuarioEgefaz getUsuario() {

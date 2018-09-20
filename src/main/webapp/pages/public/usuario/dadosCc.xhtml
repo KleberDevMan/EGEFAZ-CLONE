@@ -12,7 +12,7 @@
 		<h:form id="form" prependId="false" style="margin: 10%;">
 			<p:focus for="form" />
 			<p:panel id="cadastro" header="Dados Funcionais"
-				style="margin:0 auto; text-align:center; text-transform: uppercase;">
+				style="margin:0 auto;text-align:center; text-transform: uppercase;">
 				<p:messages autoUpdate="true" />
 				<p:panel rendered="${!empty param['error']}"
 					styleClass="ui-message ui-message-error ui-widget ui-corner-all">
@@ -27,72 +27,49 @@
 						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
 						style="border: none;">
 
+						<h:panelGrid columns="2" cellpadding="10"
+							style="margin:0 auto; clear: both;padding-top: 20px;">
+							<p:selectBooleanCheckbox value="#{dadosCc.check}">
+								<p:ajax event="change" update="@form" />
+							</p:selectBooleanCheckbox>
+							<p:outputLabel value="Desejo informar dados funcionais." />
+						</h:panelGrid>
+
 						<h:panelGrid columns="4" cellpadding="10"
-							style="margin:0 auto; clear: both; padding-top: 20px;">
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">fingerprint</i>
-								<p:outputLabel for="cpf" value="CPF"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-
-							<p:inputMask mask="999.999.999-99" required="false"
-								disabled="true" requiredMessage="CPF é um campo obrigatório"
-								id="cpf" value="#{dadosSI.usuario.cpf}"
-								style="margin:5px 5px 0px 5px;" />
-
+							style="margin:0 auto; clear: both;padding-top: 20px;"
+							rendered="#{dadosCc.check}">
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">account_balance</i>
-								<p:outputLabel for="orgao" value="ÓRGÃO"
+								<p:outputLabel for="empresa" value="EMPRESA"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-
-							<p:inputText disabled="true" id="orgao"
-								value="#{dadosSI.usuario.orgao}" style="margin:5px 5px 0px 5px;" />
-
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">email</i>
-								<p:outputLabel for="mailInst" value="EMAIL INSTITUCIONAL"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-
-							<p:inputText disabled="true" id="mailInst" type="email"
-								value="#{dadosSI.usuario.emailInstitucional}"
-								style="margin:5px 5px 0px 5px;" />
-
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">work</i>
-								<p:outputLabel for="lotacao" value="LOTAÇÃO"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-
-							<p:inputText disabled="true" id="lotacao"
-								value="#{dadosSI.usuario.lotacao}"
-								style="margin:5px 5px 0px 5px;" />
-
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">phone</i>
-								<p:outputLabel for="tel" value="TELEFONE DO SETOR"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-
-							<p:inputText id="tel" required="true" value="#{dadosSI.usuario.telefone}"
+							<p:inputText id="empresa" value="#{dadosCc.usuario.empresaEmpregadora}"
 								style="margin:5px 5px 0px 5px;" />
 
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">place</i>
-								<p:outputLabel for="municipio" value="MUNICÍPIO"
+								<p:outputLabel for="cidade" value="CIDADE"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
+							<p:inputText id="cidade" value="#{dadosCc.usuario.cidade}" style="margin:5px 5px 0px 5px;" />
 
-							<p:inputText id="municipio" disabled="true"
-								value="#{dadosSI.usuario.municipio}"
-								style="margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">phone</i>
+								<p:outputLabel for="tel" value="TELEFONE DA EMPRESA"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							<p:inputText id="tel" value="#{dadosCc.usuario.telefone}" style="margin:5px 5px 0px 5px;" />
+
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">work</i>
+								<p:outputLabel for="funcao" value="FUNÇÃO NA EMPRESA"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							<p:inputText id="funcao" value="#{dadosCc.usuario.funcaoNaEmpresa}" style="margin:5px 5px 0px 5px;" />
 
 						</h:panelGrid>
 
@@ -104,10 +81,14 @@
 					style="margin:0 auto; clear: both;padding-top: 20px;">
 
 					<p:commandButton id="btnCancelar" value="CANCELAR"
-						action="#{dadosSI.btnCancelar()}" ajax="false" immediate="true" />
+						action="#{dadosCc.btnCancelar()}"
+						ajax="false" immediate="true" />
 
 					<p:commandButton id="btnProsseguir" value="PROSSEGUIR" ajax="false"
-						action="#{dadosSI.btnProceguir()}" update="cadastro" />
+						action="#{dadosCc.btnProceguir()}" 
+						update="cadastro" />
+
+					<p:defaultCommand target="btnProsseguir" />
 
 				</h:panelGrid>
 

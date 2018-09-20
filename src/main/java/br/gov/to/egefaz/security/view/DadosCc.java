@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -18,10 +19,10 @@ import br.gov.to.egefaz.security.model.UsuarioEgefaz;
  * @author 06250631127
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class DadosCc extends AbstractView {
 
-	private static final String REDIRECIONA_PAGINA_DADOS_COMPLEMENTARES = "dadoscomplementares?faces-redirect=true";
+	private static final String REDIRECIONA_DADOS_COMPLEMENTARES = "dadosComplementares?faces-redirect=true";
 	private static final String REDIRECIONA_PRIMEIRO_ACESSO = "primeiroAcesso?faces-redirect=true";
 
 	private UsuarioEgefaz usuario;
@@ -31,7 +32,7 @@ public class DadosCc extends AbstractView {
 	@PostConstruct
 	public void init() {
 		if (usuario == null) {
-			this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
+			this.usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
 		}
 	}
 
@@ -40,24 +41,19 @@ public class DadosCc extends AbstractView {
 	}
 
 	public String btnProceguir() {
-//
-//		if (!isAceite()) {
-//			exibirMensagem("Confirme veracidade das informações");
-//			return StringUtils.EMPTY;
-//		}
-//		adicionaNaSessao(VariaveisSessao.USUARIO, usuario);
-		return REDIRECIONA_PAGINA_DADOS_COMPLEMENTARES;
+		adicionaNaSessao(VariaveisSessao.USUARIO, usuario);
+		return REDIRECIONA_DADOS_COMPLEMENTARES;
 	}
-	
+
 	public String btnCancelar() {
-		removeDaSessao("usuario");
+		removeDaSessao(VariaveisSessao.USUARIO);
 		return REDIRECIONA_PRIMEIRO_ACESSO;
 	}
 
 	public UsuarioEgefaz getUsuario() {
 		return usuario;
 	}
-	
+
 	public boolean isCheck() {
 		return check;
 	}
@@ -77,7 +73,6 @@ public class DadosCc extends AbstractView {
 	public void setUsuario(UsuarioEgefaz usuario) {
 		this.usuario = usuario;
 	}
-
 
 	public List<String> getCidades() {
 		return Arrays.asList("Palmas", "Porto Nacional");

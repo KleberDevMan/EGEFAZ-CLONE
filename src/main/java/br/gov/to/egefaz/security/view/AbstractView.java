@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.gov.to.egefaz.security.view;
 
 import javax.faces.application.FacesMessage;
@@ -18,43 +13,39 @@ import br.gov.to.egefaz.security.domain.VariaveisSessao;
  */
 public abstract class AbstractView {
 
-    //retorna a instancia altual do FacesConstext
+    //RETORNA A INSTANCIA DO FACES CONTEXT
     public FacesContext getContext() {
         return FacesContext.getCurrentInstance();
     }
+    
+    //RETORNA UMA REQUISICAO
+    public HttpServletRequest getRequest() {
+    	return (HttpServletRequest) getContext().getExternalContext().getRequest();
+    }
+    
+    //RETORNA A SESSAO ATUAL
+    public HttpSession getSession() {
+    	return getRequest().getSession(Boolean.TRUE);
+    }
 
-    //colocar uma msg na instancia atual do FacesConstext
+    //EXIBE MENSAGEM
     public void exibirMensagem(String msg) {
         getContext().addMessage(null, new FacesMessage(msg));
     }
 
-    //retorna a instancia altual do sessao do usuario
-    public HttpSession getHttpSession() {
-        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-        return (HttpSession) request.getSession();
-    }
-
-    public void adicionaNaSessao(String chave, Object obj) {
-        HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
-        session.setAttribute(chave, obj);
-    }
-    
+    //ADICIONA UM OBJ NA SESSAO
     public void adicionaNaSessao(VariaveisSessao chave, Object obj) {
-        HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
-        session.setAttribute(chave.toString(), obj);
+        getSession().setAttribute(chave.name(), obj);
     }
     
-    
-    public void removeDaSessao(String chave) {
-        HttpSession session = (HttpSession) getContext().getExternalContext().getSession(false);
-        session.removeAttribute(chave);
+    //REMOVE UM OBJ DA SESSAO
+    public void removeDaSessao(VariaveisSessao chave) {
+        getSession().removeAttribute(chave.name());
     }
 
-    public Object pegaDaSessao(String chave) {
-        HttpServletRequest req = (HttpServletRequest) getContext().getExternalContext().getRequest();
-        HttpServletRequest request = (HttpServletRequest) req;
-        HttpSession session = (HttpSession) request.getSession();
-        return session.getAttribute(chave);
+    //PEGA UM OBJ DA SESSAO
+    public Object pegaDaSessao(VariaveisSessao chave) {
+        return getSession().getAttribute(chave.name());
     }
 
 }

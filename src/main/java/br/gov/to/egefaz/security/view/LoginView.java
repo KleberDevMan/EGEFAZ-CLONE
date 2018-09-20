@@ -1,18 +1,25 @@
 package br.gov.to.egefaz.security.view;
 
-import br.gov.to.egefaz.security.model.UsuarioEgefaz;
-import br.gov.to.egefaz.security.service.UsuarioService;
 import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.view.ViewScoped;
+
+import br.gov.to.egefaz.security.domain.VariaveisSessao;
+import br.gov.to.egefaz.security.model.UsuarioEgefaz;
+import br.gov.to.egefaz.security.service.UsuarioService;
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class LoginView extends AbstractView implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final String REDIRECIONA_RECUPERAR_SENHA = "usuario/recuperarSenha?faces-redirect=true";
+	private static final String REDIRECIONA_HOME = "home.xhtml?faces-redirect=true";
+	private static final String REDIRECIONA_PRIMEIRO_ACESSO = "usuario/primeiroAcesso?faces-redirect=true";
+	
+	private static final long serialVersionUID = 1L;
     private UsuarioEgefaz usuario = new UsuarioEgefaz();
     @EJB
     private UsuarioService usuarioService;
@@ -25,32 +32,31 @@ public class LoginView extends AbstractView implements Serializable {
     }
 
     public String btnEsqueciSenhaClick() {
-        return "usuario/recuperar-senha?faces-redirect=true";
+        return REDIRECIONA_RECUPERAR_SENHA;
     }
     
     public String btnLoginClick() {
-        //busca na base local
+        //BUSCA NA BASE DE DADOS DO SISTEMA
         UsuarioEgefaz usr = usuarioService.autenticarUsuarioEgefaz(usuario.getCpf(), usuario.getSenha());
         if (usr == null) {
             exibirMensagem("usuario nao encontrado");
             usuario = new UsuarioEgefaz();
             return "";
         } else {
-            //salva usuario em sessao
-            adicionaNaSessao("usuario", this.usuario);
-            return "home.xhtml?faces-redirect=true";
+            adicionaNaSessao(VariaveisSessao.USUARIO, this.usuario);
+            return REDIRECIONA_HOME;
         }
     }
 
     public String btnPrimeiroAcessoClick() {
-        return "usuario/primeiroAcesso?faces-redirect=true";
+        return REDIRECIONA_PRIMEIRO_ACESSO;
     }
 
     public UsuarioEgefaz getUsuario() {
         return usuario;
     }
     
-    public void btnCadastrarTestClick() {
-        usuarioService.salvarUsuario(usuario);
-    }
+//    public void btnCadastrarTestClick() {
+//        usuarioService.salvarUsuario(usuario);
+//    }
 }

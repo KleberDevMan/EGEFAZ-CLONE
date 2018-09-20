@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -17,19 +18,19 @@ import br.gov.to.egefaz.security.model.UsuarioEgefaz;
  * @author 06250631127
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class DadosSe extends AbstractView{
 	
-	private static final String REDIRECIONA_PAGINA_DADOS_COMPLEMENTARES = "dadoscomplementares?faces-redirect=true";
+	private static final String REDIRECIONA_DADOS_COMPLEMENTARES = "dadosComplementares?faces-redirect=true";
 	private static final String REDIRECIONA_PRIMEIRO_ACESSO = "primeiroAcesso?faces-redirect=true";
 
     private UsuarioEgefaz usuario;
-    private boolean aceite;
+    private boolean confirmacao;
 
     @PostConstruct
     public void init() {
         if (usuario == null) {
-            this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
+            this.usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
         }
     }
 
@@ -37,17 +38,17 @@ public class DadosSe extends AbstractView{
         return usuario;
     }
     
-    public boolean isAceite() {
-		return aceite;
+    public boolean isConfirmacao() {
+		return confirmacao;
 	}
 
-	public void setAceite(boolean aceite) {
-		this.aceite = aceite;
+	public void setConfirmacao(boolean aceite) {
+		this.confirmacao = aceite;
 	}
 
 	public String btnProceguir() {
 		
-		if (!isAceite()) {
+		if (!isConfirmacao()) {
 			
 			exibirMensagem("Confirme que as informações são verdadeiras");
 			return StringUtils.EMPTY;
@@ -55,11 +56,11 @@ public class DadosSe extends AbstractView{
 		
         adicionaNaSessao(VariaveisSessao.USUARIO, usuario);
         
-        return REDIRECIONA_PAGINA_DADOS_COMPLEMENTARES;
+        return REDIRECIONA_DADOS_COMPLEMENTARES;
     }
     
     public String btnCancelar() {
-        removeDaSessao("usuario");
+        removeDaSessao(VariaveisSessao.USUARIO);
         return REDIRECIONA_PRIMEIRO_ACESSO;
     }
     

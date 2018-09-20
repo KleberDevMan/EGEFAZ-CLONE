@@ -100,7 +100,9 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
 
     
 
-    @Override
+
+
+	@Override
 	public String toString() {
 		return "UsuarioEgefaz [id=" + id + ", nome=" + nome + ", cidade=" + cidade + ", cpf=" + cpf
 				+ ", dataNascimento=" + dataNascimento + ", sexo=" + sexo + ", tipoUsuario=" + tipoUsuario
@@ -110,6 +112,7 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
 				+ telefone + ", empresaEmpregadora=" + empresaEmpregadora + ", funcaoNaEmpresa=" + funcaoNaEmpresa
 				+ ", orgao=" + orgao + ", lotacao=" + lotacao + ", emailInstitucional=" + emailInstitucional + "]";
 	}
+	
 
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -6,10 +6,12 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import br.gov.to.egefaz.security.domain.Escolaridade;
 import br.gov.to.egefaz.security.domain.Sexo;
 import br.gov.to.egefaz.security.domain.TipoUsuario;
+import br.gov.to.egefaz.security.domain.VariaveisSessao;
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 
 /**
@@ -17,19 +19,16 @@ import br.gov.to.egefaz.security.model.UsuarioEgefaz;
  * @author 06250631127
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class DadosComplementaresView extends AbstractView{
 
-    private UsuarioEgefaz usuario;
+    private static final String REDIRECT_PRIMEIRO_ACESSO = "primeiroAcesso?faces-redirect=true";
+	private UsuarioEgefaz usuario;
 
     @PostConstruct
     public void init() {
         if (usuario == null) {
-        	this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
-        	this.usuario.setSexo(Sexo.MASCULINO);
-        	if (this.usuario == null) {
-				usuario = new UsuarioEgefaz();
-			}
+        	this.usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
         }
     }
 
@@ -44,8 +43,8 @@ public class DadosComplementaresView extends AbstractView{
     }
     
     public String btnCancelar(){
-    	removeDaSessao("usuario");
-    	return "primeiroAcesso?faces-redirect=true";
+    	removeDaSessao(VariaveisSessao.USUARIO);
+    	return REDIRECT_PRIMEIRO_ACESSO;
     }
     
 
@@ -57,7 +56,7 @@ public class DadosComplementaresView extends AbstractView{
         return Arrays.asList(Escolaridade.values());
     }
     
-    public TipoUsuario getUsuarioInterno() {
+    public TipoUsuario getServidorInterno() {
     	return TipoUsuario.SERVIDOR_INTERNO;
     }
 }

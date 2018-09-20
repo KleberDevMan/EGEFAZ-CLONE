@@ -1,24 +1,28 @@
 package br.gov.to.egefaz.security.view;
 
-import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+
+import br.gov.to.egefaz.security.domain.VariaveisSessao;
+import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 
 /**
  * Dados funcionais de um servidor interno
  * @author 06250631127
  */
 @ManagedBean
-@RequestScoped
+@ViewScoped
 public class DadosSi extends AbstractView{
 
-    private UsuarioEgefaz usuario;
+    private static final String REDIRECIONA_PRIMEIRO_ACESSO = "primeiroAcesso?faces-redirect=true";
+	private static final String REDIRECIONA_DADOS_COMPLEMENTARES = "dadosComplementares?faces-redirect=true";
+	private UsuarioEgefaz usuario;
 
     @PostConstruct
     public void init() {
         if (usuario == null) {
-            this.usuario = (UsuarioEgefaz) pegaDaSessao("usuario");
+            this.usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
         }
     }
 
@@ -27,13 +31,13 @@ public class DadosSi extends AbstractView{
     }
     
     public String btnProceguir() {
-        adicionaNaSessao("usuario", usuario);
-        return "dadoscomplementares?faces-redirect=true";
+        adicionaNaSessao(VariaveisSessao.USUARIO, usuario);
+        return REDIRECIONA_DADOS_COMPLEMENTARES;
     }
     
     public String btnCancelar() {
-        removeDaSessao("usuario");
-        return "primeiroAcesso?faces-redirect=true";
+        removeDaSessao(VariaveisSessao.USUARIO);
+        return REDIRECIONA_PRIMEIRO_ACESSO;
     }
 
     
