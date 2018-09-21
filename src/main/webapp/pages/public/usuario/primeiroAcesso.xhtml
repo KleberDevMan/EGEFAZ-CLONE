@@ -35,7 +35,9 @@
 							<p:inputMask mask="999.999.999-99" required="true"
 								requiredMessage="CPF é um campo obrigatório" id="cpf"
 								value="#{primeiroAcessoView.usuario.cpf}" style="width:100%"
-								converter="cpfConverter" />
+								converter="cpfConverter">
+								<f:validator validatorId="CpfValidator" />
+							</p:inputMask>
 							<p:outputLabel for="cpf" value="CPF" />
 
 						</h:panelGroup>
@@ -44,7 +46,9 @@
 
 					<h:panelGrid rendered="#{primeiroAcessoView.isServiodorInterno}">
 						<div class="ui-g-12 campo2">
-							<p:outputLabel value="Olá servidor, coloque sua senha de rede"  /><br/><br/>
+							<p:outputLabel value="Olá servidor, coloque sua senha de rede" />
+							<br />
+							<br />
 							<h:message for="SENHA" style="color:red;" />
 							<h:panelGroup styleClass="md-inputfield">
 								<p:password id="senha" required="true"
@@ -63,8 +67,8 @@
 
 
 						<div class="campo2">
-							<p:commandButton id="btnLogin" value="importar dados" ajax="false"
-								rendered="#{primeiroAcessoView.isServiodorInterno}"
+							<p:commandButton id="btnLogin" value="importar dados"
+								ajax="false" rendered="#{primeiroAcessoView.isServiodorInterno}"
 								styleClass="btnCAD1" icon="ui-icon-person"
 								action="#{primeiroAcessoView.autenticaServidorInterno()}" />
 						</div>
