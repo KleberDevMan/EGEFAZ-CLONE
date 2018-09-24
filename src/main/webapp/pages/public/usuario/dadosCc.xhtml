@@ -32,7 +32,8 @@
 							<p:selectBooleanCheckbox value="#{dadosCc.check}">
 								<p:ajax event="change" update="@form" />
 							</p:selectBooleanCheckbox>
-							<p:outputLabel value="Desejo informar dados funcionais." />
+							<p:outputLabel id="fade" value="Desejo informar dados funcionais." />
+							<p:tooltip id="toolTipFade" for="fade" value="teste" position="top"/>
 						</h:panelGrid>
 
 						<h:panelGrid columns="4" cellpadding="10"
@@ -50,10 +51,10 @@
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">place</i>
-								<p:outputLabel for="cidade" value="CIDADE"
+								<p:outputLabel for="municipio" value="MUNICIPIO"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							<p:inputText id="cidade" value="#{dadosCc.usuario.cidade}" style="margin:5px 5px 0px 5px;" />
+							<p:inputText id="municipio" value="#{dadosCc.usuario.cidade}" style="margin:5px 5px 0px 5px;" />
 
 
 							<h:panelGrid columns="2" cellpadding="0">
@@ -61,7 +62,8 @@
 								<p:outputLabel for="tel" value="TELEFONE DA EMPRESA"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							<p:inputText id="tel" value="#{dadosCc.usuario.telefone}" style="margin:5px 5px 0px 5px;" />
+							<p:inputMask id="tel" value="#{dadosCc.usuario.telefone}"
+								mask="(99) 9999-9999" style="margin:5px 5px 0px 5px;" />
 
 
 							<h:panelGrid columns="2" cellpadding="0">

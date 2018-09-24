@@ -24,6 +24,7 @@ public class DadosComplementaresView extends AbstractView{
 
     private static final String REDIRECT_PRIMEIRO_ACESSO = "primeiroAcesso?faces-redirect=true";
 	private UsuarioEgefaz usuario;
+	private boolean check = false;
 
     @PostConstruct
     public void init() {
@@ -31,8 +32,13 @@ public class DadosComplementaresView extends AbstractView{
         	this.usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
         }
     }
+    
+    public boolean isCheck() {
+		return check;
+	}
+    
 
-    public UsuarioEgefaz getUsuario() {
+	public UsuarioEgefaz getUsuario() {
         return usuario;
     }
     
@@ -58,5 +64,9 @@ public class DadosComplementaresView extends AbstractView{
     
     public TipoUsuario getServidorInterno() {
     	return TipoUsuario.SERVIDOR_INTERNO;
+    }
+    
+    public TipoUsuario getCidadaoComum() {
+    	return TipoUsuario.CIDADAO_COMUM;
     }
 }

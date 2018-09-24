@@ -194,7 +194,8 @@
 							</h:panelGrid>
 							<p:password id="senha" match="Rsenha" style="width:100%"
 								required="true" requiredMessage="Senha é um campo obrigatório"
-								feedback="true" value="#{dadosComplementaresView.usuario.senha}" validatorMessage="Os campos 'Senha' não são iguais"/>
+								feedback="true" value="#{dadosComplementaresView.usuario.senha}"
+								validatorMessage="Os campos 'Senha' não são iguais" />
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">lock</i>
 								<p:outputLabel for="Rsenha" value="REPITA A SENHA"
@@ -230,65 +231,73 @@
 
 							</h:panelGrid>-->
 
-						<h3
-							style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Dados
-							Funcionais</h3>
-						<p:separator style="clear: both;"></p:separator>
 
-						<h:panelGrid columns="2" cellpadding="10"
-							style="margin:0 auto; clear: both;padding-top: 20px;">
-							<p:selectBooleanCheckbox value="#{dadosCc.check}">
-								<p:ajax event="change" update="@form" />
-							</p:selectBooleanCheckbox>
-							<p:outputLabel value="Desejo informar dados funcionais." />
-						</h:panelGrid>
+						<!--///////////////// DADOS FUNCIONAIS DE UM USUARIO CC ///////////////////////////-->
+<!-- 						<h:panelGrid -->
+<!-- 							rendered="#{dadosComplementaresView.usuario.tipoUsuario == dadosComplementaresView.cidadaoComum}"> -->
 
-						<h:panelGrid columns="4" cellpadding="10"
-							style="margin:0 auto; clear: both;padding-top: 20px;"
-							rendered="#{dadosCc.check}">
+							<h3	style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Dados Funcionais</h3>
+							<p:separator style="clear: both;" />
 
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">account_balance</i>
-								<p:outputLabel for="empresaF" value="EMPRESA"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							<h:panelGrid columns="2" cellpadding="10"
+								style="margin:0 auto; clear: both;padding-top: 20px;">
+								<p:selectBooleanCheckbox
+									value="#{dadosComplementaresView.check}">
+									<p:ajax event="change" update="@form" />
+								</p:selectBooleanCheckbox>
+								<p:outputLabel value="Desejo informar dados funcionais." />
 							</h:panelGrid>
-							<p:inputText id="empresaF"
-								value="#{dadosCc.usuario.empresaEmpregadora}"
-								style="margin:5px 5px 0px 5px;" />
+
+							<h:panelGrid columns="4" cellpadding="10"
+								style="margin:0 auto; clear: both;padding-top: 20px;"
+								rendered="#{dadosComplementaresView.check}">
+
+								<h:panelGrid columns="2" cellpadding="0">
+									<i class="material-icons">account_balance</i>
+									<p:outputLabel for="empresaF" value="EMPRESA"
+										style="font-size:14px; margin:5px 5px 0px 5px;" />
+								</h:panelGrid>
+								<p:inputText id="empresaF"
+									value="#{dadosCc.usuario.empresaEmpregadora}"
+									style="margin:5px 5px 0px 5px;" />
 
 
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">place</i>
-								<p:outputLabel for="cidadeF" value="CIDADE"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
+								<h:panelGrid columns="2" cellpadding="0">
+									<i class="material-icons">place</i>
+									<p:outputLabel for="cidadeF" value="CIDADE"
+										style="font-size:14px; margin:5px 5px 0px 5px;" />
+								</h:panelGrid>
+								<p:inputText id="cidadeF" value="#{dadosCc.usuario.cidade}"
+									style="margin:5px 5px 0px 5px;" />
+
+
+								<h:panelGrid columns="2" cellpadding="0">
+									<i class="material-icons">phone</i>
+									<p:outputLabel for="telF" value="TELEFONE DA EMPRESA"
+										style="font-size:14px; margin:5px 5px 0px 5px;" />
+								</h:panelGrid>
+								<p:inputText id="telF" value="#{dadosCc.usuario.telefone}"
+									style="margin:5px 5px 0px 5px;" />
+
+
+								<h:panelGrid columns="2" cellpadding="0">
+									<i class="material-icons">work</i>
+									<p:outputLabel for="funcaoF" value="FUNÇÃO NA EMPRESA"
+										style="font-size:14px; margin:5px 5px 0px 5px;" />
+								</h:panelGrid>
+								<p:inputText id="funcaoF"
+									value="#{dadosCc.usuario.funcaoNaEmpresa}"
+									style="margin:5px 5px 0px 5px;" />
+
 							</h:panelGrid>
-							<p:inputText id="cidadeF" value="#{dadosCc.usuario.cidade}"
-								style="margin:5px 5px 0px 5px;" />
-
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">phone</i>
-								<p:outputLabel for="telF" value="TELEFONE DA EMPRESA"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-							<p:inputText id="telF" value="#{dadosCc.usuario.telefone}"
-								style="margin:5px 5px 0px 5px;" />
-
-
-							<h:panelGrid columns="2" cellpadding="0">
-								<i class="material-icons">work</i>
-								<p:outputLabel for="funcaoF" value="FUNÇÃO NA EMPRESA"
-									style="font-size:14px; margin:5px 5px 0px 5px;" />
-							</h:panelGrid>
-							<p:inputText id="funcaoF"
-								value="#{dadosCc.usuario.funcaoNaEmpresa}"
-								style="margin:5px 5px 0px 5px;" />
-
-						</h:panelGrid>
-
+<!-- 						</h:panelGrid> -->
 					</div>
 
 				</div>
+
+
+				<!--///////////////// FIM DADOS FUNCIONAIS DE UM USUARIO CC ///////////////////////////-->
+
 
 				<p:separator id="barraFim" style="clear: both;"></p:separator>
 

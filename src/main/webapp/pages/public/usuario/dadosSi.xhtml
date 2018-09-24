@@ -79,11 +79,9 @@
 								<p:outputLabel for="tel" value="TELEFONE DO SETOR"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-
-							<p:inputText id="tel" required="true"
-								value="#{dadosSi.usuario.telefone}"
-								style="margin:5px 5px 0px 5px;" />
-
+							
+							<p:inputMask id="tel" value="#{dadosSi.usuario.telefone}"
+								mask="(99) 9999-9999" style="margin:5px 5px 0px 5px;" />
 
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">place</i>

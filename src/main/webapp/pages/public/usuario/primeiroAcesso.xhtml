@@ -40,7 +40,9 @@
 							<p:inputMask mask="999.999.999-99" required="true"
 								requiredMessage="CPF é um campo obrigatório" id="cpf"
 								value="#{primeiroAcessoView.usuario.cpf}" style="width:100%"
-								converter="cpfConverter" />
+								converter="cpfConverter">
+								<f:validator validatorId="CpfValidator" />
+							</p:inputMask>
 							<p:outputLabel for="cpf" value="CPF" />
 
 						</h:panelGroup>
@@ -83,7 +85,7 @@
 									<p:graphicImage name="images/ajaxloadingbar.gif" />
 								</f:facet>
 
-								<f:facet name="complete">								
+								<f:facet name="complete">
 								</f:facet>
 							</p:ajaxStatus>
 
