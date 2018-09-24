@@ -35,9 +35,9 @@ public class UsuarioService extends AbstractService {
 
         UsuarioEgefaz usrAd = null;
 
-        if (cpf.equals("06250631127")) {
+        if (cpf.equals("44444444444")) {
             usrAd = new UsuarioEgefaz();
-            usrAd.setNome("Kleber (SI)");
+            usrAd.setNome("Kleber (UI)");
             usrAd.setOrgao("Secretaria da Fazenda");
             usrAd.setLotacao("Desenvolvimento");
             usrAd.setMunicipio("Palmas");

@@ -9,7 +9,12 @@
 
 	<ui:define name="content">
 
+
+
 		<h:form id="form" prependId="false" style="margin: 10%;">
+
+
+
 			<p:focus for="form" />
 			<p:growl autoUpdate="true" closable="true"
 				style="margin: 0 auto; width:80%; text-align:center;" />
@@ -35,17 +40,15 @@
 							<p:inputMask mask="999.999.999-99" required="true"
 								requiredMessage="CPF é um campo obrigatório" id="cpf"
 								value="#{primeiroAcessoView.usuario.cpf}" style="width:100%"
-								converter="cpfConverter">
-								<f:validator validatorId="CpfValidator" />
-							</p:inputMask>
+								converter="cpfConverter" />
 							<p:outputLabel for="cpf" value="CPF" />
 
 						</h:panelGroup>
 
 					</div>
+					<div class="ui-g-12 campo2">
+						<h:panelGrid rendered="#{primeiroAcessoView.isServiodorInterno}">
 
-					<h:panelGrid rendered="#{primeiroAcessoView.isServiodorInterno}">
-						<div class="ui-g-12 campo2">
 							<p:outputLabel value="Olá servidor, coloque sua senha de rede" />
 							<br />
 							<br />
@@ -56,24 +59,39 @@
 									style="width:100%" value="#{primeiroAcessoView.usuario.senha}" />
 								<p:outputLabel value="SENHA"></p:outputLabel>
 							</h:panelGroup>
-						</div>
-					</h:panelGrid>
+
+						</h:panelGrid>
+					</div>
+
+
+
+
 
 					<div class="ui-g-12">
 						<p:commandButton id="btnPesquisar" value="PESQUISAR" ajax="false"
 							styleClass="btnCAD1" icon="ui-icon-search"
 							action="#{primeiroAcessoView.btnPesquisarClick()}"
 							rendered="#{!primeiroAcessoView.isServiodorInterno}" />
-
-
 						<div class="campo2">
-							<p:commandButton id="btnLogin" value="importar dados"
-								ajax="false" rendered="#{primeiroAcessoView.isServiodorInterno}"
+
+							<p:ajaxStatus
+								style="display:block;margin-bottom:2em;height:24px;">
+								<f:facet name="default">
+								</f:facet>
+
+								<f:facet name="start">
+									<p:graphicImage name="images/ajaxloadingbar.gif" />
+								</f:facet>
+
+								<f:facet name="complete">								
+								</f:facet>
+							</p:ajaxStatus>
+
+							<p:commandButton id="btnLogin" value="IMPORTAR DADOS"
+								rendered="#{primeiroAcessoView.isServiodorInterno}"
 								styleClass="btnCAD1" icon="ui-icon-person"
 								action="#{primeiroAcessoView.autenticaServidorInterno()}" />
 						</div>
-
-
 					</div>
 
 				</div>

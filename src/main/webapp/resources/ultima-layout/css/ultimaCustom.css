@@ -542,6 +542,10 @@ body.layout-compact .card h1{
 
 /*CSS JÁ OTIMIZADO*/
 
+.ui-messages-error-summary{
+	
+}
+
 #btnPesquisar{
 	background-color: #FDC52D;
 }

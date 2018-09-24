@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/cadastro.xhtml">
+
+
+	<ui:define name="title">Logar</ui:define>
+
+	<ui:define name="content">
+
+		<h:form id="form" prependId="false" style="margin: 10%;">
+			<p:focus for="form" />
+			<p:panel id="cadastro" header="Dados Funcionais"
+				style="margin:0 auto;text-align:center; text-transform: uppercase;">
+				<p:messages autoUpdate="true" />
+				<p:panel rendered="${!empty param['error']}"
+					styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+					<span class="ui-message-error-icon"></span>
+					<span class="ui-message-error-detail">CPF não encontrado!</span>
+				</p:panel>
+
+				<p:separator></p:separator>
+
+				<div class="ui-panelgrid ui-widget" align="center">
+
+
+					<h:panelGrid columns="2" style="" cellpadding="1">
+						<i class="material-icons md-36"
+							style="padding-left: 50px; padding-right: 50px; padding-top: 10px; font-size: 35px;">account_balance</i>
+						<i class="material-icons"
+							style="padding-left: 50px; padding-right: 50px; padding-top: 10px; font-size: 35px;">person</i>
+					</h:panelGrid>
+
+					<h:panelGrid columns="1"
+						style="margin-bottom:10px;padding-left:8px;" cellpadding="5">
+						<p:selectOneRadio id="console"
+							value="#{tipoCadastroView.usuario.tipoUsuario}"
+							style="padding-left:10px">
+							<f:selectItems value="#{tipoCadastroView.tiposUser}"
+								var="tipoUsuario" itemLabel="#{tipoUsuario.descricao}" />
+						</p:selectOneRadio>
+						<p:commandButton id="escolher" value="PROSSEGUIR"
+							action="#{tipoCadastroView.proceguir()}" />
+							
+						<p:defaultCommand target="escolher" />
+
+					</h:panelGrid>
+
+				</div>
+
+			</p:panel>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
