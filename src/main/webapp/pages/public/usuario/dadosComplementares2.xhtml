@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/pages/template/cadastro.xhtml">
+
+	<ui:define name="title">Dados Funcionais</ui:define>
+	<ui:define name="content">
+
+		<h:form id="form" prependId="false" style="margin: 10%;"
+			enctype="multipart/form-data">
+			<p:focus for="form" />
+			<p:panel id="cadastro" header="Dados Pessoais"
+				style="margin:0 auto;text-align:center; text-transform: uppercase;">
+				<p:messages autoUpdate="true" />
+				<p:panel rendered="${!empty param['error']}"
+					styleClass="ui-message ui-message-error ui-widget ui-corner-all">
+					<span class="ui-message-error-icon"></span>
+					<span class="ui-message-error-detail">CPF não encontrado!</span>
+				</p:panel>
+				<h3
+					style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Pessoais</h3>
+				<p:separator style="clear: both;"></p:separator>
+
+				<div class="ui-panelgrid ui-widget">
+
+					<div
+						class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive"
+						style="border: none;">
+
+						<h3
+							style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Perfil</h3>
+						<p:separator style="clear: both;"></p:separator>
+
+
+						<h:panelGrid columns="2" cellpadding="5"
+							style="margin:0 auto; clear: both;padding-top: 10px;padding-bottom: 10px; text-align:left;"
+							columnClasses="cellGridFormLabelDois">
+
+							<h:panelGrid columns="2" cellpadding="0">
+								<i class="material-icons">camera_alt</i>
+								<p:outputLabel for="foto" value="FOTO"
+									style="font-size:14px; margin:5px 5px 0px 5px;" />
+							</h:panelGrid>
+							<!-- 													<h:form id="foto" enctype="multipart/form-data"> -->
+							<p:growl id="messages" showDetail="true" />
+
+<!-- 							<p:fileUpload id="foto" mode="simple" skinSimple="false" /> -->
+
+							<!-- 						<div> -->
+							<!-- 							<h:outputLabel value="Capa do Livro" /> -->
+														<h:inputFile value="#{dadosComplementaresView.foto}" id="capaLivro" />
+							<!-- 							<h:message for="capaLivro" /> -->
+							<!-- 						</div> -->
+
+						</h:panelGrid>
+
+
+						<p:separator id="barraFim" style="clear: both;"></p:separator>
+					</div>
+
+				</div>
+
+				<h:panelGrid columns="2" cellpadding="10"
+					style="margin:0 auto; clear: both;">
+
+					<p:commandButton id="btnCancelar" value="CANCELAR"
+						action="#{dadosComplementaresView.btnCancelar()}" ajax="false"
+						immediate="true" />
+
+					<p:commandButton id="btnProsseguir" value="FINALIZAR" ajax="false"
+						action="#{dadosComplementaresView.proceguir()}" update="cadastro" />
+
+					<p:defaultCommand target="btnProsseguir" />
+
+				</h:panelGrid>
+			</p:panel>
+
+		</h:form>
+
+
+	</ui:define>
+
+</ui:composition>
