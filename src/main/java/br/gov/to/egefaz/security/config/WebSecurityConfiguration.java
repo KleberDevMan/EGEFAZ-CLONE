@@ -41,14 +41,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
 
-        /* final AuthenticationSuccessHandler sucessHandler = new CustomSucessAuthenticationHandler();
+         final AuthenticationSuccessHandler sucessHandler = new CustomSucessAuthenticationHandler();
 
         http.authorizeRequests()
-                .antMatchers("/register", "/javax.faces.resource/**").permitAll().anyRequest().authenticated()
+                .antMatchers("/register", "/javax.faces.resource/**","/pages/public/**").permitAll().anyRequest().authenticated()
                 .and().formLogin().loginPage("/pages/public/login.xhtml").successHandler(sucessHandler)
                 .permitAll().and().logout().logoutSuccessUrl("/pages/public/login.xhtml").permitAll().and()
-                .csrf().disable(); */
-        http.csrf().disable();
+                .csrf().disable(); 
+//        http.csrf().disable();
    
     }
 

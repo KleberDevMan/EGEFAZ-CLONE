@@ -50,9 +50,9 @@
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 
-							<p:calendar id="datanasc" required="true"
+							<p:calendar id="datanasc" required="true" 
 								requiredMessage="Data de nascimento obrigato"
-								value="#{dadosComplementaresView.usuario.dataNascimento}"
+								value="#{dadosComplementaresView.usuario.dataNascimento}" 
 								locale="pt_BR" pattern="dd/MM/yyyy" mask="true" showOn="button">
 							</p:calendar>
 
@@ -233,8 +233,8 @@
 
 
 						<!--///////////////// DADOS FUNCIONAIS DE UM USUARIO CC ///////////////////////////-->
-<!-- 						<h:panelGrid -->
-<!-- 							rendered="#{dadosComplementaresView.usuario.tipoUsuario == dadosComplementaresView.cidadaoComum}"> -->
+						<p:outputPanel autoUpdate="true" id="painelDadosFuncionais"
+							rendered="#{dadosComplementaresView.usuario.tipoUsuario == dadosComplementaresView.cidadaoComum}">
 
 							<h3	style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Dados Funcionais</h3>
 							<p:separator style="clear: both;" />
@@ -243,12 +243,12 @@
 								style="margin:0 auto; clear: both;padding-top: 20px;">
 								<p:selectBooleanCheckbox
 									value="#{dadosComplementaresView.check}">
-									<p:ajax event="change" update="@form" />
+									<p:ajax event="change" update="painelDadosFuncionais" />
 								</p:selectBooleanCheckbox>
 								<p:outputLabel value="Desejo informar dados funcionais." />
 							</h:panelGrid>
 
-							<h:panelGrid columns="4" cellpadding="10"
+							<h:panelGrid id="teste" columns="4" cellpadding="10"
 								style="margin:0 auto; clear: both;padding-top: 20px;"
 								rendered="#{dadosComplementaresView.check}">
 
@@ -290,7 +290,7 @@
 									style="margin:5px 5px 0px 5px;" />
 
 							</h:panelGrid>
-<!-- 						</h:panelGrid> -->
+						</p:outputPanel>
 					</div>
 
 				</div>

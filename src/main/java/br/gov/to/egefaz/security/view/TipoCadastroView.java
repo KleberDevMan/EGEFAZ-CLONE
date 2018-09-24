@@ -15,7 +15,7 @@ import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 @ViewScoped
 public class TipoCadastroView extends AbstractView{
 
-    private static final String REDIRECIONA_DADOSCC = "dadosCc?faces-redirect=true";
+    private static final String REDIRECIONA_DADOS_COMPLEMENTARES = "dadosComplementares?faces-redirect=true";
 	private static final String REDIRECIONA_DADOSSP = "dadosSe?faces-redirect=true";
 	private UsuarioEgefaz usuario;
 
@@ -41,7 +41,7 @@ public class TipoCadastroView extends AbstractView{
         if (this.usuario.getTipoUsuario() == TipoUsuario.SERVIDOR_EXTERNO) 
         	return REDIRECIONA_DADOSSP;
 		else
-        return REDIRECIONA_DADOSCC;
+        return REDIRECIONA_DADOS_COMPLEMENTARES;
     }
 
     

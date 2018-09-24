@@ -33,10 +33,22 @@ public class DadosComplementaresView extends AbstractView{
         }
     }
     
-    public boolean isCheck() {
+    
+    
+
+	public boolean isCheck() {
 		return check;
 	}
-    
+
+
+
+
+	public void setCheck(boolean check) {
+		this.check = check;
+	}
+
+
+
 
 	public UsuarioEgefaz getUsuario() {
         return usuario;
