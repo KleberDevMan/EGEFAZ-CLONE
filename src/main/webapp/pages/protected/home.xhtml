@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pu="http://primefaces.org/ultima"
+	template="/pages/template/area-interna.xhtml">
+
+	<ui:define name="title">Dados Funcionais</ui:define>
+	<ui:define name="content">
+
+
+		<div class="ui-g">
+			<div class="ui-g-12 ui-md-6 ui-lg-3">
+				<p:tabView value="Tabs" style="margin-top:60px; padding:5px;">
+					<p:tab title="Tab1">
+						<h:panelGrid columns="2" cellpadding="5">
+							<f:facet name="header">
+								<p:graphicImage name="images/LogoSistema.png"  style="width:20%"/>
+							</f:facet>
+							<h:outputText value="Item1:" style="font-weight: bold" />
+							<h:outputText value="aaaa" />
+
+							<h:outputText value="Item1:" style="font-weight: bold" />
+							<h:outputText value="aaaa" />
+
+							<h:outputText value="Item1:" style="font-weight: bold" />
+							<h:outputText value="aaaa" />
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Tab2">
+						<h:panelGrid columns="2" cellpadding="5">
+							<f:facet name="header">
+								<p:graphicImage name="/images/logoSistema.png" />
+							</f:facet>
+							<h:outputText value="Item2:" style="font-weight: bold" />
+							<h:outputText value="bbbb" />
+
+							<h:outputText value="Item2:" style="font-weight: bold" />
+							<h:outputText value="bbbb" />
+
+							<h:outputText value="Item2:" style="font-weight: bold" />
+							<h:outputText value="bbbb" />
+						</h:panelGrid>
+					</p:tab>
+					<p:tab title="Tab3">
+						<h:panelGrid columns="2" cellpadding="5">
+							<f:facet name="header">
+								<p:graphicImage name="/images/logoSistema.png" />
+							</f:facet>
+							<h:outputText value="Item3:" style="font-weight: bold" />
+							<h:outputText value="cccc" />
+
+							<h:outputText value="Item3:" style="font-weight: bold" />
+							<h:outputText value="cccc" />
+
+							<h:outputText value="Item3:" style="font-weight: bold" />
+							<h:outputText value="cccc" />
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
