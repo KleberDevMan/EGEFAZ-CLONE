@@ -4,9 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 
 import br.gov.to.egefaz.security.domain.Escolaridade;
 import br.gov.to.egefaz.security.domain.Sexo;
@@ -33,22 +36,27 @@ public class DadosComplementaresView extends AbstractView{
         }
     }
     
-    
+    public void validatorSenha(FacesContext fc, UIComponent component, Object value) throws ValidatorException{
+        
+    	String senhaRepetida = value.toString();
+        
+    	if(senhaRepetida.equals(usuario.getSenha())){
+            throw new ValidatorException(new FacesMessage("senhas diferem"));
+        }
+    }
     
 
 	public boolean isCheck() {
 		return check;
 	}
 
-
-
-
 	public void setCheck(boolean check) {
 		this.check = check;
 	}
 
-
-
+	public void setUsuario(UsuarioEgefaz usuario) {
+		this.usuario = usuario;
+	}
 
 	public UsuarioEgefaz getUsuario() {
         return usuario;

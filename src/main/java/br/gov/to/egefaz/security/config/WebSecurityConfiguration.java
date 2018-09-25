@@ -19,78 +19,95 @@ import org.springframework.util.Assert;
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    /**
-     * Configura o gerenciador de autenticacoes.
-     *
-     * @param auth gerenciado de autenticacao.
-     * @throws Exception falha ao configurar.
-     */
-    @Autowired
-    public final void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
-/*
-        final UserDetailsService service = new UsuarioService();
-        final PasswordEncoder encoder = passwordEncoder();
+	/**
+	 * Configura o gerenciador de autenticacoes.
+	 *
+	 * @param auth gerenciado de autenticacao.
+	 * @throws Exception falha ao configurar.
+	 */
+	@Autowired
+	public final void configureGlobal(final AuthenticationManagerBuilder auth) throws Exception {
+		/*
+		 * final UserDetailsService service = new UsuarioService(); final
+		 * PasswordEncoder encoder = passwordEncoder();
+		 * 
+		 * auth.userDetailsService(service).passwordEncoder(encoder);
+		 */
+	}
 
-        auth.userDetailsService(service).passwordEncoder(encoder);
-        */
-    }
+	/**
+	 * configura o filtro.
+	 */
+	@Override
+	protected void configure(final HttpSecurity http) throws Exception {
+//
+//		final AuthenticationSuccessHandler sucessHandler = new CustomSucessAuthenticationHandler();
+//
+//        http.authorizeRequests()
+//                .antMatchers("/javax.faces.resource/**","/pages/public/**").permitAll().anyRequest().authenticated()
+//                .and().formLogin().loginPage("/pages/public/login.xhtml").successHandler(sucessHandler)
+//                .permitAll().and().logout().logoutSuccessUrl("/pages/public/login.xhtml").permitAll().and()
+//                .csrf().disable();
+		
+        http.csrf().disable();
 
-    /**
-     * configura o filtro.
-     */
-    @Override
-    protected void configure(final HttpSecurity http) throws Exception {
+//		http.authorizeRequests()
+//				.antMatchers("/pages/public/**").permitAll()
+//				.antMatchers("/pages/protected/**").access("LOGADO").anyRequest().authenticated()
+//			.and()
+//				.formLogin()
+//				.loginPage("/pages/public/login.xhtml")
+//				.successHandler(sucessHandler)
+//				.permitAll()
+//			.and()
+//				.logout()
+//				.logoutSuccessUrl("/pages/public/login.xhtml")
+//				.permitAll()
+//			.and()
+//				.csrf().disable()
+//			.exceptionHandling()
+//			.accessDeniedPage("/acessso-negado");
+	}
 
-         final AuthenticationSuccessHandler sucessHandler = new CustomSucessAuthenticationHandler();
+	/**
+	 * Encoder para senha no banco. Atualmente MD5.
+	 *
+	 * @return retorna o encoder.
+	 */
+	public PasswordEncoder passwordEncoder() {
 
-        http.authorizeRequests()
-                .antMatchers("/register", "/javax.faces.resource/**","/pages/public/**").permitAll().anyRequest().authenticated()
-                .and().formLogin().loginPage("/pages/public/login.xhtml").successHandler(sucessHandler)
-                .permitAll().and().logout().logoutSuccessUrl("/pages/public/login.xhtml").permitAll().and()
-                .csrf().disable(); 
-//        http.csrf().disable();
-   
-    }
+		return new PasswordEncoder() {
 
-    /**
-     * Encoder para senha no banco. Atualmente MD5.
-     *
-     * @return retorna o encoder.
-     */
-    public PasswordEncoder passwordEncoder() {
+			/**
+			 * verifica se a senha informada e igual a mesma cifrada.
+			 *
+			 * @param rawPassword     senha sem estar cifrada.
+			 * @param encodedPassword senha cifrada.
+			 * @return retorna true caso sejam iguais.
+			 */
+			@Override
+			public boolean matches(final CharSequence rawPassword, final String encodedPassword) {
 
-        return new PasswordEncoder() {
+				Assert.notNull(rawPassword);
+				Assert.notNull(encodedPassword);
 
-            /**
-             * verifica se a senha informada e igual a mesma cifrada.
-             *
-             * @param rawPassword senha sem estar cifrada.
-             * @param encodedPassword senha cifrada.
-             * @return retorna true caso sejam iguais.
-             */
-            @Override
-            public boolean matches(final CharSequence rawPassword, final String encodedPassword) {
+				return encodedPassword.equals(encode(rawPassword));
+			}
 
-                Assert.notNull(rawPassword);
-                Assert.notNull(encodedPassword);
+			/**
+			 * Cifra uma sequencia de caracteres.
+			 *
+			 * @param rawPassword sequencia de caracteres que sera cifrada.
+			 * @return retorna a cadeia de caracteres cifrada.
+			 */
+			@Override
+			public String encode(final CharSequence rawPassword) {
 
-                return encodedPassword.equals(encode(rawPassword));
-            }
-
-            /**
-             * Cifra uma sequencia de caracteres.
-             *
-             * @param rawPassword sequencia de caracteres que sera cifrada.
-             * @return retorna a cadeia de caracteres cifrada.
-             */
-            @Override
-            public String encode(final CharSequence rawPassword) {
-
-                Assert.notNull(rawPassword);
+				Assert.notNull(rawPassword);
 
 //        return CriptoUtils.cryptWithMD5(String.valueOf(rawPassword));
-                return String.valueOf(rawPassword);
-            }
-        };
-    }
+				return String.valueOf(rawPassword);
+			}
+		};
+	}
 }

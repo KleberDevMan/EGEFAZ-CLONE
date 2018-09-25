@@ -12,7 +12,7 @@
 			<p:focus for="form" />
 			<p:panel id="cadastro" header="Dados Pessoais"
 				style="margin:0 auto;text-align:center; text-transform: uppercase;">
-				<p:messages autoUpdate="true" />
+				<p:messages id="erro" autoUpdate="true" />
 				<p:panel rendered="${!empty param['error']}"
 					styleClass="ui-message ui-message-error ui-widget ui-corner-all">
 					<span class="ui-message-error-icon"></span>
@@ -50,9 +50,9 @@
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
 
-							<p:calendar id="datanasc" required="true" 
+							<p:calendar id="datanasc" required="true"
 								requiredMessage="Data de nascimento obrigato"
-								value="#{dadosComplementaresView.usuario.dataNascimento}" 
+								value="#{dadosComplementaresView.usuario.dataNascimento}"
 								locale="pt_BR" pattern="dd/MM/yyyy" mask="true" showOn="button">
 							</p:calendar>
 
@@ -186,7 +186,7 @@
 							columnClasses="cellGridFormLabelDois,none,cellGridFormLabelTres,none">
 
 
-
+							<!-- SENHA -->
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">lock</i>
 								<p:outputLabel for="senha" value="SENHA"
@@ -196,14 +196,15 @@
 								required="true" requiredMessage="Senha é um campo obrigatório"
 								feedback="true" value="#{dadosComplementaresView.usuario.senha}"
 								validatorMessage="Os campos 'Senha' não são iguais" />
+
+							<!-- REPITA SENHA -->
 							<h:panelGrid columns="2" cellpadding="0">
 								<i class="material-icons">lock</i>
 								<p:outputLabel for="Rsenha" value="REPITA A SENHA"
 									style="font-size:14px; margin:5px 5px 0px 5px;" />
 							</h:panelGrid>
-							<p:password id="Rsenha" style="width:100%" required="true"
-								requiredMessage="Senha é um campo obrigatório"
-								value="#{dadosComplementaresView.usuario.senha}" />
+							<p:password id="Rsenha" style="width:100%" required="true" requiredMessage="É necessário repetir senha"
+								value="#{dadosComplementaresView.usuario.senha}"/>
 						</h:panelGrid>
 
 
@@ -236,7 +237,9 @@
 						<p:outputPanel autoUpdate="true" id="painelDadosFuncionais"
 							rendered="#{dadosComplementaresView.usuario.tipoUsuario == dadosComplementaresView.cidadaoComum}">
 
-							<h3	style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Dados Funcionais</h3>
+							<h3
+								style="text-align: left; margin-bottom: 0px; padding-top: 15px; clear: both;">Dados
+								Funcionais</h3>
 							<p:separator style="clear: both;" />
 
 							<h:panelGrid columns="2" cellpadding="10"
@@ -258,7 +261,7 @@
 										style="font-size:14px; margin:5px 5px 0px 5px;" />
 								</h:panelGrid>
 								<p:inputText id="empresaF"
-									value="#{dadosCc.usuario.empresaEmpregadora}"
+									value="#{dadosComplementaresView.usuario.empresaEmpregadora}"
 									style="margin:5px 5px 0px 5px;" />
 
 
@@ -267,7 +270,8 @@
 									<p:outputLabel for="cidadeF" value="CIDADE"
 										style="font-size:14px; margin:5px 5px 0px 5px;" />
 								</h:panelGrid>
-								<p:inputText id="cidadeF" value="#{dadosCc.usuario.cidade}"
+								<p:inputText id="cidadeF"
+									value="#{dadosComplementaresView.usuario.cidade}"
 									style="margin:5px 5px 0px 5px;" />
 
 
@@ -276,7 +280,8 @@
 									<p:outputLabel for="telF" value="TELEFONE DA EMPRESA"
 										style="font-size:14px; margin:5px 5px 0px 5px;" />
 								</h:panelGrid>
-								<p:inputText id="telF" value="#{dadosCc.usuario.telefone}"
+								<p:inputText id="telF"
+									value="#{dadosComplementaresView.usuario.telefone}"
 									style="margin:5px 5px 0px 5px;" />
 
 
@@ -286,7 +291,7 @@
 										style="font-size:14px; margin:5px 5px 0px 5px;" />
 								</h:panelGrid>
 								<p:inputText id="funcaoF"
-									value="#{dadosCc.usuario.funcaoNaEmpresa}"
+									value="#{dadosComplementaresView.usuario.funcaoNaEmpresa}"
 									style="margin:5px 5px 0px 5px;" />
 
 							</h:panelGrid>
