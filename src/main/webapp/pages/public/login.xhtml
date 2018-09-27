@@ -57,8 +57,8 @@
 						<h:message for="senha" style="color: red;" />
 						<h:panelGroup styleClass="md-inputfield">
 							<p:password id="senha" style="width:100%" required="false"
-								requiredMessage="Senha é um campo obrigatório" />
-							<p:outputLabel value="#{loginView.usuario.senha}"></p:outputLabel>
+								requiredMessage="Senha é um campo obrigatório" value="#{loginView.usuario.senha}"/>
+							<p:outputLabel value="senha"></p:outputLabel>
 
 						</h:panelGroup>
 
@@ -71,9 +71,16 @@
 						<p:commandButton value="ESQUECI A SENHA" icon="ui-icon-help"
 							ajax="false" styleClass="secondary" rendered="true"
 							action="#{loginView.btnEsqueciSenhaClick()}" />
-						<p:commandButton value="PRIMEIRO ACESSO" icon="ui-icon-input" ajax="false"
-							styleClass="secondary" style="background-color: #00B16A;"
+						<p:commandButton value="PRIMEIRO ACESSO" icon="ui-icon-input"
+							ajax="false" styleClass="secondary"
+							style="background-color: #00B16A;"
 							action="#{loginView.btnPrimeiroAcessoClick()}" />
+
+						<p:commandButton id="cadastrar" value="CADASTRAR" ajax="false"
+							styleClass="" icon="ui-icon-person"
+							action="#{loginView.btnCadastrarTestClick()}" />
+
+
 					</div>
 
 				</div>

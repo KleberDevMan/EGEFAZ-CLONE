@@ -13,6 +13,7 @@ public class HomeView extends AbstractView{
 
     private static final String REDIRECIONA_LOGIN = "login?faces-redirect=true";
 	private UsuarioEgefaz usuario;
+	
 
     @PostConstruct
     public void init() {
@@ -29,4 +30,12 @@ public class HomeView extends AbstractView{
     public UsuarioEgefaz getUsuario() {
         return usuario;
     }
+    
+    public boolean isExisteFoto() {
+		try {
+			return usuario.getFoto().length > 0;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

@@ -5,16 +5,10 @@
     http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
 	version="2.0">
 
-	<application>
-		<resource-bundle>
-			<base-name>messages</base-name>
-			<var>msg</var>
-		</resource-bundle>
-
-	</application>
-
+	<!-- Validadores -->
 	<validator>
 		<validator-id>CpfValidator</validator-id>
 		<validator-class>br.gov.to.egefaz.validators.CpfValidator</validator-class>
 	</validator>
+	
 </faces-config>

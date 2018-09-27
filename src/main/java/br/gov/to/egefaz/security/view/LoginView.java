@@ -56,7 +56,7 @@ public class LoginView extends AbstractView implements Serializable {
         return usuario;
     }
     
-//    public void btnCadastrarTestClick() {
-//        usuarioService.salvarUsuario(usuario);
-//    }
+    public void btnCadastrarTestClick() {
+        usuarioService.salvarUsuario(usuario);
+    }
 }

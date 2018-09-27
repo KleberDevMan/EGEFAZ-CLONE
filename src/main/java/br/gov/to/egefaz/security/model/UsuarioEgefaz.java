@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -49,7 +50,8 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
     private String celular;
     private String appMensagem;
     private String numeroAppMsg;
-//	private Part foto;
+    @Lob
+	private byte[] foto;
     private Boolean status;
     private Boolean permissaoAcesso;
 
@@ -319,4 +321,13 @@ public class UsuarioEgefaz implements Serializable, UserDetails {
         this.emailInstitucional = emailInstitucional;
     }
 
+	public byte[] getFoto() {
+		return foto;
+	}
+
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
+	}
+
+    
 }

@@ -6,21 +6,33 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <center>
-            
-            <h:form>
-                <h:commandButton value="logout" action="#{homeView.deslogar()}"/>
-            </h:form>
-            
-            <h1>Bem vindo! #{homeView.usuario.cpf} </h1>
-            <h2>teste</h2>
-            
-        </center>
-    </body>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<title>TODO supply a title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+	<div>
+		<h:form>
+			<h:commandButton value="logout" action="#{homeView.deslogar()}" />
+		</h:form>
+
+		<h1>
+			<!-- foto perfil -->
+			<p:outputLabel value="Foto" rendered="#{homeView.existeFoto}" />
+			<p:graphicImage cache="false" rendered="#{homeView.existeFoto}"
+				value="#{fotoBean.foto}" />
+
+
+			Bem vindo! <p:outputLabel value="#{homeView.usuario.cpf}" /> 
+		</h1>
+
+
+		<h2>Corpo da página</h2>
+
+
+	</div>
+</body>
 </html>
