@@ -15,6 +15,8 @@ import org.primefaces.model.StreamedContent;
 import br.gov.to.egefaz.security.domain.VariaveisSessao;
 import br.gov.to.egefaz.security.model.UsuarioEgefaz;
 
+//ultilitario para converter a foto do usuario em byte[] 
+//para o StreamedContent do Primefaces
 @ManagedBean
 @RequestScoped
 public class FotoBean extends AbstractView {
@@ -23,7 +25,7 @@ public class FotoBean extends AbstractView {
 
 	@PostConstruct
 	public void init() {
-		usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
+		this.usuario = (UsuarioEgefaz) pegaDaSessao(VariaveisSessao.USUARIO);
 	}
 
 	public StreamedContent getFoto() {
@@ -44,5 +46,5 @@ public class FotoBean extends AbstractView {
 			return new DefaultStreamedContent();
 		}
 	}
-
+	
 }

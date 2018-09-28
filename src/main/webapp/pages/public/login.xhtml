@@ -45,7 +45,7 @@
 
 							<p:inputMask mask="999.999.999-99" required="false"
 								requiredMessage="CPF é um campo obrigatório" id="cpf"
-								value="#{loginView.usuario.cpf}" style="width:100%" />
+								value="#{loginView.usuario.cpf}" style="width:100%" converter="cpfConverter" />
 							<p:outputLabel for="cpf" value="CPF" />
 
 						</h:panelGroup>
@@ -76,9 +76,9 @@
 							style="background-color: #00B16A;"
 							action="#{loginView.btnPrimeiroAcessoClick()}" />
 
-						<p:commandButton id="cadastrar" value="CADASTRAR" ajax="false"
-							styleClass="" icon="ui-icon-person"
-							action="#{loginView.btnCadastrarTestClick()}" />
+<!-- 						<p:commandButton id="cadastrar" value="CADASTRAR" ajax="false" -->
+<!-- 							styleClass="" icon="ui-icon-person" -->
+<!-- 							action="{loginView.btnCadastrarTestClick()}" /> -->
 
 
 					</div>

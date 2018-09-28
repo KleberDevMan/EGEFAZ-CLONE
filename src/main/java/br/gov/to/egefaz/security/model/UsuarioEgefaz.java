@@ -26,7 +26,7 @@ import br.gov.to.egefaz.security.domain.TipoUsuario;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "UsuarioEgefaz.findByUsrCpf", query = "SELECT u FROM UsuarioEgefaz u WHERE u.cpf = :cpf"),
-    @NamedQuery(name = "UsuarioEgefaz.findByUsrCpfSenha", query = "SELECT u FROM UsuarioEgefaz u WHERE u.cpf = :cpf AND u.senha = :senha")
+    @NamedQuery(name = "UsuarioEgefaz.findByUsrCpfSenha", query = "select u from UsuarioEgefaz u where u.cpf = :cpf and u.senha = :senha")
 })
 public class UsuarioEgefaz implements Serializable, UserDetails {
 

@@ -43,7 +43,7 @@ public class LoginView extends AbstractView implements Serializable {
             usuario = new UsuarioEgefaz();
             return "";
         } else {
-            adicionaNaSessao(VariaveisSessao.USUARIO, this.usuario);
+            adicionaNaSessao(VariaveisSessao.USUARIO, usr);
             return REDIRECIONA_HOME;
         }
     }
@@ -56,7 +56,7 @@ public class LoginView extends AbstractView implements Serializable {
         return usuario;
     }
     
-    public void btnCadastrarTestClick() {
-        usuarioService.salvarUsuario(usuario);
-    }
+//    public void btnCadastrarTestClick() {
+//        usuarioService.salvarUsuario(usuario);
+//    }
 }

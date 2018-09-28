@@ -120,9 +120,6 @@ public class DadosComplementaresView extends AbstractView {
 		initialStream.close();
 		
 		usuario.setFoto(targetArray);
-
-		System.out.println(usuario.getFoto());
-
 	}
 	
 	//provisorio -- depois apagar --

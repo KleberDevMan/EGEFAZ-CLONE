@@ -15,18 +15,23 @@ and open the template in the editor.
 <body>
 
 	<div>
-		<h:form>
-			<h:commandButton value="logout" action="#{homeView.deslogar()}" />
-		</h:form>
 
 		<h1>
 			<!-- foto perfil -->
-			<p:outputLabel value="Foto" rendered="#{homeView.existeFoto}" />
-			<p:graphicImage cache="false" rendered="#{homeView.existeFoto}"
-				value="#{fotoBean.foto}" />
+			<fieldset>
+				<p:outputLabel value="Foto" rendered="#{homeView.existeFoto}" />
+				<br />
+				<p:graphicImage cache="false" width="200dp"
+					rendered="#{homeView.existeFoto}" value="#{fotoBean.foto}" />
+				<h:form>
+					<h:commandButton value="logout" action="#{homeView.deslogar()}" />
+				</h:form>
+			</fieldset>
 
-
-			Bem vindo! <p:outputLabel value="#{homeView.usuario.cpf}" /> 
+			<br /> <br /> <br />
+			<fieldset>
+				<p:outputLabel value="usuario -> #{homeView.usuario.cpf}" />
+			</fieldset>
 		</h1>
 
 
